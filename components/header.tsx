@@ -226,7 +226,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-custom-beige-dark shadow-sm font-jkg">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-custom-beige-dark shadow-sm font-jkg">
         <div
           className="h-2.5 bg-gradient-to-r from-pink-300 via-yellow-300 via-green-300 via-blue-300 to-purple-300"
           style={{

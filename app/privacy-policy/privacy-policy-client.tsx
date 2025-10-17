@@ -2,12 +2,17 @@
 
 import { AlertTriangle, X, ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 import SiteHeader from "@/components/header"
 import SiteFooter from "@/components/footer"
 
 export default function PrivacyPolicyClient() {
   const router = useRouter()
   const companyName = "Moff room"
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-custom-beige-unified">

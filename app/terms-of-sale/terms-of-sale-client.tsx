@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { FileText, X, ArrowLeft } from "lucide-react"
+import { useEffect } from "react"
 import SiteHeader from "@/components/header"
 import SiteFooter from "@/components/footer"
 
@@ -54,6 +55,10 @@ const termsData = [
 
 export default function TermsOfSaleClient() {
   const router = useRouter()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-custom-beige-unified font-jkg">

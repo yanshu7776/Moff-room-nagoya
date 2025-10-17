@@ -279,7 +279,7 @@ export default function AkihabaraPage() {
     <div className="flex flex-col min-h-screen bg-custom-beige-unified overflow-x-hidden">
       <SiteHeader />
 
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full pt-[88px]">
         {/* Hero Section */}
         <section className="relative w-full h-[90vh] md:h-screen text-white overflow-hidden">
           <Image
@@ -1286,7 +1286,7 @@ export default function AkihabaraPage() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="inline-block w-full sm:w-auto"
             >
               <Link
