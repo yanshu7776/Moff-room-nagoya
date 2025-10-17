@@ -68,7 +68,7 @@ export default function BookingCalendar({ storeDetailsLink }: { storeDetailsLink
 
   if (error) {
     return (
-      <Card className="w-full max-w-4xl mx-auto shadow-xl">
+      <Card className="w-full max-w-4xl mx-auto shadow-xl bg-custom-beige-unified">
         <CardContent className="flex flex-col items-center justify-center text-red-500 bg-red-50 p-8 rounded-lg">
           <AlertCircle className="w-12 h-12 mb-4" />
           <h3 className="text-xl font-bold">エラーが発生しました</h3>
@@ -80,7 +80,7 @@ export default function BookingCalendar({ storeDetailsLink }: { storeDetailsLink
   }
 
   return (
-    <Card className="w-full max-w-4xl mx-auto shadow-xl">
+    <Card className="w-full max-w-4xl mx-auto shadow-xl bg-custom-beige-unified">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-bold text-gray-800 font-heading">予約状況カレンダー</CardTitle>
         <CardDescription className="text-lg text-gray-600">
@@ -90,7 +90,7 @@ export default function BookingCalendar({ storeDetailsLink }: { storeDetailsLink
       <CardContent className="flex flex-col md:flex-row gap-8 p-4 md:p-8">
         <div className="flex-1 flex justify-center items-center relative">
           {loading && (
-            <div className="absolute inset-0 bg-white/70 flex flex-col items-center justify-center z-10">
+            <div className="absolute inset-0 bg-custom-beige-unified/70 flex flex-col items-center justify-center z-10">
               <Loader2 className="w-12 h-12 animate-spin text-pink-500" />
               <p className="mt-4 text-gray-600">読み込み中...</p>
             </div>

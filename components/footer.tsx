@@ -11,7 +11,7 @@ export default function SiteFooter() {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <footer className="bg-custom-beige-dark text-custom-beige-lighter py-12 md:py-16">
+    <footer className="bg-custom-beige-dark text-gray-800 py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* ロゴとお問い合わせセクション */}
@@ -31,7 +31,7 @@ export default function SiteFooter() {
             <Button
               onClick={() => setModalOpen(true)}
               variant="outline"
-              className="w-full sm:w-auto border-custom-beige-lighter text-custom-beige-lighter hover:bg-custom-beige-lighter hover:text-custom-beige-dark"
+              className="w-full sm:w-auto border-gray-600 text-gray-800 hover:bg-gray-800 hover:text-white"
             >
               <Mail className="w-4 h-4 mr-2" />
               お問い合わせ
@@ -43,22 +43,22 @@ export default function SiteFooter() {
             <h3 className="font-bold text-lg mb-4">リンク</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/#features" className="hover:text-white transition-colors">
+                <Link href="/#features" className="hover:text-gray-600 transition-colors">
                   特徴
                 </Link>
               </li>
               <li>
-                <Link href="/#access" className="hover:text-white transition-colors">
+                <Link href="/#access" className="hover:text-gray-600 transition-colors">
                   アクセス
                 </Link>
               </li>
               <li>
-                <Link href="/#reviews" className="hover:text-white transition-colors">
+                <Link href="/#reviews" className="hover:text-gray-600 transition-colors">
                   お客様の声
                 </Link>
               </li>
               <li>
-                <Link href="/#faq" className="hover:text-white transition-colors">
+                <Link href="/#faq" className="hover:text-gray-600 transition-colors">
                   よくある質問
                 </Link>
               </li>
@@ -70,12 +70,12 @@ export default function SiteFooter() {
             <h3 className="font-bold text-lg mb-4">法的情報</h3>
             <ul className="space-y-2 text-sm mb-6">
               <li>
-                <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="hover:text-gray-600 transition-colors">
                   プライバシーポリシー
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-sale" className="hover:text-white transition-colors">
+                <Link href="/terms-of-sale" className="hover:text-gray-600 transition-colors">
                   特定商取引法に基づく表記
                 </Link>
               </li>
@@ -85,7 +85,7 @@ export default function SiteFooter() {
                 href="https://www.instagram.com/moff_room/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
+                className="hover:text-gray-600 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-6 h-6" />
@@ -94,7 +94,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-custom-beige-light text-center text-sm">
+        <div className="mt-12 pt-8 border-t border-gray-400 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Moff room 秋葉原店. All rights reserved.</p>
         </div>
       </div>

@@ -59,9 +59,9 @@ const config = {
           light: "rgb(245,235,224)", // #F5EBE0
           lighter: "rgb(251,245,238)", // #FBF5EE
           warm: "rgb(240,230,220)", // 温かみのあるベージュ色
-          unified: "rgb(229, 240, 231)", // 統一背景色 (淡いミントグリーンに変更)
+          unified: "rgb(254, 248, 174)", // 統一背景色 (明るい黄色)
           border: "rgb(222,196,159)", // 枠線用の色
-          dark: "rgb(196,169,131)", // #C4A983
+          dark: "rgb(245, 235, 140)", // ヘッダー・フッター用の濃い黄色
         },
         "custom-beige-DEFAULT": "rgb(223,196,158)",
         "brand-pink": "#FBCFE8",

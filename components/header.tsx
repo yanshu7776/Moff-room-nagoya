@@ -34,7 +34,7 @@ const TikTokIcon = (props: any) => (
 // URL constants
 const INSTAGRAM_PROFILE_URL =
   "https://www.instagram.com/moff_room?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-const BOOKING_URL = "https://www.spacemarket.com/spaces/moff_room/?promotion_link=true"
+const BOOKING_URL = "https://www.spacemarket.com/spaces/moffroom_nagoya/?room_uid=NC1sqTIzP-bV8bQ5"
 
 // Fullscreen Menu Component
 function FullscreenMenu({ onClose }: { onClose: () => void }) {
@@ -95,7 +95,7 @@ function FullscreenMenu({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-custom-beige-unified p-6 flex flex-col font-jkg overflow-y-auto"
+      className="fixed inset-0 z-50 bg-custom-beige-light p-6 flex flex-col font-jkg overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -226,7 +226,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-custom-beige-unified shadow-sm font-jkg">
+      <header className="sticky top-0 z-40 w-full bg-custom-beige-dark shadow-sm font-jkg">
         <div
           className="h-2.5 bg-gradient-to-r from-pink-300 via-yellow-300 via-green-300 via-blue-300 to-purple-300"
           style={{

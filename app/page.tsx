@@ -81,7 +81,7 @@ const akihabaraStore: StoreWithReviews = {
   description:
     "秋葉原、御徒町、上野、浅草橋など主要駅から徒歩圏内。明るいヘリンボーン床と充実おもちゃで親子で楽しめる温かい空間です。",
   imageSrc: "/images/hero-background.webp",
-  detailsLink: "https://www.spacemarket.com/spaces/moff_room/?promotion_link=true",
+  detailsLink: "https://www.spacemarket.com/spaces/moffroom_nagoya/?room_uid=NC1sqTIzP-bV8bQ5",
   accentColorClass: "rgb(202,229,206)",
   location: "東京都台東区",
   fullAddress: "東京都台東区台東2-18-9 ２階",
@@ -383,7 +383,7 @@ export default function AkihabaraPage() {
         {/* Our Thoughts Section */}
         <motion.section
           id="our-thoughts"
-          className="bg-stone-100 py-12 md:py-16 w-full overflow-hidden"
+          className="bg-custom-beige-dark py-12 md:py-16 w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -405,10 +405,10 @@ export default function AkihabaraPage() {
                 />
               </div>
               <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-custom-beige-dark mb-6 font-heading">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-custom-beige-unified mb-6 font-heading">
                   私たちの想い
                 </h2>
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+                <p className="text-base md:text-lg text-yellow-50 leading-relaxed mb-4">
                   実は、このスペースを立ち上げた私たち自身、子育て中にまさに同じ悩みを抱えていました。
                 </p>
                 <div className="my-4 p-4 bg-pink-50 border-l-4 border-pink-400 rounded-r-lg shadow-sm">
@@ -416,7 +416,7 @@ export default function AkihabaraPage() {
                     「ママも子どもも楽しめる空間を提供したい」
                   </p>
                 </div>
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
+                <p className="text-base md:text-lg text-yellow-50 leading-relaxed mb-8">
                   ──その想いを実現すべく、私たちは2023年10月に <strong>Moff room秋葉原店</strong> をオープンしました。
                   以来、多くのママとお子様に笑顔の時間をお届けしています。
                 </p>
@@ -512,7 +512,7 @@ export default function AkihabaraPage() {
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="bg-custom-beige-dark p-6 sm:p-8 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
                         <div className={`md:col-span-7 ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
                           <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
                             <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
@@ -593,7 +593,7 @@ export default function AkihabaraPage() {
         {/* Studio Specs Section */}
         <motion.section
           id="specs"
-          className="py-20 md:py-24 bg-white w-full overflow-hidden"
+          className="py-20 md:py-24 bg-custom-beige-dark w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -608,7 +608,7 @@ export default function AkihabaraPage() {
             <div className="max-w-2xl mx-auto mb-12">
               <Image
                 src="/images/floor-plan.webp"
-                alt="Moff Room フロアマップ"
+                alt="Moff Roomフロアマップ"
                 width={800}
                 height={450}
                 className="rounded-lg shadow-md w-full h-auto"
@@ -629,7 +629,7 @@ export default function AkihabaraPage() {
               {specs.map((spec, index) => (
                 <div
                   key={index}
-                  className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center ${index % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                  className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center ${index % 2 === 0 ? "bg-custom-beige-unified" : "bg-yellow-50"}`}
                 >
                   <div className="py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-gray-200">
                     {spec.label}
@@ -644,7 +644,7 @@ export default function AkihabaraPage() {
         </motion.section>
 
         <motion.section
-          className="py-16 md:py-24 bg-white relative overflow-hidden w-full"
+          className="py-16 md:py-24 bg-custom-beige-unified relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -725,7 +725,7 @@ export default function AkihabaraPage() {
             <h2 className="section-title">Moff room秋葉原店が選ばれる理由</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-sm flex items-center">
+                <div key={index} className="bg-custom-beige-dark p-4 rounded-lg shadow-sm flex items-center">
                   <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 mr-3 text-custom-beige-DEFAULT flex-shrink-0" />
                   <span className="text-xs sm:text-sm text-gray-700">{benefit.text}</span>
                 </div>
@@ -756,8 +756,8 @@ export default function AkihabaraPage() {
             />
           </div>
           <div className="container max-w-7xl mx-auto mt-24 px-4">
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-xl mb-16">
-              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-dark mb-4 font-heading text-center">
+            <div className="bg-custom-beige-dark p-6 md:p-8 rounded-xl shadow-xl mb-16">
+              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
                 創業者の想い・背景
               </h3>
               <div className="flex flex-col md:flex-row items-center gap-8">
@@ -814,10 +814,10 @@ export default function AkihabaraPage() {
             </div>
 
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-dark mb-4 font-heading text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
                 スタッフ紹介
               </h3>
-              <Card className="p-6 bg-white shadow-lg">
+              <Card className="p-6 bg-custom-beige-dark shadow-lg">
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <Image
                     src="/images/staff-profile.png"
@@ -854,6 +854,10 @@ export default function AkihabaraPage() {
                         <strong className="text-pink-500">「ママも子どもも笑顔になれる場を増やしたい」</strong>
                         という想いで日々奮闘中です。
                       </p>
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        <strong className="text-pink-500">「ママも子どもも笑顔になれる場を増やしたい」</strong>
+                        という想いで日々奮闘中です。
+                      </p>
                       <div className="mt-4 pt-3 border-t border-gray-200">
                         <Link
                           href="https://www.instagram.com/moff_room/"
@@ -876,7 +880,7 @@ export default function AkihabaraPage() {
         {/* Access and Surroundings Section */}
         <motion.section
           id="access"
-          className="py-16 md:py-20 bg-gradient-to-b from-green-50 to-blue-50 w-full overflow-hidden"
+          className="py-16 md:py-20 bg-custom-beige-dark w-full overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -919,7 +923,7 @@ export default function AkihabaraPage() {
             {/* アクセス情報カード */}
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {/* 交通手段 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
+              <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl">
                 <div className="flex items-center mb-6">
                   <div className="bg-blue-100 rounded-full p-3 mr-4">
                     <Train className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" />
@@ -955,7 +959,7 @@ export default function AkihabaraPage() {
               </div>
 
               {/* 営業時間 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
+              <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl">
                 <div className="flex items-center mb-6">
                   <div className="bg-green-100 rounded-full p-3 mr-4">
                     <Clock className="w-5 sm:w-6 h-5 sm:h-6 text-green-600" />
@@ -979,7 +983,7 @@ export default function AkihabaraPage() {
             </div>
 
             {/* 主要駅からのアクセス */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
+            <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-8">主要駅からのアクセス</h3>
               <div className="grid sm:grid-cols-3 gap-6">
                 <div className="text-center">
@@ -1020,7 +1024,7 @@ export default function AkihabaraPage() {
 
             {/* 道案内のポイント - Mobile */}
             <div className="md:hidden">
-              <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-6 shadow-xl border border-blue-100">
+              <div className="bg-custom-beige-unified rounded-3xl p-6 shadow-xl border border-yellow-200">
                 <div className="text-center mb-10">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-4 shadow-lg">
                     <Navigation className="w-8 h-8 text-white" />
@@ -1077,7 +1081,7 @@ export default function AkihabaraPage() {
             </div>
 
             {/* 道案内のポイント - Desktop */}
-            <div className="hidden md:block bg-gradient-to-br from-white to-blue-50 rounded-3xl p-6 sm:p-10 shadow-2xl border border-blue-100">
+            <div className="hidden md:block bg-custom-beige-unified rounded-3xl p-6 sm:p-10 shadow-2xl border border-yellow-200">
               <div className="text-center mb-12">
                 <div className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-6 shadow-lg">
                   <Navigation className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
@@ -1091,7 +1095,7 @@ export default function AkihabaraPage() {
               <div className="grid gap-6 sm:gap-8 max-w-4xl mx-auto">
                 {/* Step 1 */}
                 <div className="relative">
-                  <div className="flex items-start bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
+                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">1</span>
@@ -1116,7 +1120,7 @@ export default function AkihabaraPage() {
 
                 {/* Step 2 */}
                 <div className="relative">
-                  <div className="flex items-start bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
+                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">2</span>
@@ -1141,7 +1145,7 @@ export default function AkihabaraPage() {
 
                 {/* Step 3 */}
                 <div className="relative">
-                  <div className="flex items-start bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
+                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">3</span>
@@ -1165,7 +1169,7 @@ export default function AkihabaraPage() {
 
               {/* Google Maps Button */}
               <div className="mt-12 text-center">
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 sm:p-8">
+                <div className="bg-yellow-50 rounded-2xl p-6 sm:p-8">
                   <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">詳しい場所はこちら</h4>
                   <p className="text-gray-600 mb-6 text-sm sm:text-base">
                     正確な位置と周辺情報をGoogleマップでご確認いただけます
@@ -1174,12 +1178,13 @@ export default function AkihabaraPage() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    className="inline-block w-full sm:w-auto"
                   >
                     <Link
                       href="https://www.google.com/maps/search/?api=1&query=東京都台東区台東2-18-9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 text-base sm:text-lg font-semibold"
+                      className="inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
                     >
                       <MapPin className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
                       Googleマップで見る
@@ -1212,7 +1217,7 @@ export default function AkihabaraPage() {
             />
             {/* Mobile Booking Flow */}
             <div className="md:hidden space-y-4 max-w-sm mx-auto">
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <CalendarDays className="w-8 h-8" />
                 </div>
@@ -1223,7 +1228,7 @@ export default function AkihabaraPage() {
               <div className="flex justify-center">
                 <ArrowDown className="w-8 h-8 text-gray-400" />
               </div>
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <PencilLine className="w-8 h-8" />
                 </div>
@@ -1236,7 +1241,7 @@ export default function AkihabaraPage() {
               <div className="flex justify-center">
                 <ArrowDown className="w-8 h-8 text-gray-400" />
               </div>
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -1279,7 +1284,7 @@ export default function AkihabaraPage() {
               予約確定後、メールで入室方法をご案内します。当日はメールに従ってご入室ください。
             </p>
             <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="inline-block w-full sm:w-auto"
@@ -1317,7 +1322,7 @@ export default function AkihabaraPage() {
         {/* Notice / FAQ Section */}
         <motion.section
           id="faq"
-          className="py-16 md:py-20 bg-green-50 w-full overflow-hidden"
+          className="py-16 md:py-20 bg-custom-beige-dark w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -1335,7 +1340,11 @@ export default function AkihabaraPage() {
             </div>
             <Accordion type="single" collapsible className="w-full space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg shadow-sm border-b-0">
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-custom-beige-unified rounded-lg shadow-sm border-b-0"
+                >
                   <AccordionTrigger className="text-left font-semibold text-gray-800 px-4 sm:px-6 py-4 hover:no-underline">
                     <div className="flex items-center">
                       <HelpCircle className="w-5 sm:w-6 h-5 sm:h-6 text-pink-500 mr-3 sm:mr-4 flex-shrink-0" />
@@ -1358,14 +1367,14 @@ export default function AkihabaraPage() {
 
         {/* Portal Site Section */}
         <motion.section
-          className="py-20 md:py-24 bg-gradient-to-br from-rose-50 via-white to-teal-50 w-full overflow-hidden"
+          className="py-20 md:py-24 bg-custom-beige-unified relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
           <div className="container px-4">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="bg-custom-beige-dark rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
               <div className="relative w-full h-64 lg:h-full min-h-[300px]">
                 {/* レスポンシブ画像の実装 */}
                 <div className="block lg:hidden">

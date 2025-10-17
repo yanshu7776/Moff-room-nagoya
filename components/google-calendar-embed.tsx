@@ -17,7 +17,7 @@ export default function GoogleCalendarEmbed({ storeDetailsLink }: GoogleCalendar
 
   return (
     <div className="container max-w-5xl mx-auto px-4">
-      <Card className="bg-white shadow-2xl rounded-3xl overflow-hidden">
+      <Card className="bg-custom-beige-dark shadow-2xl rounded-3xl overflow-hidden">
         <CardHeader className="text-center bg-gradient-to-r from-pink-50 to-rose-50 p-6">
           <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 font-heading">
             空き状況の確認・ご予約
