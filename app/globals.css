@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "JKG-M";
+  src: url("/fonts/JKG-M_3.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 39 56% 75%; /* custom-beige-DEFAULT DFC49E */
+    --primary-foreground: 240 10% 3.9%; /* Dark text on beige */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 39 56% 75%; /* custom-beige-DEFAULT for ring */
+    --radius: 0.75rem; /* Slightly more rounded like the image */
+  }
+
+  .dark {
+    /* Dark mode colors can be defined here if needed */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border font-jkg;
+  }
+  body {
+    @apply bg-custom-beige-lighter text-custom-beige-dark font-jkg;
+    @apply antialiased;
+    overflow-x: hidden;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-jkg;
+  }
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  label {
+    @apply font-jkg;
+  }
+}
+
+/* Helper class for section titles, inspired by the image */
+.section-title {
+  @apply font-jkg text-2xl sm:text-3xl font-extrabold text-center mb-2 text-custom-beige-dark;
+}
+.section-subtitle {
+  @apply font-jkg text-center text-custom-beige-dark mb-8;
+}
+
+/* Custom button style to match image's "詳しくはこちら" */
+.details-button {
+  @apply font-jkg inline-block px-6 py-2 text-sm border border-custom-beige-DEFAULT text-custom-beige-dark rounded-full hover:bg-custom-beige-DEFAULT hover:text-white transition-colors;
+}
+
+.cta-button-main {
+  @apply font-jkg bg-brand-pink text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-pink-500 transition-colors;
+}
+
+/* Preloader Styles */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes preloaderFadeOut {
+  /* Renamed to avoid conflict with potential existing fadeOut */
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden; /* To contain the rainbow bar */
+  font-family: "JKG-M", sans-serif;
+}
+
+.preloader-fade-out-animation {
+  animation: preloaderFadeOut 0.5s ease-in-out forwards;
+  animation-delay: 0.8s; /* Start fadeOut after slideUp (0.8s) */
+}
+
+.rainbow-bar {
+  width: 100%;
+  height: 200%; /* To ensure it covers the screen during slide up and from below */
+  position: absolute;
+  bottom: 0; /* Start from the bottom */
+  left: 0;
+  background: linear-gradient(
+    to top,
+    rgb(220, 195, 159) 0% /* ベージュ */,
+    rgb(203, 226, 205) 14% /* ミント */,
+    rgb(186, 224, 231) 28% /* スカイブルー */,
+    rgb(208, 204, 228) 42% /* ラベンダー */,
+    rgb(255, 247, 174) 56% /* レモン */,
+    rgb(251, 216, 162) 70% /* ピーチ */,
+    rgb(243, 180, 207) 84% /* ピンク */
+  );
+  transform: translateY(100%); /* Initial position: fully below the viewport */
+}
+
+.rainbow-bar-slide-up-animation {
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+
+  /* Prevent horizontal scrolling on mobile */
+  body,
+  html {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Ensure all content stays within viewport */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Text shadow utility */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+@layer utilities {
+  .bg-dotted-orange {
+    background-color: #f9a826; /* A nice orange from your brand palette */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+}
