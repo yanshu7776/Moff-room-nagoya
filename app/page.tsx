@@ -578,7 +578,7 @@ export default function AkihabaraPage() {
                             02
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            "くま映え"×自然光で、とびきり可愛い写真に
+                            {'"くま映え"×自然光で、とびきり可愛い写真に'}
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
