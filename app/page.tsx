@@ -204,44 +204,52 @@ const faqs = [
   },
 ]
 
-// Studio Specs Section Data
+const features = [
+  {
+    number: "01",
+    title: '泣いてもOK、周りに気をつかわない"完全個室"',
+    description:
+      "1フロア1室のプライベート空間。矢場町駅から徒歩約6分、29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。赤ちゃんがぐずっても気兼ねなく過ごせます。",
+    imageSrc: "/images/features/moms-gathering-space-2.webp",
+    imageAlt: "完全個室のプライベート空間",
+  },
+  {
+    number: "02",
+    title: '"くま映え"×自然光で、とびきり可愛い写真に',
+    description:
+      "大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。",
+    imageSrc: "/images/features/tableware.webp",
+    imageAlt: "くま映えする可愛い空間",
+  },
+  {
+    number: "03",
+    title: "子連れ安心の装備が最初からそろう",
+    description:
+      "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
+    imageSrc: "/images/features/child-rocking-horse.webp",
+    imageAlt: "充実したベビーグッズ",
+  },
+  {
+    number: "04",
+    title: "手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）",
+    description:
+      "冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。",
+    imageSrc: "/images/features/spacious-37m2-room.webp",
+    imageAlt: "充実したキッチン設備",
+  },
+]
+
 const specs = [
-  { label: "スペース名称", value: "Moff room 秋葉原店" },
-  { label: "所在地", value: "〒110-0016 東京都台東区台東2-18-9 2F" },
-  { label: "広さ", value: "37㎡（24畳）" },
-  { label: "最大収容人数", value: "18名" },
-  { label: "エレベーター", value: "あり（※1階から2階まで）" },
-  { label: "フロア", value: "2階 / 1フロア1室" },
-  { label: "広さ（畳）", value: "24畳" },
-  { label: "室内設備", value: "Wi-Fi（光）、エアコン、ハンガーラック、姿見、掃除機、加湿器、除湿機、空気清浄機" },
+  { label: "広さ", value: "約37㎡（最大25名様まで収容可能）" },
+  { label: "キッチン設備", value: "IHコンロ、冷蔵庫、電子レンジ、電気ケトル、調理器具、食器類" },
   {
-    label: "キッチン設備",
-    value:
-      "IHコンロ（2口）、グリル、電子レンジ、冷蔵庫、電気ケトル、炊飯器、鍋セット、フライパン、食器類（皿、コップ、カトラリー）、調理器具（包丁、まな板、おたま、フライ返し、トング、菜箸）、たこ焼き器、ホットプレート",
+    label: "エンタメ設備",
+    value: "120インチ大型スクリーン、プロジェクター、Blu-ray/DVDプレーヤー、Amazon Fire TV Stick",
   },
-  { label: "調理", value: "OK（※匂いの強いもの、油の多いものはご遠慮ください）" },
-  { label: "飲食", value: "OK" },
-  { label: "飲酒", value: "OK" },
-  { label: "喫煙", value: "不可（※建物内全面禁煙）" },
-  { label: "防犯カメラ", value: "あり（※室外のみ）" },
-  { label: "防音", value: "なし" },
-  { label: "内見", value: "不可" },
-  { label: "ゴミ", value: "建物内ゴミ捨て可（※有料・分別必須）" },
-  { label: "近隣迷惑", value: "NG" },
-  { label: "退室時間", value: "予約時間内に完全撤収・清掃完了" },
-  { label: "最寄駅", value: "新御徒町駅（徒歩5分）" },
-  { label: "駐車場", value: "なし（※近隣コインパーキングをご利用ください）" },
-  { label: "ベビーカー", value: "OK（※室内ではなく廊下に駐輪）" },
-  {
-    label: "ベビーグッズ",
-    value:
-      "ベビーサークル、おもちゃ多数、バンボ×2、バウンサー、ローチェア、ベビー用食器、子供服（50-95cm / 1着無料持ち帰り可）",
-  },
-  {
-    label: "その他備品",
-    value:
-      "プロジェクター、スクリーン、HDMIケーブル、Blu-ray/DVDプレイヤー、ゲーム機（Nintendo Switch）、ボードゲーム、トランプ、Bluetoothスピーカー、ホワイトボード、マーカー、プロジェクター用三脚、延長コード、変換プラグ、各種充電ケーブル、アイロン、アイロン台、救急箱、体温計、爪切り、ハサミ、缶切り、栓抜き、ワインオープナー、まな板、包丁、おたま、フライ返し、トング、菜箸、ピーラー、キッチンバサミ、計量カップ、計量スプーン、アルミホイル、ラップ、キッチンペーパー、ティッシュ、ウェットティッシュ、除菌シート、アルコールスプレー、手指消毒剤、マスク、食器用洗剤、スポンジ、布巾、キッチンペーパー、ゴミ袋、クイックルワイパー、掃除機、ほうき、ちりとり、バケツ、雑巾、ハンディモップ、延長コード、変換プラグ、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池、延長コード、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池、延長コード、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池",
-  },
+  { label: "音響設備", value: "Bluetooth対応スピーカー" },
+  { label: "ベビー用品", value: "バンボ、バウンサー、授乳クッション、ベビーサークル、おもちゃ各種" },
+  { label: "家具", value: "ローテーブル、ソファ、クッション、子供用椅子" },
+  { label: "その他", value: "エアコン、エレベーター、室内トイレ、ゴミ捨て可（有料オプション）" },
 ]
 
 export default function AkihabaraPage() {
@@ -299,7 +307,7 @@ export default function AkihabaraPage() {
                   <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
                   <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
                   <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸くま映え×子連れ安心🧸 ｜最大18名｜¥425〜</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 ｜最大18名｜¥425〜</span>
                 </h1>
               </div>
 
@@ -519,8 +527,9 @@ export default function AkihabaraPage() {
               </TabsList>
               <TabsContent value="overview" className="mt-12">
                 <div className="text-center mb-12">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-relaxed">
-                    名古屋・矢場町のレンタルスペースで<span className="text-pink-500">ママ会</span>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
+                    名古屋・矢場町のレンタルスペースで
+                    <span className="text-pink-500">ママ会</span>
                     を安心して楽しめる理由
                     <br />
                     <span className="text-base sm:text-lg text-gray-600">（女子会・誕生日・撮影にも）</span>
@@ -528,177 +537,63 @@ export default function AkihabaraPage() {
                 </div>
 
                 <div className="space-y-20">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                      <div className="md:col-span-7 md:order-1">
-                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                            01
-                          </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            泣いてもOK、周りに気をつかわない"完全個室"
-                          </h3>
+                  {features.map((feature, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                        <div className={`md:col-span-7 ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
+                          <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                            <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                              {feature.number}
+                            </span>
+                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                              {feature.title}
+                            </h3>
+                          </div>
+                          <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                            {feature.description}
+                          </p>
                         </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          1フロア1室のプライベート空間。矢場町駅から徒歩約6分、29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。赤ちゃんがぐずっても気兼ねなく過ごせます。
-                        </p>
-                      </div>
-                      <div className="md:col-span-5 md:order-2">
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                          <Image
-                            src="/images/features/moms-gathering-space-2.webp"
-                            alt="完全個室のプライベート空間"
-                            fill
-                            className="object-cover"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL="/images/features/moms-gathering-space-2.webp"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                      <div className="md:col-span-7 md:order-2">
-                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                            02
-                          </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            "くま映え"×自然光で、とびきり可愛い写真に
-                          </h3>
-                        </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—
-                          <strong>女子会・誕生日・撮影にも◎</strong>。
-                        </p>
-                      </div>
-                      <div className="md:col-span-5 md:order-1">
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                          <Image
-                            src="/images/features/tableware.webp"
-                            alt="くま映えする可愛いインテリア"
-                            fill
-                            className="object-cover"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL="/images/features/tableware.webp"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                          />
+                        <div className={`md:col-span-5 ${index % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
+                          <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                            <Image
+                              src={feature.imageSrc || "/placeholder.svg"}
+                              alt={feature.imageAlt}
+                              fill
+                              className="object-cover"
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={feature.imageSrc}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                      <div className="md:col-span-7 md:order-1">
-                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                            03
-                          </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            子連れ安心の装備が最初からそろう
-                          </h3>
-                        </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
-                        </p>
-                      </div>
-                      <div className="md:col-span-5 md:order-2">
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                          <Image
-                            src="/images/features/child-rocking-horse.webp"
-                            alt="充実したベビーグッズ"
-                            fill
-                            className="object-cover"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL="/images/features/child-rocking-horse.webp"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                      <div className="md:col-span-7 md:order-2">
-                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                            04
-                          </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）
-                          </h3>
-                        </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。
-                          <strong>飲食・飲酒可</strong>、建物内ゴミ捨てOK（有料・分別必須）。料金は
-                          <strong>早朝¥425〜／通常¥1,472〜</strong>（日程により最大¥5,890/時）、
-                          <strong>お得意様割15%</strong>も利用可。
-                        </p>
-                      </div>
-                      <div className="md:col-span-5 md:order-1">
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                          <Image
-                            src="/images/features/spacious-37m2-room.webp"
-                            alt="充実したキッチン設備"
-                            fill
-                            className="object-cover"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL="/images/features/spacious-37m2-room.webp"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  ))}
                 </div>
 
-                <div className="mt-16 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
-                  <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                    <ShieldCheck className="w-5 h-5 mr-2 text-yellow-600" />— 安心のご案内 —
-                  </h4>
-                  <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
-                    <li className="flex items-start">
-                      <span className="mr-2">・</span>
-                      <span>
+                <div className="mt-16 bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6 sm:p-8">
+                  <h4 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">— 安心のご案内 —</h4>
+                  <div className="space-y-4 text-gray-700">
+                    <div className="flex items-start">
+                      <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
+                      <p className="text-sm sm:text-base">
                         エレベーターはありますが、ご利用前に<strong>10段ほど階段</strong>があります。
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-2">・</span>
-                      <span>
+                      </p>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
+                      <p className="text-sm sm:text-base">
                         <strong>ベビーカーは廊下に駐輪</strong>してください。
-                      </span>
-                    </li>
-                  </ul>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </TabsContent>
               <TabsContent value="gallery" className="mt-12">
@@ -1590,7 +1485,7 @@ export default function AkihabaraPage() {
                     href="https://moffroom.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:-translate-y-1 w-full sm:w-auto"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                   >
                     <Globe className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
                     <span>Moff Room 総合サイトへ</span>
