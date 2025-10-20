@@ -1590,7 +1590,7 @@ export default function AkihabaraPage() {
                     href="https://moffroom.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:-translate-y-1 w-full sm:w-auto"
                   >
                     <Globe className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
                     <span>Moff Room 総合サイトへ</span>
