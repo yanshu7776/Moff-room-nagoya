@@ -631,7 +631,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             01
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
                             泣いてもOK、周りに気をつかわない"完全個室"
                           </h3>
                         </div>
@@ -673,7 +673,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             02
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
                             "くま映え"×自然光で、とびきり可愛い写真に
                           </h3>
                         </div>
@@ -709,7 +709,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             03
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
                             子連れ安心の装備が最初からそろう
                           </h3>
                         </div>
@@ -745,7 +745,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             04
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
                             手ぶらで楽しめて片付けもラク
                             <br className="md:hidden" />
                             （キッチン＆プロジェクター）
