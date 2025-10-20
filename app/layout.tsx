@@ -8,13 +8,14 @@ import { ChatBot } from "@/components/chat-bot"
 import FloatingCTA from "@/components/floating-cta"
 
 export const metadata: Metadata = {
-  title: "Moff room 秋葉原店 | ママ会・推し活に最適な完全個室レンタルスペース",
+  title: "Moff room 名古屋店 | ママ会・推し活に最適な完全個室レンタルスペース",
   description:
-    "秋葉原駅徒歩圏内！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。ベビー用品完備、駅近アクセス良好。平均評価★4.7の高評価スペースで特別な時間を。",
-  keywords: "ママ会,レンタルスペース,秋葉原,御徒町,上野,完全個室,ベビー用品,推し活,女子会,パーティー,子連れ歓迎",
-  authors: [{ name: "Moff room 秋葉原店" }],
-  creator: "Moff room 秋葉原店",
-  publisher: "Moff room 秋葉原店",
+    "矢場町駅徒歩約6分！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。ベビー用品完備、駅近アクセス良好。29㎡・最大18名で、4〜10名のママ会に最適。",
+  keywords:
+    "ママ会,レンタルスペース,名古屋,矢場町,栄,大須,完全個室,ベビー用品,推し活,女子会,パーティー,子連れ歓迎,くま映え",
+  authors: [{ name: "Moff room 名古屋店" }],
+  creator: "Moff room 名古屋店",
+  publisher: "Moff room 名古屋店",
   robots: {
     index: true,
     follow: true,
@@ -29,28 +30,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://akihabara.moffroom.com/",
-    title: "Moff room 秋葉原店 | ママ会・推し活に最適な完全個室レンタルスペース",
+    url: "https://nagoya.moffroom.com/",
+    title: "Moff room 名古屋店 | ママ会・推し活に最適な完全個室レンタルスペース",
     description:
-      "秋葉原駅徒歩圏内！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。ベビー用品完備、駅近アクセス良好。",
-    siteName: "Moff room 秋葉原店",
+      "矢場町駅徒歩約6分！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。ベビー用品完備、駅近アクセス良好。",
+    siteName: "Moff room 名古屋店",
     images: [
       {
         url: "/images/hero-background.webp",
         width: 1200,
         height: 630,
-        alt: "Moff room 秋葉原店の内観",
+        alt: "Moff room 名古屋店の内観",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moff room 秋葉原店 | ママ会・推し活に最適な完全個室レンタルスペース",
-    description: "秋葉原駅徒歩圏内！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。",
+    title: "Moff room 名古屋店 | ママ会・推し活に最適な完全個室レンタルスペース",
+    description: "矢場町駅徒歩約6分！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。",
     images: ["/images/hero-background.webp"],
   },
   alternates: {
-    canonical: "https://akihabara.moffroom.com/",
+    canonical: "https://nagoya.moffroom.com/",
   },
   generator: "v0.dev",
 }
@@ -80,30 +81,25 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Moff room 秋葉原店",
+              name: "Moff room 名古屋店",
               description: "ママ会・推し活に最適な完全個室レンタルスペース",
-              url: "https://akihabara.moffroom.com/",
-              telephone: "+81-3-XXXX-XXXX",
+              url: "https://nagoya.moffroom.com/",
+              telephone: "+81-52-XXXX-XXXX",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "台東2-18-9 2階",
-                addressLocality: "台東区",
-                addressRegion: "東京都",
-                postalCode: "110-0016",
+                streetAddress: "大須4-1-7 サンポートヤバビル703",
+                addressLocality: "中区",
+                addressRegion: "愛知県",
+                postalCode: "460-0011",
                 addressCountry: "JP",
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 35.7074,
-                longitude: 139.7736,
+                latitude: 35.1617145,
+                longitude: 136.9069915,
               },
-              openingHours: "Mo-Su 09:00-22:00",
-              priceRange: "¥550-¥2000",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.7",
-                reviewCount: "76",
-              },
+              openingHours: "Mo-Su 00:00-24:00",
+              priceRange: "¥425-¥5890",
               amenityFeature: [
                 {
                   "@type": "LocationFeatureSpecification",

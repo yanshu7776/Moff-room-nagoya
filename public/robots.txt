@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://moffroom-okachimachi.com/sitemap.xml
+Sitemap: https://nagoya.moffroom.com/sitemap.xml
 
 # Disallow admin areas (if any)
 Disallow: /admin/

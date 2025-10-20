@@ -61,7 +61,7 @@ type Store = {
   accentColorClass: string
   location: string
   fullAddress?: string
-  region: "kanto" | "kansai" | string
+  region: "kanto" | "kansai" | "chubu" | string // Added "chubu" for Nagoya
 }
 
 export type StoreWithReviews = Store & {
@@ -72,22 +72,22 @@ export type StoreWithReviews = Store & {
   }
 }
 
-// Data for Akihabara Store
-const akihabaraStore: StoreWithReviews = {
-  id: "akihabara",
-  name: "秋葉原店",
+const nagoyaStore: StoreWithReviews = {
+  id: "nagoya",
+  name: "名古屋店",
   description:
-    "秋葉原、御徒町、上野、浅草橋など主要駅から徒歩圏内。明るいヘリンボーン床と充実おもちゃで親子で楽しめる温かい空間です。",
+    "名古屋・矢場町駅から徒歩約6分。くま映え×自然光で写真が可愛い完全個室。ママ会・女子会・撮影に最適な温かい空間です。",
   imageSrc: "/images/hero-background.webp",
   detailsLink: "https://www.spacemarket.com/spaces/moffroom_nagoya/?room_uid=NC1sqTIzP-bV8bQ5",
   accentColorClass: "rgb(202,229,206)",
-  location: "東京都台東区",
-  fullAddress: "東京都台東区台東2-18-9 ２階",
-  region: "kanto",
+  location: "愛知県名古屋市",
+  fullAddress: "愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）",
+  region: "chubu", // Updated region
   reviews: {
     averageRating: "4.7",
     totalReviews: 76,
     featured: [
+      // In production, replace with actual Nagoya store reviews
       {
         title: "ホストの対応が迅速で安心しました！",
         comment:
@@ -139,7 +139,7 @@ const akihabaraStore: StoreWithReviews = {
       {
         title: "女子会や子連れのパーティーに最適",
         comment:
-          "駅から迷わずいけました。複数駅・複数路線が使えるので、参加者の居住地がバラバラでも集まりやすい。新御徒町駅を使いましたが、道も分かりやすかったです。 ワンフロアワンルームのようで、エレベーターは1機ですが混み合うことはなさそうです。お部屋は2階なので階段も使えます。 ローテーブル、ハイテーブルがあり大人数でのパーティがしやすかったです。 オーナーさんは、レスポンスも早く、対応も丁寧で助かりました。 予約前の問い合わせの段階から安心ができるご対応をしていただけました。",
+          "駅から迷わずいけました。複数駅・複数路線が使えるので、参加者の居住地がバラバラでも集まりやすい。矢場町駅から徒歩約6分で、道も分かりやすかったです。 ワンフロアワンルームのようで、エレベーターは1機ですが混み合うことはなさそうです。 ローテーブル、ハイテーブルがあり大人数でのパーティがしやすかったです。 オーナーさんは、レスポンスも早く、対応も丁寧で助かりました。 予約前の問い合わせの段階から安心ができるご対応をしていただけました。",
         age: "20代・女性グループ",
         purpose: "おしゃべり会",
         rating: 5,
@@ -164,8 +164,7 @@ const akihabaraStore: StoreWithReviews = {
   },
 }
 
-// Define the booking URL, using the akihabaraStore.detailsLink as a fallback if not explicitly defined elsewhere
-const BOOKING_URL = akihabaraStore.detailsLink || "https://example.com/booking" // Replace with actual booking URL if different
+const BOOKING_URL = nagoyaStore.detailsLink || "https://example.com/booking" // Replace with actual booking URL if different
 
 const benefits = [
   { icon: CircleDollarSign, text: "早朝¥425〜／通常¥1,472〜でコスパ良好" },
@@ -283,7 +282,7 @@ export type PageProps = {
   onInquiryClick: () => void
 }
 
-export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick }: PageProps) {
+export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: PageProps) {
   const problems = [
     {
       src: "/images/problems/problem-cafe-vs-playground-new.png",
@@ -306,7 +305,6 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
       alt: "子どもを遊ばせながら仕事や勉強もできたら良いのにという悩み",
     },
   ]
-  // </CHANGE>
 
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
 
@@ -375,7 +373,7 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
                 size="lg"
                 className="w-full bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg animate-bounce text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6"
               >
-                <Link href={akihabaraStore.detailsLink} target="_blank" rel="noopener noreferrer">
+                <Link href={nagoyaStore.detailsLink} target="_blank" rel="noopener noreferrer">
                   今すぐ予約する▶︎
                 </Link>
               </Button>
@@ -520,7 +518,7 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
                       className="w-full sm:w-auto"
                     >
                       <Link
-                        href={akihabaraStore.detailsLink}
+                        href={nagoyaStore.detailsLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group block"
@@ -954,7 +952,6 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
                 </div>
               </div>
             </div>
-            {/* </CHANGE> */}
           </div>
         </motion.section>
 
@@ -1116,9 +1113,9 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
         >
           <div className="container mx-auto px-4">
             <ReviewsCarousel
-              reviews={akihabaraStore.reviews.featured}
-              googleRating={akihabaraStore.reviews.averageRating}
-              googleReviewsCount={akihabaraStore.reviews.totalReviews}
+              reviews={nagoyaStore.reviews.featured}
+              googleRating={nagoyaStore.reviews.averageRating}
+              googleReviewsCount={nagoyaStore.reviews.totalReviews}
             />
           </div>
           <div className="container max-w-7xl mx-auto mt-24 px-4">
@@ -1155,7 +1152,6 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
                   <p className="mb-4 text-sm sm:text-base">
                     名古屋での集まりが、安心で、可愛く、心に残る時間になりますように。
                   </p>
-                  {/* </CHANGE> */}
                 </div>
                 <div className="md:w-1/4 text-center flex items-center justify-center">
                   <Image
@@ -1325,7 +1321,6 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
                   <div className="text-center">
                     <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">年中無休</div>
                     <div className="text-gray-600">お問い合わせ返信対応時間として、7:00～24:00</div>
-                    {/* </CHANGE> */}
                   </div>
                   <div className="bg-green-50 rounded-lg p-4 mt-4">
                     <p className="text-xs sm:text-sm text-green-700 text-center">
@@ -1575,7 +1570,6 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
               </div>
             </div>
           </div>
-          {/* </CHANGE> */}
         </motion.section>
 
         {/* Booking Flow Section */}
@@ -1670,7 +1664,7 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
               className="inline-block w-full sm:w-auto"
             >
               <Link
-                href={akihabaraStore.detailsLink}
+                href={nagoyaStore.detailsLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-2xl overflow-hidden transition-all duration-500 ease-in-out hover:shadow-pink-500/50 w-full sm:w-auto"
@@ -1696,7 +1690,7 @@ export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick 
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <GoogleCalendarEmbed storeDetailsLink={akihabaraStore.detailsLink} />
+          <GoogleCalendarEmbed storeDetailsLink={nagoyaStore.detailsLink} />
         </motion.section>
 
         {/* Notice / FAQ Section */}

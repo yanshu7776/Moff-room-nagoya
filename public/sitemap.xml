@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Updated all URLs from akihabara.moffroom.com to nagoya.moffroom.com -->
   <url>
-    <loc>https://akihabara.moffroom.com/</loc>
-    <lastmod>2024-01-26</lastmod>
+    <loc>https://nagoya.moffroom.com/</loc>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://akihabara.moffroom.com/privacy-policy</loc>
-    <lastmod>2024-01-26</lastmod>
+    <loc>https://nagoya.moffroom.com/privacy-policy</loc>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://akihabara.moffroom.com/terms-of-sale</loc>
-    <lastmod>2024-01-26</lastmod>
+    <loc>https://nagoya.moffroom.com/terms-of-sale</loc>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -11,7 +11,7 @@ export default function SiteFooter() {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <footer className="bg-custom-beige-accent text-gray-800 py-12 md:py-16 border-t border-custom-beige-border">
+    <footer className="bg-custom-beige-accent text-gray-800 py-12 md:py-16 pb-24 md:pb-28 border-t border-custom-beige-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* ロゴとお問い合わせセクション */}
@@ -26,7 +26,7 @@ export default function SiteFooter() {
               />
             </Link>
             <p className="text-sm leading-relaxed">
-              Moff room 秋葉原店は、ママと子どもが安心して楽しめる完全個室のレンタルスペースです。
+              Moff room 名古屋店は、ママと子どもが安心して楽しめる完全個室のレンタルスペースです。
             </p>
             <Button
               onClick={() => setModalOpen(true)}
@@ -95,7 +95,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-custom-beige-border text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Moff room 秋葉原店. All rights reserved.</p>
+          <p className="text-gray-700 mt-[-48px]">&copy; {new Date().getFullYear()} Moff room. All Rights Reserved.</p>
         </div>
       </div>
       <ContactFormModal open={modalOpen} onOpenChange={setModalOpen} />

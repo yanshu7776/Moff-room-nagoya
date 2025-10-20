@@ -1,4 +1,4 @@
-# Moff room　御徒町店
+# Moff room　名古屋店
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 

@@ -140,15 +140,15 @@ export default function ContactFormModal({ children, open, onOpenChange }: Conta
               <Label htmlFor="store" className="text-sm font-medium text-gray-700">
                 ご希望の店舗
               </Label>
-              <Select name="store">
+              <Select name="store" defaultValue="nagoya">
                 <SelectTrigger className="border-gray-300 focus:border-custom-beige-DEFAULT focus:ring-custom-beige-DEFAULT">
                   <SelectValue placeholder="店舗を選択してください" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="nagoya">名古屋店</SelectItem>
                   <SelectItem value="akihabara">秋葉原店</SelectItem>
                   <SelectItem value="ikebukuro">池袋店</SelectItem>
                   <SelectItem value="shimokitazawa">下北沢店</SelectItem>
-                  <SelectItem value="nagoya">名古屋店</SelectItem>
                   <SelectItem value="tenjinbashi">天神橋筋六丁目店</SelectItem>
                   <SelectItem value="sannomiya">三宮店</SelectItem>
                   <SelectItem value="other">その他・未定</SelectItem>

@@ -10,7 +10,7 @@ type GoogleCalendarEmbedProps = {
 }
 
 export default function GoogleCalendarEmbed({ storeDetailsLink }: GoogleCalendarEmbedProps) {
-  const calendarId = "moffroom@gmail.com"
+  const calendarId = "0a423f137f27b9a2f4a40f984120e3fe5b921452cb3c6c816fa6ffd0ffc96c05@group.calendar.google.com"
   const calendarSrc = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(
     calendarId,
   )}&ctz=Asia%2FTokyo&mode=WEEK&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0`
