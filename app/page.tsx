@@ -537,45 +537,152 @@ export default function AkihabaraPage() {
                 </div>
 
                 <div className="space-y-20">
-                  {features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                        <div className={`md:col-span-7 ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
-                          <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                            <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                              {feature.number}
-                            </span>
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                              {feature.title}
-                            </h3>
-                          </div>
-                          <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                            {feature.description}
-                          </p>
+                  {/* Feature 01 */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-1">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            01
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            泣いてもOK、周りに気を
+つかわない"完全個室"
+                          </h3>
                         </div>
-                        <div className={`md:col-span-5 ${index % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                          <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                            <Image
-                              src={feature.imageSrc || "/placeholder.svg"}
-                              alt={feature.imageAlt}
-                              fill
-                              className="object-cover"
-                              loading="lazy"
-                              placeholder="blur"
-                              blurDataURL={feature.imageSrc}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                            />
-                          </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          1フロア1室のプライベート空間。矢場町駅から徒歩約6分、
+29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。
+赤ちゃんがぐずっても気兼ねなく過ごせます。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-2">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/moms-gathering-space-2.webp"
+                            alt="完全個室のプライベート空間"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
                         </div>
                       </div>
-                    </motion.div>
-                  ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Feature 02 */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-2">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            02
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            "くま映え"×自然光で、とびきり可愛い写真に
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-1">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/tableware.webp"
+                            alt="くま映えする可愛い空間"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Feature 03 */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-1">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            03
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            子連れ安心の装備が最初からそろう
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-2">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/child-rocking-horse.webp"
+                            alt="充実したベビーグッズ"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Feature 04 */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-2">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            04
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-1">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/spacious-37m2-room.webp"
+                            alt="充実したキッチン設備"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
 
                 <div className="mt-16 bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6 sm:p-8">
