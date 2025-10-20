@@ -50,7 +50,11 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-heading mb-6">当社へ寄せられた口コミ</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-heading mb-6">
+          当社へ寄せられた
+          <br className="md:hidden" />
+          口コミ
+        </h2>
         <div className="inline-flex items-center gap-4 bg-white border border-gray-200 shadow-lg rounded-full py-2 px-6">
           <Image
             src="/images/moff-room-logo-transparent.png"

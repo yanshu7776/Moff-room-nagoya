@@ -20,7 +20,6 @@ import {
   Trash2,
   CircleDollarSign,
   CalendarCheck,
-  CreditCard,
   BookOpen,
   ShieldCheck,
   PencilLine,
@@ -32,7 +31,6 @@ import {
   Navigation,
   Globe,
   ArrowDown,
-  ShoppingBag,
   Building2,
 } from "lucide-react"
 import ImageCarousel from "@/components/image-carousel"
@@ -133,7 +131,7 @@ const akihabaraStore: StoreWithReviews = {
       {
         title: "赤ちゃん連れでも安心して利用できる配慮が◎",
         comment:
-          "掲載の通り、赤ちゃん連れでも安心して利用できる配慮がなされていて、とても良かったです。 テーブルの角にクッション材がついていたり、備品のなかに、子供服を無料で1枚、というサービスもあり、子供が服を汚してしまったりした時、とても有り難いと思いました。 近くに小さいですが食品スーパーがあり、途中の買い出しにも都合良かったです。 是非また利用したいです。",
+          "掲載の通り、赤ちゃん連れでも安心して利用できる配慮がなされていて、とても良かったです。 テーブルの角にクッション材がついたり、備品のなかに、子供服を無料で1枚、というサービスもあり、子供が服を汚してしまったりした時、とても有り難いと思いました。 近くに小さいですが食品スーパーがあり、途中の買い出しにも都合良かったです。 是非また利用したいです。",
         age: "30代・ファミリー",
         purpose: "ホームパーティー",
         rating: 5,
@@ -141,7 +139,7 @@ const akihabaraStore: StoreWithReviews = {
       {
         title: "女子会や子連れのパーティーに最適",
         comment:
-          "駅から迷わずいけました。複数駅・複数路線が使えるので、参加者の居住地がバラバラでも集まりやすい。新御徒町駅を使いましたが、道もわかりやすかったです。 ワンフロアワンルームのようで、エレベーターは1機ですが混み合うことはなさそうです。お部屋は2階なので階段も使えます。 ローテーブル、ハイテーブルがあり大人数でのパーティがしやすかったです。 オーナーさんは、レスポンスも早く、対応も丁寧で助かりました。 予約前の問い合わせの段階から安心ができるご対応をしていただけました。",
+          "駅から迷わずいけました。複数駅・複数路線が使えるので、参加者の居住地がバラバラでも集まりやすい。新御徒町駅を使いましたが、道も分かりやすかったです。 ワンフロアワンルームのようで、エレベーターは1機ですが混み合うことはなさそうです。お部屋は2階なので階段も使えます。 ローテーブル、ハイテーブルがあり大人数でのパーティがしやすかったです。 オーナーさんは、レスポンスも早く、対応も丁寧で助かりました。 予約前の問い合わせの段階から安心ができるご対応をしていただけました。",
         age: "20代・女性グループ",
         purpose: "おしゃべり会",
         rating: 5,
@@ -166,41 +164,48 @@ const akihabaraStore: StoreWithReviews = {
   },
 }
 
+// Define the booking URL, using the akihabaraStore.detailsLink as a fallback if not explicitly defined elsewhere
+const BOOKING_URL = akihabaraStore.detailsLink || "https://example.com/booking" // Replace with actual booking URL if different
+
 const benefits = [
-  { icon: Lock, text: "1フロア1室貸切の完全プライベート空間" },
-  { icon: Train, text: "8路線が徒歩圏内！駅近＆アクセス良好" },
-  { icon: Users, text: "約37㎡(24畳)の広々快適スペース" },
-  { icon: Baby, text: "子連れ歓迎！豊富なベビーグッズ＆おもちゃ" },
-  { icon: UtensilsCrossed, text: "飲食＆調理OK！キッチン完備" },
-  { icon: Trash2, text: "後片付けも楽々！清掃おまかせオプション有" },
-  { icon: CircleDollarSign, text: "1時間550円～の良心的な価格設定" },
-  { icon: CalendarCheck, text: "面倒な手続きなし！即時予約に対応" },
-  { icon: CreditCard, text: "多彩な支払い方法 (Amazon Pay, PayPay等)" },
-  { icon: Star, text: "平均評価★4.7/5.0！高評価＆リピーター続出" },
-  { icon: BookOpen, text: "Amazonランキング1位の書籍で紹介" },
-  { icon: ShieldCheck, text: "万全の安全・サポート体制" },
+  { icon: CircleDollarSign, text: "早朝¥425〜／通常¥1,472〜でコスパ良好" },
+  { icon: Lock, text: "1フロア1室の完全個室（泣いてもOK）" },
+  { icon: MapPin, text: "名古屋・矢場町のレンタルスペース（駅約6分）" },
+  { icon: Users, text: "29㎡・最大18名、4〜10名のママ会に最適" },
+  { icon: Star, text: "🧸くま映え×自然光で写真が可愛い" },
+  { icon: Baby, text: "ベビーグッズ充実（サークル／おもちゃ 等）" },
+  { icon: UtensilsCrossed, text: "キッチン完備・飲食／飲酒OK" },
+  { icon: Globe, text: "Wi-Fi（光）＋プロジェクターで鑑賞会◎" },
+  { icon: Trash2, text: "建物内ゴミ捨て可（有料・分別必須）" },
+  { icon: Train, text: "ベビーカー置き場・EV有（入口前に10段）" },
+  { icon: PencilLine, text: "商用撮影OK（YouTube／コスプレ可）" },
+  { icon: CalendarCheck, text: "即時予約OK＆トップホストが迅速対応" },
 ]
 
 const faqs = [
   {
-    q: "人気の利用用途はなんですか？",
-    a: "一番多いのはママ会でのご利用です。そのほか、おしゃべり会（女子会）やホームパーティー、推し活の集まりなど幅広く利用されています。",
+    q: "何人まで使えますか？広さは？",
+    a: "最大18名／29㎡です。4〜10名のママ会にちょうど良いサイズ。※11名以上は人数追加オプション￥1,100/名（未就学児は人数カウント不要）",
   },
   {
-    q: "何人で利用されやすいですか？",
-    a: "最もよく利用される人数帯は5〜10名です。次いで11〜15名程度のグループや、1〜2名での少人数利用も見られます。",
+    q: "子連れ向け設備とベビーカーは？",
+    a: "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子を用意。ベビーカーは廊下に駐輪。建物はEV有、ただし入口からEVまで約10段の階段があります。",
   },
   {
-    q: "何日前までに予約すればいいですか？",
-    a: "最短ではご利用直前まで予約可能です！（空きがあれば当日予約OKです。）日程がお決まりでしたら、お早めにご予約いただくことをおすすめします。",
+    q: "飲食やキッチン利用はできますか？",
+    a: "可能です（持ち込みOK・飲酒OK）。冷蔵庫／電子レンジ／電気ケトル／IH／鍋セット／たこ焼き器／ホットプレート／人数分の食器・カトラリーあり。※調味料は置いていません。",
   },
   {
-    q: "どれくらいの広さですか？",
-    a: "広さは約37㎡（24畳程度）です。大きめのリビングルームほどの空間をイメージしてください。",
+    q: "料金と予約単位の目安は？",
+    a: "早朝プラン￥425〜/時間（1時間〜）、通常プラン￥1,472〜/時間（3時間〜・維持管理費￥2,500）。日程により最大￥5,890/時間。即時予約OKです。",
   },
   {
-    q: "子どもの服が汚れてしまったらどうすればいいですか？",
-    a: "スペース内に50〜95cmサイズの子供用古着をご用意しており、1着まで無料でお持ち帰りいただけます。急な着替えが必要になっても安心です。",
+    q: "ゴミは捨てられますか？片付けは？",
+    a: "有料オプション￥1,100/袋で館内廃棄可（可燃・缶・ビン・PETの分別必須）。未分別は別途￥20,000。ご利用後は清掃・原状回復をお願いします。",
+  },
+  {
+    q: "アクセスと駐車場は？",
+    a: "名城線「矢場町駅」徒歩約6分（住所：名古屋市中区大須4-1-7 サンポートヤバビル703）。上前津・大須観音・栄も徒歩圏。専用駐車場はありませんが、近隣にコインパーキング多数あります。",
   },
 ]
 
@@ -240,44 +245,70 @@ const features = [
 ]
 
 const specs = [
-  { label: "広さ", value: "約37㎡（最大25名様まで収容可能）" },
-  { label: "キッチン設備", value: "IHコンロ、冷蔵庫、電子レンジ、電気ケトル、調理器具、食器類" },
+  { label: "広さ／定員", value: "約29㎡／最大18名（4〜10名のママ会に最適）" },
   {
-    label: "エンタメ設備",
-    value: "120インチ大型スクリーン、プロジェクター、Blu-ray/DVDプレーヤー、Amazon Fire TV Stick",
+    label: "キッチン設備",
+    value:
+      "IHコンロ／冷蔵庫／電子レンジ／電気ケトル／鍋セット／トング類／たこ焼き器／ホットプレート／食器類：大皿×20／小皿×20／グラス×20／マグ×10／カトラリー（お子様用あり）※調味料の設置はありません",
   },
-  { label: "音響設備", value: "Bluetooth対応スピーカー" },
-  { label: "ベビー用品", value: "バンボ、バウンサー、授乳クッション、ベビーサークル、おもちゃ各種" },
-  { label: "家具", value: "ローテーブル、ソファ、クッション、子供用椅子" },
-  { label: "その他", value: "エアコン、エレベーター、室内トイレ、ゴミ捨て可（有料オプション）" },
+  {
+    label: "エンタメ・AV／ネットワーク",
+    value:
+      "プロジェクター・スクリーン／HDMIケーブル／Wi-Fi（光回線）／各種ゲーム（大人気ゲーム機 ※作品持込OK）／映画鑑賞・スポーツ観戦・推し活上映に",
+  },
+  {
+    label: "ベビー用品（子連れ向け）",
+    value:
+      "クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子／ベビーカー置き場あり（※室内ではなく廊下に駐輪）",
+  },
+  {
+    label: "家具・室内",
+    value:
+      "ローテーブル×2／ソファ／ダイニングテーブル×2／収納ベンチ×4／椅子・テーブル／エアコン（冷暖房）／電源タップ・延長コード",
+  },
+  {
+    label: "撮影関連",
+    value: "自然光／三脚／商用撮影可（YouTube等の配信目的も可）",
+  },
+  {
+    label: "そのほか",
+    value:
+      "飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未分別は別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙",
+  },
 ]
 
-export default function AkihabaraPage() {
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
-  const [modalOpen, setModalOpen] = useState(false)
+export type PageProps = {
+  modalOpen: boolean
+  setModalOpen: (open: boolean) => void
+  onInquiryClick: () => void
+}
 
+export default function AkihabaraPage({ modalOpen, setModalOpen, onInquiryClick }: PageProps) {
   const problems = [
     {
-      src: "/images/problems/problem-work-while-watching-kids.png",
-      alt: "子どもを遊ばせながら仕事や勉強もできたら良いのにという悩み",
-    },
-    {
-      src: "/images/problems/problem-rainy-stroller.png",
-      alt: "雨の日にベビーカーを押しながら傘をさすのは大変だという悩み",
+      src: "/images/problems/problem-cafe-vs-playground-new.png",
+      alt: "カフェだと子どもは退屈、遊び場だとママは休めないという悩み",
     },
     {
       src: "/images/problems/problem-child-anxiety-new-place.png",
       alt: "初めての場所で子どもが泣いたり騒いだりしないか不安という悩み",
     },
     {
-      src: "/images/problems/problem-cafe-vs-playground-new.png",
-      alt: "カフェだと子どもは退屈、遊び場だとママは休めないという悩み",
-    },
-    {
       src: "/images/problems/problem-with-luggage.png",
       alt: "子連れだと荷物が多くてどこへ行くにも大移動という悩み",
     },
+    {
+      src: "/images/problems/problem-rainy-stroller.png",
+      alt: "雨の日にベビーカーを押しながら傘をさすのは大変だという悩み",
+    },
+    {
+      src: "/images/problems/problem-work-while-watching-kids.png",
+      alt: "子どもを遊ばせながら仕事や勉強もできたら良いのにという悩み",
+    },
   ]
+  // </CHANGE>
+
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
 
   return (
     <div className="flex flex-col min-h-screen bg-custom-beige-unified overflow-x-hidden">
@@ -432,21 +463,33 @@ export default function AkihabaraPage() {
                   私たちの想い
                 </h2>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                  実は、私たち自身も子育て中に同じ悩みを抱えていました。カフェはママが楽しくても子どもは退屈、遊び場は子どもが楽しくてもママは話しづらい——。
+                  実は、私たち自身も子育て中に同じ悩みを抱えていました。
+                  <br className="md:hidden" />
+                  カフェはママが楽しくても子どもは退屈、
+                  <br className="md:hidden" />
+                  遊び場は子どもが楽しくてもママは話しづらい——。
                 </p>
                 <div className="my-4 p-4 bg-white border-l-4 border-pink-500 rounded-r-lg shadow-md">
                   <p className="text-lg sm:text-xl md:text-2xl font-bold text-pink-600 leading-snug">
-                    「ママも子どもも、どっちも主役になれる場所を。」
+                    「ママも子どもも、どっちも
+                    <br className="md:hidden" />
+                    主役になれる場所を。」
                   </p>
                 </div>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-                  その想いから、秋葉原店に続き、名古屋・矢場町の完全個室レンタルスペース「Moff room
-                  名古屋」をオープン。駅徒歩約6分・子連れ設備充実で、ママ会・女子会・撮影の"ちょうどいい"時間をお届けします。
+                  その想いから、秋葉原店に続く、
+                  <br className="md:hidden" />
+                  名古屋・矢場町の個室レンタルスペース「Moff room
+                  名古屋」をオープン。　　　　駅徒歩約6分・子連れ設備充実で、
+                  <br className="md:hidden" />
+                  ママ会・女子会・撮影の"ちょうどいい"
+                  <br className="md:hidden" />
+                  時間をお届けします。
                 </p>
 
                 {/* 新しい可愛いボタンデザイン */}
                 <div className="text-center lg:text-left mt-8">
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center">
+                  <div className="flex sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center flex-col my-[-35px] mt-[-61px]">
                     {/* 創業者の想い・背景を見るボタン */}
                     <motion.div
                       whileHover={{ scale: 1.05, y: -2 }}
@@ -464,7 +507,7 @@ export default function AkihabaraPage() {
                               創業者の想い・背景を見る
                             </span>
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-[-73px]"></div>
                         </div>
                       </Link>
                     </motion.div>
@@ -528,11 +571,15 @@ export default function AkihabaraPage() {
               <TabsContent value="overview" className="mt-12">
                 <div className="text-center mb-12">
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
-                    名古屋・矢場町のレンタルスペースで
-                    <span className="text-pink-500">ママ会</span>
-                    を安心して楽しめる理由
-                    <br />
-                    <span className="text-base sm:text-lg text-gray-600">（女子会・誕生日・撮影にも）</span>
+                    名古屋・矢場町の
+                    <br className="md:hidden" />
+                    レンタルスペースでママ会を
+                    <br className="md:hidden" />
+                    安心して楽しめる理由
+                    <br className="md:hidden" />
+                    （女子会・誕生日・撮影にも）
+                    <br className="md:hidden" />
+                    <br className="md:hidden" />
                   </h3>
                 </div>
 
@@ -551,14 +598,17 @@ export default function AkihabaraPage() {
                             01
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            泣いてもOK、周りに気を
-つかわない"完全個室"
+                            泣いてもOK、周りに気を　　　つかわない"完全個室"
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          1フロア1室のプライベート空間。矢場町駅から徒歩約6分、
-29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。
-赤ちゃんがぐずっても気兼ねなく過ごせます。
+                          1フロア1室のプライベート空間。
+                          <br className="md:hidden" />
+                          矢場町駅から徒歩約6分、 <br className="md:hidden" />
+                          29㎡・最大18名で、4〜10名のママ会に
+                          <br className="md:hidden" />
+                          ちょうどいいサイズ。 <br className="md:hidden" />
+                          赤ちゃんがぐずっても気兼ねなく過ごせます。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-2">
@@ -590,11 +640,20 @@ export default function AkihabaraPage() {
                             02
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            "くま映え"×自然光で、とびきり可愛い写真に
+                            "くま映え"×自然光で、　　　　とびきり可愛い写真に
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。
+                          大きなクマ🧸と明るい内装でSNS映え。
+                          <br className="md:hidden" />
+                          撮影用バースデー帽子もご用意。
+                          <br className="md:hidden" />
+                          名古屋・矢場町のレンタルスペースで、
+                          <br className="md:hidden" />
+                          集合写真やバースデーフォトがきれいに残せます。　　
+                          <br className="md:hidden" />
+                          女子会・誕生日・撮影にも◎
+                          <br className="md:hidden" />
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-1">
@@ -626,11 +685,15 @@ export default function AkihabaraPage() {
                             03
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            子連れ安心の装備が最初からそろう
+                            子連れ安心の装備が　　　　　最初からそろう
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
+                          クッションフロア／ベビーサークル／
+                          <br className="md:hidden" />
+                          おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。
+                          <br className="md:hidden" />
+                          ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-2">
@@ -662,11 +725,25 @@ export default function AkihabaraPage() {
                             04
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）
+                            手ぶらで楽しめて
+                            <br className="md:hidden" />
+                            片付けもラク
+                            <br className="md:hidden" />
+                            （キッチン＆プロジェクター）
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。
+                          冷蔵庫・電子レンジ・電気ケトル・IH
+                          <br className="md:hidden" />
+                          ・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。　　　　　　　　　Wi-Fi（光）＆プロジェクター・HDMIで
+                          <br className="md:hidden" />
+                          映画鑑賞・スポーツ観戦・推し活
+                          <br className="md:hidden" />
+                          ・YouTube収録も快適。
+                          <br className="md:hidden" />
+                          飲食・飲酒可、建物内ゴミ捨てOK
+                          <br className="md:hidden" />
+                          （有料・分別必須）。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-1">
@@ -760,8 +837,13 @@ export default function AkihabaraPage() {
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">
-                スタジオ設備スペック
+                スタジオ設備・スペック
               </h2>
+              <p className="text-lg text-gray-700 font-semibold mt-4">
+                Moff roomフロアマップ
+                <br className="md:hidden" />
+                （名古屋・矢場町）
+              </p>
             </div>
             <div className="max-w-2xl mx-auto mb-12">
               <Image
@@ -776,33 +858,109 @@ export default function AkihabaraPage() {
                 sizes="(max-width: 768px) 100vw, 800px"
               />
               <p className="text-center mt-4 text-sm sm:text-base text-gray-600">
-                Moff
-                roomのフロアマップです。広々とした空間と充実した設備をご確認いただけます。エレベーターでベビーカーごと入室でき、室内にはキッチン、トイレも完備しています。
+                29㎡・最大18名のワンルーム。
+                <br className="md:hidden" />
+                1フロア1室の完全個室で、ママ会でも周囲に
+                <br className="md:hidden" />
+                気兼ねなく過ごせます。
+                <br className="md:hidden" />
+                矢場町駅から徒歩約6分、エレベーターあり
+                <br className="md:hidden" />
+                （※利用前に10段の階段あり）。
+                <br className="md:hidden" />
+                室内にはキッチン・トイレ・Wi-Fi（光）・
+                <br className="md:hidden" />
+                プロジェクターを完備し、有料で建物内ゴミ捨てにも対応しています（分別必須）。
               </p>
             </div>
 
             <Planner5DEmbed />
 
             <div className="border border-custom-beige-border rounded-lg overflow-hidden shadow-sm">
-              {specs.map((spec, index) => (
-                <div
-                  key={index}
-                  className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
-                >
-                  <div className="py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
-                    {spec.label}
-                  </div>
-                  <div className="py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
-                    {spec.value}
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  広さ／定員
                 </div>
-              ))}
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  約29㎡／最大18名
+                  <br className="md:hidden" />
+                  （4〜10名のママ会に最適）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  キッチン設備
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  IHコンロ／冷蔵庫／電子レンジ／電気ケトル／鍋セット／トング類／たこ焼き器／ホットプレート／食器類：大皿×20／小皿×20／グラス×20／マグ×10／カトラリー（お子様用あり）
+                  <br className="md:hidden" />
+                  ※調味料の設置はありません
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  エンタメ・AV／ネットワーク
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  プロジェクター・スクリーン／HDMIケーブル／
+                  <br className="md:hidden" />
+                  Wi-Fi（光回線）／各種ゲーム（大人気ゲーム機 ※作品持込OK）／映画鑑賞・スポーツ観戦・推し活上映に
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  ベビー用品（子連れ向け）
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／
+                  <br className="md:hidden" />
+                  撮影用バースデー帽子／ベビーカー置き場あり
+                  <br className="md:hidden" />
+                  （※室内ではなく廊下に駐輪）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  家具・室内
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  ローテーブル×2／ソファ／ダイニングテーブル×2／
+                  <br className="md:hidden" />
+                  収納ベンチ×4／椅子・テーブル／エアコン（冷暖房）／電源タップ・延長コード
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  撮影関連
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  自然光／三脚／商用撮影可
+                  <br className="md:hidden" />
+                  （YouTube等の配信目的も可）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  そのほか
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未分別は別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙
+                </div>
+              </div>
             </div>
+            {/* </CHANGE> */}
           </div>
         </motion.section>
 
+        {/* Popularity & Early Booking Section */}
         <motion.section
-          className="py-16 md:py-24 bg-white relative overflow-hidden w-full"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden relative"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -813,48 +971,93 @@ export default function AkihabaraPage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-8">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-800 mb-6">
-                  <span className="pb-2 border-b-4 border-blue-800">人気ぶりと早期予約のお願い</span>
+                <h3 className="block md:hidden text-lg font-bold text-blue-800 mb-8 leading-relaxed">
+                  <span className="inline-block pb-3 border-b-4 border-blue-800">
+                    人気のMoff roomが名古屋に上陸！
+                    <br />
+                    レンタルスペース 名古屋・矢場町
+                    <br />
+                    （徒歩約6分）は早期予約が安心
+                  </span>
                 </h3>
+
+                <h3 className="hidden md:block text-lg font-bold text-blue-800 mb-8">
+                  <span className="inline-block pb-3 border-b-4 border-blue-800">
+                    人気のMoff roomが名古屋に上陸！　　　　　　　　　　　　レンタルスペース
+                    名古屋・矢場町は早期予約が安心
+                  </span>
+                </h3>
+
                 <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
                   <p>
-                    おかげさまでSNSでも話題となり、
-                    <strong>「予約が取れないママ会スペース」</strong>
-                    と言われるほどの人気ぶりです✨ 2023年12月には
-                    <strong>50組以上</strong>のご利用をいただきました。
+                    <strong>人気のMoff roomが名古屋に上陸！</strong> 🧸 <br className="md:hidden" />
+                    矢場町にオープンした"くま映え"レンタルスペースは、駅徒歩約6分の
+                    <strong>完全個室</strong>。
+                    <br className="md:hidden" />
+                    赤ちゃん連れでも周りに気をつかわず、
+                    <br className="md:hidden" />
+                    写真も"ちゃんと可愛い"。<strong>29㎡・最大18名</strong>で、
+                    <br className="md:hidden" />
+                    4〜10名の<strong>ママ会</strong>
+                    にちょうどいいサイズです。
+                    <br className="md:hidden" />
+                    SNSでも「#くま映え」が広がり、
+                    <br className="md:hidden" />
+                    栄・上前津・大須からのアクセスも良好。
                   </p>
-                  <p>
-                    特に週末はすぐ予約で埋まってしまいますので、「この日みんなで集まりたい！」という日時がお決まりでしたらぜひ
-                    <Link
-                      href={akihabaraStore.detailsLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-pink-500 font-bold hover:underline"
-                    >
-                      お早めのご予約
-                    </Link>
-                    をおすすめします。
-                  </p>
-                  <p>
-                    ホームページから予約で15%OFFや、Instagramでお得なキャンペーンも実施中ですので、この機会にぜひご利用ください！
-                  </p>
-                  <p className="font-semibold">
-                    悩めるママたちにとって、本当にホッとできる場所がここにあります。あなたもぜひ一度体験してみませんか？
-                  </p>
+
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                    <p className="font-bold text-blue-800 mb-3">—— 早めに押さえると嬉しいポイント ——</p>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>ベストな時間帯</strong>を先取り
+                          <br className="md:hidden" />
+                          自然光×デコで"映える"バースデーフォトに
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>準備の余裕</strong>が生まれる
+                          <br className="md:hidden" />
+                          飾りつけ／ケーキ持込→当日の進行がスムーズ
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>使いたい設備</strong>を確保
+                          <br className="md:hidden" />
+                          プロジェクター・たこ焼き器・ホットプレート ほか
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>片付けラク</strong>
+                          <br className="md:hidden" />
+                          建物内ゴミ捨てOK（有料・分別必須）
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
                   <div className="pt-4">
                     <Button
                       asChild
                       size="lg"
                       className="w-full sm:w-auto bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg"
                     >
-                      <Link href={akihabaraStore.detailsLink} target="_blank" rel="noopener noreferrer">
-                        下の「今すぐ予約する」ボタンから、理想のママ会を実現しましょう✨
+                      <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                        今すぐ予約する▶︎
                       </Link>
                     </Button>
                   </div>
                 </div>
               </div>
-              <div className="md:col-span-4 flex justify-center items-center">
+              <div className="md:col-span-4 hidden md:flex justify-center items-center">
                 <Image
                   src="/images/design-mode/S__48193562_0_0718052808.png"
                   alt="お辞儀するクマのイラスト"
@@ -873,26 +1076,28 @@ export default function AkihabaraPage() {
 
         {/* Benefits & USP Section */}
         <motion.section
-          className="py-16 md:py-20 bg-white w-full overflow-hidden"
+          className="py-16 md:py-20 w-full overflow-hidden"
+          style={{ backgroundColor: "rgb(254, 248, 174)" }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
           <div className="container px-4">
-            <h2 className="section-title">Moff room秋葉原店が選ばれる理由</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center font-heading">
+              Moff room名古屋店が
+              <br className="md:hidden" />
+              選ばれる理由
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-50 border border-gray-200 p-4 rounded-lg shadow-sm flex items-center"
-                >
-                  <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 mr-3 text-custom-beige-DEFAULT flex-shrink-0" />
-                  <span className="text-xs sm:text-sm text-gray-700">{benefit.text}</span>
+                <div key={index} className="bg-white border-2 border-white p-4 rounded-lg shadow-md flex items-center">
+                  <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 mr-3 text-pink-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-gray-900 font-medium">{benefit.text}</span>
                 </div>
               ))}
             </div>
-            <p className="text-center text-xs text-gray-500 mt-6 px-4">
+            <p className="text-center text-xs text-gray-700 mt-6 px-4">
               ※なお、スペース利用時は
               <strong>完全禁煙・近隣迷惑NG</strong>
               など利用規約順守をお願いしております。安心・安全にお楽しみいただくためにご協力ください。
@@ -918,47 +1123,39 @@ export default function AkihabaraPage() {
           </div>
           <div className="container max-w-7xl mx-auto mt-24 px-4">
             <div className="bg-custom-beige-accent border border-gray-200 p-6 md:p-8 rounded-xl shadow-xl mb-16">
-              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-center text-foreground">
                 創業者の想い・背景
               </h3>
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="md:w-3/4">
                   <p className="mb-4 text-sm sm:text-base">
-                    初めまして、Moff room秋葉原店 代表の
-                    <strong>山口 有紀</strong>
-                    と申します。
+                    はじめまして。Moff room 名古屋店（矢場町）運営の<strong>山口有紀</strong>です。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    私は普通の30代主婦でしたが、自身の育児経験から「ママと子どもが心から楽しめる居場所が欲しい！」と強く感じました。
+                    私自身、子育て中に「カフェだと子どもが退屈、遊び場だとママが話せない」を何度も体験しました。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    その想いから、このレンタルスペースをママ友と一緒に立ち上げました。
+                    だからこそ、ママも子どもも"どっちも主役"になれる場所をつくろう——そう決めて、秋葉原店での学びをもとに、名古屋・矢場町にもレンタルスペースを開きました。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    オープンまでには様々な試行錯誤がありました。その体験は『
-                    <strong>普通の30代主婦がママ友とレンタルスペース作ってみた</strong>
-                    』という電子書籍にまとめています。
+                    名古屋店は、駅徒歩約6分の<strong>完全個室</strong>。<strong>29㎡・最大18名</strong>で、4〜10名の
+                    <strong>ママ会</strong>に"ちょうどいい"。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    幸いにもAmazonでビジネス書ランキング1位を獲得することができました。
+                    ベビーグッズを充実させ、<strong>キッチン／Wi-Fi（光）／プロジェクター</strong>
+                    で準備も思い出づくりもスムーズに。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    このスペースには、私たち自身の「こんな場所があったらいいな」という願いがたくさん詰まっています。
+                    この歩みは『<strong>普通の30代主婦がママ友とレンタルスペース作ってみた</strong>
+                    』にまとめ、ありがたいことにAmazon売れ筋ランキング1位を獲得しました。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    ご利用くださるママさんとお子さんの笑顔を見るたびに、この仕事をやって良かったと心から思います。
+                    評価よりも何よりも、笑顔で「また来たい」と言っていただけることが、私たちの原動力です。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    これからも
-                    <strong>「ママと子どもの笑顔をもっと増やしたい」</strong>
-                    という想いを胸に、安全で楽しい空間づくりに励んでまいります。
+                    名古屋での集まりが、安心で、可愛く、心に残る時間になりますように。
                   </p>
-                  <p className="mb-4 text-sm sm:text-base">
-                    Moff room秋葉原店が、皆様のかけがえのない思い出の舞台となりますように。
-                  </p>
-                  <p className="mb-4 text-sm sm:text-base">
-                    心を込めて運営していますので、どうぞ安心してご利用ください💕
-                  </p>
+                  {/* </CHANGE> */}
                 </div>
                 <div className="md:w-1/4 text-center flex items-center justify-center">
                   <Image
@@ -1014,13 +1211,10 @@ export default function AkihabaraPage() {
                         』では開業までのエピソードを綴っています。
                       </p>
                       <p className="text-gray-700 text-sm sm:text-base">
-                        <strong className="text-pink-500">「ママも子どもも笑顔になれる場を増やしたい」</strong>
+                        <strong className="text-pink-500">「ママと子どもの笑顔をもっと増やしたい」</strong>
                         という想いで日々奮闘中です。
                       </p>
-                      <p className="text-gray-700 text-sm sm:text-base">
-                        <strong className="text-pink-500">「ママも子どもも笑顔になれる場を増やしたい」</strong>
-                        という想いで日々奮闘中です。
-                      </p>
+
                       <div className="mt-4 pt-3 border-t border-custom-beige-border">
                         <Link
                           href="https://www.instagram.com/moff_room/"
@@ -1060,7 +1254,12 @@ export default function AkihabaraPage() {
                 priority
                 sizes="(max-width: 640px) 300px, 400px"
               />
-              <p className="text-base sm:text-lg text-gray-600 mb-12">新御徒町駅徒歩5分の好立地！</p>
+              <p className="text-base sm:text-lg text-gray-600 mb-12">
+                矢場町駅徒歩約6分の好立地！
+                <br />
+                住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
+              </p>
+
               <Image
                 src="/images/access-map-v3-final.png"
                 alt="Moff Room周辺のアクセスマップ"
@@ -1074,12 +1273,13 @@ export default function AkihabaraPage() {
 
             <div className="text-center mb-16">
               <div className="text-sm sm:text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed space-y-4">
-                <p>新御徒町駅から徒歩5分、JR御徒町駅や秋葉原駅からも徒歩圏内とアクセスは抜群です。</p>
-                <p>駅前から続く佐竹商店街のアーケードを通れば、雨の日もほとんど傘を差さずに来られます。</p>
-                <p>
-                  周辺には商店街のほかコンビニ・スーパー・ドラッグストア・ピザ屋さん🍕もあり、集まりの途中での買い出しにも便利です。
+                <p></p>
+                <p>名古屋・矢場町のレンタルスペース。栄・上前津・大須からも徒歩圏で集合しやすい立地です。</p>
+                <p>周辺にはコンビニ／飲食店があり、買い出しにも便利。ベビーカー置き場あり（廊下に駐輪）。</p>
+                <p className="text-yellow-700 font-semibold">
+                  ※建物はエレベーター有。ただし入口からエレベーターまでに<strong>約10段の階段</strong>
+                  があります。
                 </p>
-                <p>建物にはエレベーターがあり、ベビーカーでもそのまま2階のスペースまで上がれます。</p>
               </div>
             </div>
 
@@ -1096,49 +1296,42 @@ export default function AkihabaraPage() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm sm:text-base">
-                      都営大江戸線・つくばエクスプレス「新御徒町駅」から徒歩5分
-                    </span>
+                    <span className="text-gray-700 text-sm sm:text-base">名城線「矢場町駅」徒歩6分（最寄り）</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-green-400 rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm sm:text-base">
-                      JR山手線・京浜東北線「御徒町駅」から徒歩8分
-                    </span>
+                    <span className="text-gray-700 text-sm sm:text-base">名城線「上前津駅」徒歩9分</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm sm:text-base">
-                      JR山手線・京浜東北線「秋葉原駅」から徒歩10分
-                    </span>
+                    <span className="text-gray-700 text-sm sm:text-base">鶴舞線「大須観音駅」徒歩15分</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm sm:text-base">
-                      JR山手線・京浜東北線「上野駅」から徒歩12分
-                    </span>
+                    <span className="text-gray-700 text-sm sm:text-base">東山線「栄駅」徒歩15分</span>
                   </div>
                 </div>
               </div>
 
               {/* 営業時間 */}
               <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl">
-                <div className="flex items-center mb-6">
-                  <div className="bg-green-100 rounded-full p-3 mr-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-green-100">
                     <Clock className="w-5 sm:w-6 h-5 sm:h-6 text-green-600" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">営業時間</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">返信対応時間</h3>
                 </div>
                 <div className="space-y-4">
                   <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">7:00 ~ 24:00</div>
-                    <div className="text-gray-600">年中無休</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">年中無休</div>
+                    <div className="text-gray-600">お問い合わせ返信対応時間として、7:00～24:00</div>
+                    {/* </CHANGE> */}
                   </div>
                   <div className="bg-green-50 rounded-lg p-4 mt-4">
                     <p className="text-xs sm:text-sm text-green-700 text-center">
-                      深夜・早朝のご利用も可能です！
+                      上記時間内にメッセージへの返信対応を行っております。
                       <br />
-                      ママ会だけでなく、お仕事での利用もお気軽にどうぞ。
+                      スペースのご利用は24時間可能です。
                     </p>
                   </div>
                 </div>
@@ -1148,38 +1341,49 @@ export default function AkihabaraPage() {
             {/* 主要駅からのアクセス */}
             <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-8">主要駅からのアクセス</h3>
-              <div className="grid sm:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="bg-blue-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl sm:text-2xl font-bold text-blue-600">5分</span>
+                    <span className="text-xl sm:text-2xl font-bold text-blue-600">6分</span>
                   </div>
-                  <h4 className="font-bold text-blue-600 mb-2 text-sm sm:text-base">新御徒町駅</h4>
+                  <h4 className="font-bold text-blue-600 mb-2 text-sm sm:text-base">矢場町駅</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    徒歩5分
+                    徒歩6分
                     <br />
-                    （最寄り駅・アクセス抜群）
+                    （最寄り・アクセス良好）
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="bg-green-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl sm:text-2xl font-bold text-green-600">8分</span>
+                    <span className="text-xl sm:text-2xl font-bold text-green-600">9分</span>
                   </div>
-                  <h4 className="font-bold text-green-600 mb-2 text-sm sm:text-base">御徒町駅</h4>
+                  <h4 className="font-bold text-green-600 mb-2 text-sm sm:text-base">上前津駅</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    徒歩8分
+                    徒歩9分
                     <br />
-                    （JR利用者におすすめ）
+                    （名城線ユーザーに便利）
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="bg-orange-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl sm:text-2xl font-bold text-orange-600">10分</span>
+                    <span className="text-xl sm:text-2xl font-bold text-orange-600">15分</span>
                   </div>
-                  <h4 className="font-bold text-orange-600 mb-2 text-sm sm:text-base">秋葉原駅</h4>
+                  <h4 className="font-bold text-orange-600 mb-2 text-sm sm:text-base">大須観音駅</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    徒歩10分
+                    徒歩15分
                     <br />
-                    （複数路線利用可能）
+                    （鶴舞線から）
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-purple-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl sm:text-2xl font-bold text-purple-600">15分</span>
+                  </div>
+                  <h4 className="font-bold text-purple-600 mb-2 text-sm sm:text-base">栄駅</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    徒歩15分
+                    <br />
+                    （ショッピングついでにも）
                   </p>
                 </div>
               </div>
@@ -1193,7 +1397,9 @@ export default function AkihabaraPage() {
                     <Navigation className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">道案内のポイント</h3>
-                  <p className="text-gray-600 text-sm">迷わずお越しいただけるよう、詳しい道順をご案内します</p>
+                  <p className="text-gray-600 text-sm">
+                    矢場町駅から迷わずお越しいただけるよう、詳しい道順をご案内します
+                  </p>
                 </div>
                 <div className="relative pl-10">
                   <div className="absolute left-[18px] top-5 bottom-5 w-0.5 bg-blue-200"></div>
@@ -1203,11 +1409,14 @@ export default function AkihabaraPage() {
                     <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
                       1
                     </div>
-                    <h4 className="font-bold text-gray-800 mb-2">新御徒町駅A2出口を出て西へ進む</h4>
+                    <h4 className="font-bold text-gray-800 mb-2">4番出口を出て大津通を南（上前津方面）へ直進</h4>
                     <div className="bg-blue-50 rounded-lg p-3 text-sm text-blue-700">
                       <div className="flex items-center">
                         <Baby className="w-4 h-4 mr-2 flex-shrink-0" />
-                        <p>ベビーカーご利用の方はA3出口のエレベーターをご利用ください。</p>
+                        <p>
+                          ベビーカーご利用の方は矢場町駅改札から<strong>松坂屋南館のエレベーター</strong>
+                          をご利用いただくと地上移動がスムーズです。
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1217,11 +1426,11 @@ export default function AkihabaraPage() {
                     <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
                       2
                     </div>
-                    <h4 className="font-bold text-gray-800 mb-2">佐竹商店街のアーケードを通って直進</h4>
+                    <h4 className="font-bold text-gray-800 mb-2">大須3交差点を右折</h4>
                     <div className="bg-green-50 rounded-lg p-3 text-sm text-green-700">
                       <div className="flex items-center">
-                        <ShoppingBag className="w-4 h-4 mr-2 flex-shrink-0" />
-                        <p>アーケードがあるので、雨の日もほとんど濡れずにお越しいただけます。</p>
+                        <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <p>交差点を右折後、少し進むと目的地が見えてきます。</p>
                       </div>
                     </div>
                   </div>
@@ -1231,11 +1440,14 @@ export default function AkihabaraPage() {
                     <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
                       3
                     </div>
-                    <h4 className="font-bold text-gray-800 mb-2">長島エレガンス第五ビルの２階</h4>
+                    <h4 className="font-bold text-gray-800 mb-2">左手の11階建ビルの7階が「Moff room 名古屋店」</h4>
                     <div className="bg-purple-50 rounded-lg p-3 text-sm text-purple-700">
                       <div className="flex items-center">
                         <Building2 className="w-4 h-4 mr-2 flex-shrink-0" />
-                        <p>エレベーター完備のビルです。ベビーカーでそのまま2階まで上がれます。</p>
+                        <p>
+                          建物内はエレベーター前に<strong>約10段の階段</strong>
+                          があります。ベビーカーは室内ではなく<strong>廊下に駐輪</strong>してください。
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1251,7 +1463,7 @@ export default function AkihabaraPage() {
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">道案内のポイント</h3>
                 <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-                  迷わずお越しいただけるよう、詳しい道順をご案内いたします
+                  矢場町駅から迷わずお越しいただけるよう、詳しい道順をご案内いたします
                 </p>
               </div>
 
@@ -1266,7 +1478,7 @@ export default function AkihabaraPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">
-                        新御徒町駅A2出口を出て西へ進む
+                        4番出口を出て大津通を南（上前津方面）へ直進
                       </h4>
                       <div className="bg-blue-50 rounded-lg p-4">
                         <div className="flex items-center text-blue-700">
@@ -1274,7 +1486,8 @@ export default function AkihabaraPage() {
                           <span className="font-semibold text-sm sm:text-base">ベビーカーご利用の方へ</span>
                         </div>
                         <p className="text-blue-600 mt-2 text-sm sm:text-base">
-                          A3出口にエレベーターがございますので、そちらをご利用ください
+                          矢場町駅改札から<strong>松坂屋南館のエレベーター</strong>
+                          をご利用いただくと地上移動がスムーズです
                         </p>
                       </div>
                     </div>
@@ -1290,16 +1503,14 @@ export default function AkihabaraPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">
-                        佐竹商店街のアーケードを通って直進
-                      </h4>
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">大須3交差点を右折</h4>
                       <div className="bg-green-50 rounded-lg p-4">
                         <div className="flex items-center text-green-700">
-                          <ShoppingBag className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
-                          <span className="font-semibold text-sm sm:text-base">雨の日も安心</span>
+                          <MapPin className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
+                          <span className="font-semibold text-sm sm:text-base">目印</span>
                         </div>
                         <p className="text-green-600 mt-2 text-sm sm:text-base">
-                          アーケードがあるので、雨の日もほとんど濡れずにお越しいただけます
+                          交差点を右折後、少し進むと目的地が見えてきます
                         </p>
                       </div>
                     </div>
@@ -1315,14 +1526,17 @@ export default function AkihabaraPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">長島エレガンス第五ビルの２階</h4>
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">
+                        左手の11階建ビルの7階が「Moff room 名古屋店」
+                      </h4>
                       <div className="bg-purple-50 rounded-lg p-4">
                         <div className="flex items-center text-purple-700">
                           <Building2 className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
                           <span className="font-semibold text-sm sm:text-base">建物の特徴</span>
                         </div>
                         <p className="text-purple-600 mt-2 text-sm sm:text-base">
-                          エレベーター完備の2階建てビル。ベビーカーでそのまま2階まで上がれます
+                          建物内はエレベーター前に<strong>約10段の階段</strong>
+                          があります。ベビーカーは室内ではなく<strong>廊下に駐輪</strong>してください
                         </p>
                       </div>
                     </div>
@@ -1338,13 +1552,13 @@ export default function AkihabaraPage() {
                     正確な位置と周辺情報をGoogleマップでご確認いただけます
                   </p>
                   <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="inline-block w-full sm:w-auto"
                   >
                     <Link
-                      href="https://www.google.com/maps/search/?api=1&query=東京都台東区台東2-18-9"
+                      href="https://www.google.com/maps?q=35.1617145,136.9069915+(Moff%20room%20%E3%80%8A%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%BA%97%E3%80%8B)"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
@@ -1354,11 +1568,14 @@ export default function AkihabaraPage() {
                       <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-3" />
                     </Link>
                   </motion.div>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-4">住所：東京都台東区台東2-18-9 ２階</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-4">
+                    住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+          {/* </CHANGE> */}
         </motion.section>
 
         {/* Booking Flow Section */}
@@ -1376,7 +1593,7 @@ export default function AkihabaraPage() {
               alt="ご予約から当日利用までの流れ"
               width={400}
               height={150}
-              className="mx-auto mb-12 w-full max-w-[300px] sm:max-w-[400px] h-auto"
+              className="mx-auto w-full max-w-[300px] sm:max-w-[400px] h-auto"
             />
             {/* Mobile Booking Flow */}
             <div className="md:hidden space-y-4 max-w-sm mx-auto">
@@ -1580,7 +1797,7 @@ export default function AkihabaraPage() {
                 </h2>
                 <p className="text-gray-600 mb-8 leading-relaxed max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
                   Moff
-                  roomは秋葉原店のほかにも、関東・関西エリアに複数の店舗を展開中！お近くの店舗の空き状況の確認やご予約は、総合HPからどうぞ。
+                  roomは名古屋店のほかにも、関東・関西エリアに複数の店舗を展開中！お近くの店舗の空き状況の確認やご予約は、総合HPからどうぞ。
                 </p>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -1592,7 +1809,7 @@ export default function AkihabaraPage() {
                     href="https://moffroom.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <Globe className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
                     <span>Moff Room 総合サイトへ</span>
@@ -1606,7 +1823,7 @@ export default function AkihabaraPage() {
 
       <SiteFooter />
       <ContactFormModal open={modalOpen} onOpenChange={setModalOpen} />
-      <FloatingCTA onInquiryClick={() => setModalOpen(true)} />
+      <FloatingCTA onInquiryClick={onInquiryClick} />
     </div>
   )
 }
