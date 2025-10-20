@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 @font-face {
   font-family: "JKG-M";
@@ -10,85 +11,233 @@
   font-display: swap;
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 39 56% 75%; /* custom-beige-DEFAULT DFC49E */
-    --primary-foreground: 240 10% 3.9%; /* Dark text on beige */
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 39 56% 75%; /* custom-beige-DEFAULT for ring */
-    --radius: 0.75rem; /* Slightly more rounded like the image */
-  }
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 39 56% 75%;
+  --primary-foreground: 240 10% 3.9%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 39 56% 75%;
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
 
-  .dark {
-    /* Dark mode colors can be defined here if needed */
-  }
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 39 56% 75%;
+  --primary-foreground: 240 10% 3.9%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 39 56% 75%;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@theme {
+  /* Custom color tokens for Tailwind v4 */
+  --color-custom-beige: rgb(223, 196, 158);
+  --color-custom-beige-light: rgb(245, 235, 224);
+  --color-custom-beige-lighter: rgb(251, 245, 238);
+  --color-custom-beige-warm: rgb(240, 230, 220);
+  --color-custom-beige-unified: rgb(255, 255, 255);
+  --color-custom-beige-accent: rgb(254, 248, 174);
+  --color-custom-beige-border: rgb(254, 248, 174);
+  --color-custom-beige-dark: rgb(254, 248, 174);
+  --color-custom-beige-section: rgb(250, 245, 220);
+
+  --color-brand-pink: #fbcfe8;
+  --color-brand-blue: #bfdbfe;
+  --color-brand-green: #a7f3d0;
+  --color-brand-orange: #fed7aa;
+  --color-brand-purple: #d8b4fe;
+  --color-brand-brown: #8b4513;
+  --color-theme-gold: #d2a679;
+  --color-accent-border: #f5d1b0;
+  --color-custom-mint: rgb(202, 229, 206);
+
+  /* Font family tokens */
+  --font-family-jkg: "JKG-M", sans-serif;
+  --font-family-heading: "JKG-M", sans-serif;
+  --font-family-body: "JKG-M", sans-serif;
+
+  /* Animation tokens */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 
 @layer base {
   * {
-    @apply border-border font-jkg;
+    @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-custom-beige-lighter text-custom-beige-dark font-jkg;
-    @apply antialiased;
-    overflow-x: hidden;
-  }
-  html {
-    overflow-x: hidden;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-jkg;
-  }
-  p,
-  span,
-  div,
-  a,
-  button,
-  input,
-  textarea,
-  label {
-    @apply font-jkg;
+    @apply bg-background text-foreground;
   }
 }
 
-/* Helper class for section titles, inspired by the image */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
+  font-family: "JKG-M", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "JKG-M", sans-serif;
+}
+
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+label {
+  font-family: "JKG-M", sans-serif;
+}
+
 .section-title {
-  @apply font-jkg text-2xl sm:text-3xl font-extrabold text-center mb-2 text-custom-beige-dark;
-}
-.section-subtitle {
-  @apply font-jkg text-center text-custom-beige-dark mb-8;
+  font-family: "JKG-M", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: rgb(254, 248, 174);
 }
 
-/* Custom button style to match image's "詳しくはこちら" */
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 1.875rem;
+  }
+}
+
+.section-subtitle {
+  font-family: "JKG-M", sans-serif;
+  text-align: center;
+  color: rgb(254, 248, 174);
+  margin-bottom: 2rem;
+}
+
 .details-button {
-  @apply font-jkg inline-block px-6 py-2 text-sm border border-custom-beige-DEFAULT text-custom-beige-dark rounded-full hover:bg-custom-beige-DEFAULT hover:text-white transition-colors;
+  font-family: "JKG-M", sans-serif;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  border: 1px solid rgb(223, 196, 158);
+  color: rgb(254, 248, 174);
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+
+.details-button:hover {
+  background-color: rgb(223, 196, 158);
+  color: white;
 }
 
 .cta-button-main {
-  @apply font-jkg bg-brand-pink text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-pink-500 transition-colors;
+  font-family: "JKG-M", sans-serif;
+  background-color: #fbcfe8;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
 }
 
-/* Preloader Styles */
+.cta-button-main:hover {
+  background-color: #ec4899;
+}
+
 @keyframes slideUp {
   from {
     transform: translateY(100%);
@@ -99,10 +248,27 @@
 }
 
 @keyframes preloaderFadeOut {
-  /* Renamed to avoid conflict with potential existing fadeOut */
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
   }
 }
 
@@ -119,59 +285,56 @@
   z-index: 9999;
   opacity: 1;
   visibility: visible;
-  overflow: hidden; /* To contain the rainbow bar */
+  overflow: hidden;
   font-family: "JKG-M", sans-serif;
 }
 
 .preloader-fade-out-animation {
   animation: preloaderFadeOut 0.5s ease-in-out forwards;
-  animation-delay: 0.8s; /* Start fadeOut after slideUp (0.8s) */
+  animation-delay: 0.8s;
 }
 
 .rainbow-bar {
   width: 100%;
-  height: 200%; /* To ensure it covers the screen during slide up and from below */
+  height: 200%;
   position: absolute;
-  bottom: 0; /* Start from the bottom */
+  bottom: 0;
   left: 0;
   background: linear-gradient(
     to top,
-    rgb(220, 195, 159) 0% /* ベージュ */,
-    rgb(203, 226, 205) 14% /* ミント */,
-    rgb(186, 224, 231) 28% /* スカイブルー */,
-    rgb(208, 204, 228) 42% /* ラベンダー */,
-    rgb(255, 247, 174) 56% /* レモン */,
-    rgb(251, 216, 162) 70% /* ピーチ */,
-    rgb(243, 180, 207) 84% /* ピンク */
+    rgb(220, 195, 159) 0%,
+    rgb(203, 226, 205) 14%,
+    rgb(186, 224, 231) 28%,
+    rgb(208, 204, 228) 42%,
+    rgb(255, 247, 174) 56%,
+    rgb(251, 216, 162) 70%,
+    rgb(243, 180, 207) 84%
   );
-  transform: translateY(100%); /* Initial position: fully below the viewport */
+  transform: translateY(100%);
 }
 
 .rainbow-bar-slide-up-animation {
   animation: slideUp 0.8s ease-in-out forwards;
 }
 
-/* Mobile-specific styles */
 @media (max-width: 768px) {
   .container {
-    @apply px-4;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  /* Prevent horizontal scrolling on mobile */
   body,
   html {
     max-width: 100vw;
     overflow-x: hidden;
   }
 
-  /* Ensure all content stays within viewport */
   * {
     max-width: 100%;
     box-sizing: border-box;
   }
 }
 
-/* Text shadow utility */
 .text-shadow {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -180,10 +343,8 @@
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-@layer utilities {
-  .bg-dotted-orange {
-    background-color: #f9a826; /* A nice orange from your brand palette */
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
-    background-size: 20px 20px;
-  }
+.bg-dotted-orange {
+  background-color: #f9a826;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }

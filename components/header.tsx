@@ -95,7 +95,7 @@ function FullscreenMenu({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-custom-beige-light p-6 flex flex-col font-jkg overflow-y-auto"
+      className="fixed inset-0 z-50 bg-custom-beige-dark p-6 flex flex-col font-jkg overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -126,7 +126,7 @@ function FullscreenMenu({ onClose }: { onClose: () => void }) {
         <motion.div variants={containerVariants} className="w-full max-w-4xl mx-auto">
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 border-y border-gray-300 py-8 mb-10"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 border-y border-custom-beige-border py-8 mb-10"
           >
             {menuItems.map((item) => (
               <Link
@@ -195,14 +195,14 @@ export default function SiteHeader() {
       href: "#features",
       label: "スペースの特徴",
       icon: <Home className="h-5 w-5 mr-2 text-gray-600" />,
-      borderColor: "border-gray-300",
+      borderColor: "border-custom-beige-border",
       textColor: "text-gray-700",
     },
     {
       href: "#reviews",
       label: "お客様の声",
       icon: <Star className="h-5 w-5 mr-2 text-red-500" />,
-      borderColor: "border-red-300",
+      borderColor: "border-custom-beige-border",
       textColor: "text-red-500",
     },
   ]
@@ -226,7 +226,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-custom-beige-dark shadow-sm font-jkg">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-custom-beige-dark shadow-md border-b border-custom-beige-border font-jkg">
         <div
           className="h-2.5 bg-gradient-to-r from-pink-300 via-yellow-300 via-green-300 via-blue-300 to-purple-300"
           style={{
@@ -274,7 +274,7 @@ export default function SiteHeader() {
             </Button>
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="flex flex-col items-center text-gray-600 hover:text-gray-800 focus:outline-none ml-4 p-2 rounded hover:bg-gray-100 transition-colors font-jkg"
+              className="flex flex-col items-center justify-center text-gray-600 hover:text-gray-800 focus:outline-none ml-4 p-2 rounded hover:bg-gray-100 transition-colors font-jkg"
             >
               <Menu className="h-6 w-6" />
               <span className="text-xs mt-0.5 font-jkg">MENU</span>
@@ -301,7 +301,7 @@ export default function SiteHeader() {
             </Button>
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="flex flex-col items-center justify-center text-gray-600 hover:text-gray-800 focus:outline-none bg-white border-2 border-custom-beige-DEFAULT rounded-full h-10 w-10 shadow-sm"
+              className="flex flex-col items-center justify-center text-gray-600 hover:text-gray-800 focus:outline-none bg-custom-beige-dark border-2 border-custom-beige-border rounded-full h-10 w-10 shadow-sm"
               aria-label="メニューを開く"
             >
               <Menu className="h-5 w-5" />

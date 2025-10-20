@@ -51,7 +51,7 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-heading mb-6">当社へ寄せられた口コミ</h2>
-        <div className="inline-flex items-center gap-4 bg-custom-beige-dark shadow-lg rounded-full py-2 px-6">
+        <div className="inline-flex items-center gap-4 bg-white border border-gray-200 shadow-lg rounded-full py-2 px-6">
           <Image
             src="/images/moff-room-logo-transparent.png"
             alt="Moff room logo"
@@ -83,7 +83,7 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
           {reviews.map((review, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <div className="p-1 h-full">
-                <Card className="p-6 bg-custom-beige-dark shadow-lg h-full flex flex-col rounded-xl">
+                <Card className="p-6 bg-white border border-gray-200 shadow-lg h-full flex flex-col rounded-xl">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       {[...Array(review.rating)].map((_, i) => (
@@ -94,7 +94,7 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
                       ))}
                     </div>
                   </div>
-                  <h3 className="font-bold text-lg text-custom-beige-unified mb-3">{review.title}</h3>
+                  <h3 className="font-bold text-lg text-gray-800 mb-3">{review.title}</h3>
                   <blockquote className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
                     {review.comment}
                   </blockquote>
@@ -106,10 +106,10 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-custom-beige-dark/80 hover:bg-custom-beige-dark text-gray-800 rounded-full w-10 h-10 shadow-md border-none">
+        <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 shadow-md border border-gray-200">
           <ChevronLeft className="h-6 w-6" />
         </CarouselPrevious>
-        <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-custom-beige-dark/80 hover:bg-custom-beige-dark text-gray-800 rounded-full w-10 h-10 shadow-md border-none">
+        <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 shadow-md border border-gray-200">
           <ChevronRight className="h-6 w-6" />
         </CarouselNext>
       </Carousel>

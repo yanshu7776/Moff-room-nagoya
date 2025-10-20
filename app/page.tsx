@@ -125,7 +125,7 @@ const akihabaraStore: StoreWithReviews = {
       {
         title: "とても素敵なお部屋でした！",
         comment:
-          "この度はありがとうございました。 やりとりの段階からとてもスムーズで安心できました。お部屋も広く綺麗で、おもちゃや備品も色々ありとても助かりました。 また機会がありましたらよろしくお願いします。",
+          "この度はありがとうございました。 やりとりの段階からとてもスムーズで安心できました。お部屋も広く綺麗で、おもちゃや備品も色々ありとても助かりました。 また機会がありましたたらよろしくお願いします。",
         age: "30代・女性",
         purpose: "おしゃべり会",
         rating: 5,
@@ -204,48 +204,44 @@ const faqs = [
   },
 ]
 
-const features = [
-  {
-    title: "親しみやすいインテリアと撮影スポット",
-    description:
-      "ナチュラルで親しみやすいインテリアでまとめられており、明るく清潔感があります。大きなくまのぬいぐるみや木のおもちゃが所狭しと並び、お子様も思わず「かわいい！」と笑顔になる空間です。お子様の記念撮影にもピッタリで、SNS映えする写真が撮れるとママたちにも好評です。",
-    imageSrc: "/images/features/moms-gathering-space-2.webp",
-    imageAlt: "Moff roomの親しみやすいインテリア",
-  },
-  {
-    title: "子連れに嬉しい充実の備品",
-    description:
-      "靴を脱いで上がるスタイルで、自宅のようにリラックスできます。おむつ替えシート、バンボ、バウンサー、授乳クッションから電子レンジ・電気ケトルまで、子連れに嬉しい備品を一通り完備。万一お洋服が汚れても、子供用古着を1着無料プレゼントしているので安心です。",
-    imageSrc: "/images/features/tableware.webp",
-    imageAlt: "充実したベビー用品",
-  },
-  {
-    title: "赤ちゃんも安心・安全な空間",
-    description:
-      "床にはクッション性のあるフロアマットを敷いており、ハイハイ期のお子様が転んでも安心です。ベビーサークルやバウンサーも用意されているため、ママのそばで安全に遊ばせながら過ごせます。たとえ赤ちゃんが泣いてしまっても完全個室なので周囲を気にせずあやせるのもポイントです。",
-    imageSrc: "/images/features/child-rocking-horse.webp",
-    imageAlt: "クッションフロアで安全に遊ぶ赤ちゃん",
-  },
-  {
-    title: "広々ワンルームで多目的に利用可能",
-    description:
-      "約40㎡の広々ワンルームで、最大25名まで利用可能です。4〜15名程度のママ会でも全員が座れるゆとりがあり、室内にはベビーカーを畳まず4台程度置いておけるスペースも確保しています。ママ会以外に女子会・誕生日パーティー・オフ会・推し活など幅広い用途でご利用いただけます。",
-    imageSrc: "/images/features/spacious-37m2-room.webp",
-    imageAlt: "広々としたパーティースペース",
-  },
-]
-
+// Studio Specs Section Data
 const specs = [
-  { label: "広さ", value: "約37㎡（最大25名様まで収容可能）" },
-  { label: "キッチン設備", value: "IHコンロ、冷蔵庫、電子レンジ、電気ケトル、調理器具、食器類" },
+  { label: "スペース名称", value: "Moff room 秋葉原店" },
+  { label: "所在地", value: "〒110-0016 東京都台東区台東2-18-9 2F" },
+  { label: "広さ", value: "37㎡（24畳）" },
+  { label: "最大収容人数", value: "18名" },
+  { label: "エレベーター", value: "あり（※1階から2階まで）" },
+  { label: "フロア", value: "2階 / 1フロア1室" },
+  { label: "広さ（畳）", value: "24畳" },
+  { label: "室内設備", value: "Wi-Fi（光）、エアコン、ハンガーラック、姿見、掃除機、加湿器、除湿機、空気清浄機" },
   {
-    label: "エンタメ設備",
-    value: "120インチ大型スクリーン、プロジェクター、Blu-ray/DVDプレーヤー、Amazon Fire TV Stick",
+    label: "キッチン設備",
+    value:
+      "IHコンロ（2口）、グリル、電子レンジ、冷蔵庫、電気ケトル、炊飯器、鍋セット、フライパン、食器類（皿、コップ、カトラリー）、調理器具（包丁、まな板、おたま、フライ返し、トング、菜箸）、たこ焼き器、ホットプレート",
   },
-  { label: "音響設備", value: "Bluetooth対応スピーカー" },
-  { label: "ベビー用品", value: "バンボ、バウンサー、授乳クッション、ベビーサークル、おもちゃ各種" },
-  { label: "家具", value: "ローテーブル、ソファ、クッション、子供用椅子" },
-  { label: "その他", value: "エアコン、エレベーター、室内トイレ、ゴミ捨て可（有料オプション）" },
+  { label: "調理", value: "OK（※匂いの強いもの、油の多いものはご遠慮ください）" },
+  { label: "飲食", value: "OK" },
+  { label: "飲酒", value: "OK" },
+  { label: "喫煙", value: "不可（※建物内全面禁煙）" },
+  { label: "防犯カメラ", value: "あり（※室外のみ）" },
+  { label: "防音", value: "なし" },
+  { label: "内見", value: "不可" },
+  { label: "ゴミ", value: "建物内ゴミ捨て可（※有料・分別必須）" },
+  { label: "近隣迷惑", value: "NG" },
+  { label: "退室時間", value: "予約時間内に完全撤収・清掃完了" },
+  { label: "最寄駅", value: "新御徒町駅（徒歩5分）" },
+  { label: "駐車場", value: "なし（※近隣コインパーキングをご利用ください）" },
+  { label: "ベビーカー", value: "OK（※室内ではなく廊下に駐輪）" },
+  {
+    label: "ベビーグッズ",
+    value:
+      "ベビーサークル、おもちゃ多数、バンボ×2、バウンサー、ローチェア、ベビー用食器、子供服（50-95cm / 1着無料持ち帰り可）",
+  },
+  {
+    label: "その他備品",
+    value:
+      "プロジェクター、スクリーン、HDMIケーブル、Blu-ray/DVDプレイヤー、ゲーム機（Nintendo Switch）、ボードゲーム、トランプ、Bluetoothスピーカー、ホワイトボード、マーカー、プロジェクター用三脚、延長コード、変換プラグ、各種充電ケーブル、アイロン、アイロン台、救急箱、体温計、爪切り、ハサミ、缶切り、栓抜き、ワインオープナー、まな板、包丁、おたま、フライ返し、トング、菜箸、ピーラー、キッチンバサミ、計量カップ、計量スプーン、アルミホイル、ラップ、キッチンペーパー、ティッシュ、ウェットティッシュ、除菌シート、アルコールスプレー、手指消毒剤、マスク、食器用洗剤、スポンジ、布巾、キッチンペーパー、ゴミ袋、クイックルワイパー、掃除機、ほうき、ちりとり、バケツ、雑巾、ハンディモップ、延長コード、変換プラグ、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池、延長コード、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池、延長コード、USB充電ポート付き電源タップ、輪ゴム、クリップ、セロテープ、マジックペン、ホワイトボードマーカー、ホワイトボードイレーザー、壁掛け時計、リモコン、電池",
+  },
 ]
 
 export default function AkihabaraPage() {
@@ -298,17 +294,36 @@ export default function AkihabaraPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full max-w-4xl mx-auto"
             >
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-shadow-md">
-                ＼子育てママに朗報／
-                <br />
-                <span className="mt-2 block">ママも子どもも</span>
-                <span className="block -mt-2">ストレスフリーで過ごせる</span>
-                <br />
-                <span className="text-pink-400">完全個室レンタルスペース</span>✨
-              </h1>
-              <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-gray-200 text-shadow px-2">
-                秋葉原・上野から徒歩圏内の好立地。1フロア1室の完全個室で周囲に気兼ねなくママ会や推し活が楽しめます。ベビー用品完備で雨の日もベビーカー楽々アクセス♪
-              </p>
+              <div className="md:hidden">
+                <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md">
+                  <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
+                  <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
+                  <span className="block text-lg mb-2">（駅約6分）</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸くま映え×子連れ安心🧸 ｜最大18名｜¥425〜</span>
+                </h1>
+              </div>
+
+              <div className="hidden md:block">
+                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-shadow-md">
+                  <span className="block mb-3 text-pink-400 font-bold leading-[7.75rem] tracking-normal text-8xl mt-[-182px]">
+                    ＼NEW OPEN／
+                  </span>
+                  <span className="block mb-3 font-black">
+                    レンタルスペース 名古屋・矢場町駅
+                    <br />
+                    徒歩約6分
+                  </span>
+                  <span className="block text-pink-400 text-2xl lg:text-3xl xl:text-4xl mb-4">
+                    🧸くま映えの完全個室🧸
+                  </span>
+                  <span className="block text-xl lg:text-2xl xl:text-3xl mb-3">ママ会・誕生日・推し活・撮影に。</span>
+                  <span className="block text-lg lg:text-xl xl:text-2xl text-gray-200">
+                    最大18名・29㎡／子連れOK・ベビーグッズ多数／
+                    <br />
+                    キッチン・Wi-Fi・プロジェクター。
+                  </span>
+                </h1>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -325,7 +340,7 @@ export default function AkihabaraPage() {
                   今すぐ予約する▶︎
                 </Link>
               </Button>
-              <p className="mt-3 text-sm sm:text-base font-semibold text-green-300 text-shadow">
+              <p className="mt-3 sm:text-base font-semibold text-yellow-300 text-shadow text-xs">
                 【ここから予約すると15%OFF！！実施中！】
               </p>
             </motion.div>
@@ -333,7 +348,7 @@ export default function AkihabaraPage() {
         </section>
 
         {/* Image Carousel Section */}
-        <section className="bg-custom-beige-unified py-12 md:py-16 w-full overflow-hidden">
+        <section className="bg-white py-12 md:py-16 w-full overflow-hidden">
           <ImageCarousel
             images={featuresGalleryImages.map((image) => image.src)}
             placeholder="blur"
@@ -344,7 +359,7 @@ export default function AkihabaraPage() {
         {/* Problems Section */}
         <motion.section
           id="problems"
-          className="py-12 md:py-20 bg-custom-beige-unified w-full overflow-hidden"
+          className="py-12 md:py-20 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -383,7 +398,7 @@ export default function AkihabaraPage() {
         {/* Our Thoughts Section */}
         <motion.section
           id="our-thoughts"
-          className="bg-custom-beige-dark py-12 md:py-16 w-full overflow-hidden"
+          className="bg-custom-beige-accent py-12 md:py-16 w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -405,20 +420,20 @@ export default function AkihabaraPage() {
                 />
               </div>
               <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-custom-beige-unified mb-6 font-heading">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-heading">
                   私たちの想い
                 </h2>
-                <p className="text-base md:text-lg text-yellow-50 leading-relaxed mb-4">
-                  実は、このスペースを立ち上げた私たち自身、子育て中にまさに同じ悩みを抱えていました。
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+                  実は、私たち自身も子育て中に同じ悩みを抱えていました。カフェはママが楽しくても子どもは退屈、遊び場は子どもが楽しくてもママは話しづらい——。
                 </p>
-                <div className="my-4 p-4 bg-pink-50 border-l-4 border-pink-400 rounded-r-lg shadow-sm">
+                <div className="my-4 p-4 bg-white border-l-4 border-pink-500 rounded-r-lg shadow-md">
                   <p className="text-lg sm:text-xl md:text-2xl font-bold text-pink-600 leading-snug">
-                    「ママも子どもも楽しめる空間を提供したい」
+                    「ママも子どもも、どっちも主役になれる場所を。」
                   </p>
                 </div>
-                <p className="text-base md:text-lg text-yellow-50 leading-relaxed mb-8">
-                  ──その想いを実現すべく、私たちは2023年10月に <strong>Moff room秋葉原店</strong> をオープンしました。
-                  以来、多くのママとお子様に笑顔の時間をお届けしています。
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
+                  その想いから、秋葉原店に続き、名古屋・矢場町の完全個室レンタルスペース「Moff room
+                  名古屋」をオープン。駅徒歩約6分・子連れ設備充実で、ママ会・女子会・撮影の"ちょうどいい"時間をお届けします。
                 </p>
 
                 {/* 新しい可愛いボタンデザイン */}
@@ -485,7 +500,7 @@ export default function AkihabaraPage() {
         {/* Features Section */}
         <motion.section
           id="features"
-          className="py-20 md:py-24 bg-custom-beige-unified overflow-hidden w-full"
+          className="py-20 md:py-24 bg-white overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -503,46 +518,187 @@ export default function AkihabaraPage() {
                 <TabsTrigger value="gallery">写真ギャラリー</TabsTrigger>
               </TabsList>
               <TabsContent value="overview" className="mt-12">
+                <div className="text-center mb-12">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-relaxed">
+                    名古屋・矢場町のレンタルスペースで<span className="text-pink-500">ママ会</span>
+                    を安心して楽しめる理由
+                    <br />
+                    <span className="text-base sm:text-lg text-gray-600">（女子会・誕生日・撮影にも）</span>
+                  </h3>
+                </div>
+
                 <div className="space-y-20">
-                  {features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                      <div className="bg-custom-beige-dark p-6 sm:p-8 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                        <div className={`md:col-span-7 ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
-                          <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
-                            <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
-                              0{index + 1}
-                            </span>
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                              {feature.title}
-                            </h3>
-                          </div>
-                          <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                            {feature.description}
-                          </p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-1">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            01
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            泣いてもOK、周りに気をつかわない"完全個室"
+                          </h3>
                         </div>
-                        <div className={`md:col-span-5 ${index % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                          <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                            <Image
-                              src={feature.imageSrc || "/placeholder.svg"}
-                              alt={feature.imageAlt}
-                              fill
-                              className="object-cover"
-                              loading="lazy"
-                              placeholder="blur"
-                              blurDataURL={feature.imageSrc}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
-                            />
-                          </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          1フロア1室のプライベート空間。矢場町駅から徒歩約6分、29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。赤ちゃんがぐずっても気兼ねなく過ごせます。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-2">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/moms-gathering-space-2.webp"
+                            alt="完全個室のプライベート空間"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL="/images/features/moms-gathering-space-2.webp"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
                         </div>
                       </div>
-                    </motion.div>
-                  ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-2">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            02
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            "くま映え"×自然光で、とびきり可愛い写真に
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—
+                          <strong>女子会・誕生日・撮影にも◎</strong>。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-1">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/tableware.webp"
+                            alt="くま映えする可愛いインテリア"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL="/images/features/tableware.webp"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-1">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            03
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            子連れ安心の装備が最初からそろう
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-2">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/child-rocking-horse.webp"
+                            alt="充実したベビーグッズ"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL="/images/features/child-rocking-horse.webp"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+                      <div className="md:col-span-7 md:order-2">
+                        <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
+                          <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
+                            04
+                          </span>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。
+                          <strong>飲食・飲酒可</strong>、建物内ゴミ捨てOK（有料・分別必須）。料金は
+                          <strong>早朝¥425〜／通常¥1,472〜</strong>（日程により最大¥5,890/時）、
+                          <strong>お得意様割15%</strong>も利用可。
+                        </p>
+                      </div>
+                      <div className="md:col-span-5 md:order-1">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <Image
+                            src="/images/features/spacious-37m2-room.webp"
+                            alt="充実したキッチン設備"
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL="/images/features/spacious-37m2-room.webp"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="mt-16 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                  <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                    <ShieldCheck className="w-5 h-5 mr-2 text-yellow-600" />— 安心のご案内 —
+                  </h4>
+                  <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
+                    <li className="flex items-start">
+                      <span className="mr-2">・</span>
+                      <span>
+                        エレベーターはありますが、ご利用前に<strong>10段ほど階段</strong>があります。
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">・</span>
+                      <span>
+                        <strong>ベビーカーは廊下に駐輪</strong>してください。
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </TabsContent>
               <TabsContent value="gallery" className="mt-12">
@@ -593,7 +749,7 @@ export default function AkihabaraPage() {
         {/* Studio Specs Section */}
         <motion.section
           id="specs"
-          className="py-20 md:py-24 bg-custom-beige-dark w-full overflow-hidden"
+          className="py-20 md:py-24 bg-custom-beige-accent w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -625,13 +781,13 @@ export default function AkihabaraPage() {
 
             <Planner5DEmbed />
 
-            <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <div className="border border-custom-beige-border rounded-lg overflow-hidden shadow-sm">
               {specs.map((spec, index) => (
                 <div
                   key={index}
-                  className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center ${index % 2 === 0 ? "bg-custom-beige-unified" : "bg-yellow-50"}`}
+                  className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
                 >
-                  <div className="py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-gray-200">
+                  <div className="py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
                     {spec.label}
                   </div>
                   <div className="py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
@@ -644,7 +800,7 @@ export default function AkihabaraPage() {
         </motion.section>
 
         <motion.section
-          className="py-16 md:py-24 bg-custom-beige-unified relative overflow-hidden w-full"
+          className="py-16 md:py-24 bg-white relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -698,7 +854,7 @@ export default function AkihabaraPage() {
               </div>
               <div className="md:col-span-4 flex justify-center items-center">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/S__48193562_0_0718052808-OePXt1QsFByDjYj27nSa7Xwq5vRS1u.png"
+                  src="/images/design-mode/S__48193562_0_0718052808.png"
                   alt="お辞儀するクマのイラスト"
                   width={256}
                   height={256}
@@ -715,7 +871,7 @@ export default function AkihabaraPage() {
 
         {/* Benefits & USP Section */}
         <motion.section
-          className="py-16 md:py-20 bg-custom-beige-unified w-full overflow-hidden"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -725,7 +881,10 @@ export default function AkihabaraPage() {
             <h2 className="section-title">Moff room秋葉原店が選ばれる理由</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-custom-beige-dark p-4 rounded-lg shadow-sm flex items-center">
+                <div
+                  key={index}
+                  className="bg-gray-50 border border-gray-200 p-4 rounded-lg shadow-sm flex items-center"
+                >
                   <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 mr-3 text-custom-beige-DEFAULT flex-shrink-0" />
                   <span className="text-xs sm:text-sm text-gray-700">{benefit.text}</span>
                 </div>
@@ -742,7 +901,7 @@ export default function AkihabaraPage() {
         {/* Reviews & Founder Section */}
         <motion.section
           id="reviews"
-          className="py-16 md:py-24 bg-custom-beige-unified w-full overflow-hidden"
+          className="py-16 md:py-24 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -756,7 +915,7 @@ export default function AkihabaraPage() {
             />
           </div>
           <div className="container max-w-7xl mx-auto mt-24 px-4">
-            <div className="bg-custom-beige-dark p-6 md:p-8 rounded-xl shadow-xl mb-16">
+            <div className="bg-custom-beige-accent border border-gray-200 p-6 md:p-8 rounded-xl shadow-xl mb-16">
               <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
                 創業者の想い・背景
               </h3>
@@ -768,7 +927,7 @@ export default function AkihabaraPage() {
                     と申します。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
-                    私は普通の30代主婦でしたが、自身の育児経験から「ママも子どもも心から楽しめる居場所が欲しい！」と強く感じました。
+                    私は普通の30代主婦でしたが、自身の育児経験から「ママと子どもが心から楽しめる居場所が欲しい！」と強く感じました。
                   </p>
                   <p className="mb-4 text-sm sm:text-base">
                     その想いから、このレンタルスペースをママ友と一緒に立ち上げました。
@@ -795,7 +954,9 @@ export default function AkihabaraPage() {
                   <p className="mb-4 text-sm sm:text-base">
                     Moff room秋葉原店が、皆様のかけがえのない思い出の舞台となりますように。
                   </p>
-                  <p className="text-sm sm:text-base">心を込めて運営していますので、どうぞ安心してご利用ください💕</p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    心を込めて運営していますので、どうぞ安心してご利用ください💕
+                  </p>
                 </div>
                 <div className="md:w-1/4 text-center flex items-center justify-center">
                   <Image
@@ -817,7 +978,7 @@ export default function AkihabaraPage() {
               <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
                 スタッフ紹介
               </h3>
-              <Card className="p-6 bg-custom-beige-dark shadow-lg">
+              <Card className="p-6 bg-white border border-custom-beige-border shadow-lg">
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <Image
                     src="/images/staff-profile.png"
@@ -858,7 +1019,7 @@ export default function AkihabaraPage() {
                         <strong className="text-pink-500">「ママも子どもも笑顔になれる場を増やしたい」</strong>
                         という想いで日々奮闘中です。
                       </p>
-                      <div className="mt-4 pt-3 border-t border-gray-200">
+                      <div className="mt-4 pt-3 border-t border-custom-beige-border">
                         <Link
                           href="https://www.instagram.com/moff_room/"
                           target="_blank"
@@ -880,7 +1041,7 @@ export default function AkihabaraPage() {
         {/* Access and Surroundings Section */}
         <motion.section
           id="access"
-          className="py-16 md:py-20 bg-custom-beige-dark w-full overflow-hidden"
+          className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -923,7 +1084,7 @@ export default function AkihabaraPage() {
             {/* アクセス情報カード */}
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {/* 交通手段 */}
-              <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl">
+              <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl">
                 <div className="flex items-center mb-6">
                   <div className="bg-blue-100 rounded-full p-3 mr-4">
                     <Train className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" />
@@ -959,7 +1120,7 @@ export default function AkihabaraPage() {
               </div>
 
               {/* 営業時間 */}
-              <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl">
+              <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl">
                 <div className="flex items-center mb-6">
                   <div className="bg-green-100 rounded-full p-3 mr-4">
                     <Clock className="w-5 sm:w-6 h-5 sm:h-6 text-green-600" />
@@ -983,7 +1144,7 @@ export default function AkihabaraPage() {
             </div>
 
             {/* 主要駅からのアクセス */}
-            <div className="bg-custom-beige-unified rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
+            <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-8">主要駅からのアクセス</h3>
               <div className="grid sm:grid-cols-3 gap-6">
                 <div className="text-center">
@@ -1024,7 +1185,7 @@ export default function AkihabaraPage() {
 
             {/* 道案内のポイント - Mobile */}
             <div className="md:hidden">
-              <div className="bg-custom-beige-unified rounded-3xl p-6 shadow-xl border border-yellow-200">
+              <div className="bg-white border border-custom-beige-border rounded-3xl p-6 shadow-xl">
                 <div className="text-center mb-10">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-4 shadow-lg">
                     <Navigation className="w-8 h-8 text-white" />
@@ -1081,7 +1242,7 @@ export default function AkihabaraPage() {
             </div>
 
             {/* 道案内のポイント - Desktop */}
-            <div className="hidden md:block bg-custom-beige-unified rounded-3xl p-6 sm:p-10 shadow-2xl border border-yellow-200">
+            <div className="hidden md:block bg-white border border-custom-beige-border rounded-3xl p-6 sm:p-10 shadow-2xl">
               <div className="text-center mb-12">
                 <div className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-6 shadow-lg">
                   <Navigation className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
@@ -1095,7 +1256,7 @@ export default function AkihabaraPage() {
               <div className="grid gap-6 sm:gap-8 max-w-4xl mx-auto">
                 {/* Step 1 */}
                 <div className="relative">
-                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">1</span>
@@ -1107,7 +1268,7 @@ export default function AkihabaraPage() {
                       </h4>
                       <div className="bg-blue-50 rounded-lg p-4">
                         <div className="flex items-center text-blue-700">
-                          <Baby className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                          <Baby className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
                           <span className="font-semibold text-sm sm:text-base">ベビーカーご利用の方へ</span>
                         </div>
                         <p className="text-blue-600 mt-2 text-sm sm:text-base">
@@ -1120,7 +1281,7 @@ export default function AkihabaraPage() {
 
                 {/* Step 2 */}
                 <div className="relative">
-                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">2</span>
@@ -1132,7 +1293,7 @@ export default function AkihabaraPage() {
                       </h4>
                       <div className="bg-green-50 rounded-lg p-4">
                         <div className="flex items-center text-green-700">
-                          <ShoppingBag className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                          <ShoppingBag className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
                           <span className="font-semibold text-sm sm:text-base">雨の日も安心</span>
                         </div>
                         <p className="text-green-600 mt-2 text-sm sm:text-base">
@@ -1145,7 +1306,7 @@ export default function AkihabaraPage() {
 
                 {/* Step 3 */}
                 <div className="relative">
-                  <div className="flex items-start bg-custom-beige-dark rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
                     <div className="flex-shrink-0 mr-4 sm:mr-6">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-xl sm:text-2xl font-bold text-white">3</span>
@@ -1155,7 +1316,7 @@ export default function AkihabaraPage() {
                       <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">長島エレガンス第五ビルの２階</h4>
                       <div className="bg-purple-50 rounded-lg p-4">
                         <div className="flex items-center text-purple-700">
-                          <Building2 className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                          <Building2 className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
                           <span className="font-semibold text-sm sm:text-base">建物の特徴</span>
                         </div>
                         <p className="text-purple-600 mt-2 text-sm sm:text-base">
@@ -1201,7 +1362,7 @@ export default function AkihabaraPage() {
         {/* Booking Flow Section */}
         <motion.section
           id="booking-flow"
-          className="py-16 md:py-20 bg-custom-beige-unified w-full overflow-hidden"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -1217,7 +1378,7 @@ export default function AkihabaraPage() {
             />
             {/* Mobile Booking Flow */}
             <div className="md:hidden space-y-4 max-w-sm mx-auto">
-              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <CalendarDays className="w-8 h-8" />
                 </div>
@@ -1228,7 +1389,7 @@ export default function AkihabaraPage() {
               <div className="flex justify-center">
                 <ArrowDown className="w-8 h-8 text-gray-400" />
               </div>
-              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <PencilLine className="w-8 h-8" />
                 </div>
@@ -1241,7 +1402,7 @@ export default function AkihabaraPage() {
               <div className="flex justify-center">
                 <ArrowDown className="w-8 h-8 text-gray-400" />
               </div>
-              <div className="flex flex-col items-center p-6 bg-custom-beige-dark rounded-2xl shadow-lg">
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -1293,7 +1454,7 @@ export default function AkihabaraPage() {
                 href={akihabaraStore.detailsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-2xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-pink-500/50 w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-2xl overflow-hidden transition-all duration-500 ease-in-out hover:shadow-pink-500/50 w-full sm:w-auto"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/30 to-white/10 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
                 <CalendarCheck className="w-5 sm:w-6 h-5 sm:h-6 mr-3 transition-transform duration-300 group-hover:rotate-[-15deg]" />
@@ -1310,7 +1471,7 @@ export default function AkihabaraPage() {
         {/* Booking Calendar Section */}
         <motion.section
           id="booking-calendar"
-          className="py-16 md:py-20 bg-custom-beige-unified w-full overflow-hidden"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -1322,7 +1483,7 @@ export default function AkihabaraPage() {
         {/* Notice / FAQ Section */}
         <motion.section
           id="faq"
-          className="py-16 md:py-20 bg-custom-beige-dark w-full overflow-hidden"
+          className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -1343,7 +1504,7 @@ export default function AkihabaraPage() {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-custom-beige-unified rounded-lg shadow-sm border-b-0"
+                  className="bg-white border border-custom-beige-border rounded-lg shadow-sm border-b-0"
                 >
                   <AccordionTrigger className="text-left font-semibold text-gray-800 px-4 sm:px-6 py-4 hover:no-underline">
                     <div className="flex items-center">
@@ -1367,19 +1528,19 @@ export default function AkihabaraPage() {
 
         {/* Portal Site Section */}
         <motion.section
-          className="py-20 md:py-24 bg-custom-beige-unified relative overflow-hidden w-full"
+          className="py-20 md:py-24 bg-white relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
           <div className="container px-4">
-            <div className="bg-custom-beige-dark rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="bg-custom-beige-accent border border-custom-beige-border rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
               <div className="relative w-full h-64 lg:h-full min-h-[300px]">
                 {/* レスポンシブ画像の実装 */}
                 <div className="block lg:hidden">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg-7bAmYOV9DCODHvZ2EDGbQhhslz3SV5.jpeg"
+                    src="/images/design-mode/%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg.jpeg"
                     alt="関東・関西に広がるMoff roomの店舗（モバイル版）"
                     fill
                     className="object-cover"
@@ -1391,7 +1552,7 @@ export default function AkihabaraPage() {
                 </div>
                 <div className="hidden lg:block">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WEB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg-v7Gua0chmiABGMUQZebXdulUkuYXaa.jpeg"
+                    src="/images/design-mode/WEB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg.jpeg"
                     alt="関東・関西に広がるMoff roomの店舗（WEB版）"
                     fill
                     className="object-cover"

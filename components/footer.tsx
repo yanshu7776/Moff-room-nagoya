@@ -11,7 +11,7 @@ export default function SiteFooter() {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <footer className="bg-custom-beige-dark text-gray-800 py-12 md:py-16">
+    <footer className="bg-custom-beige-accent text-gray-800 py-12 md:py-16 border-t border-custom-beige-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* ロゴとお問い合わせセクション */}
@@ -31,7 +31,7 @@ export default function SiteFooter() {
             <Button
               onClick={() => setModalOpen(true)}
               variant="outline"
-              className="w-full sm:w-auto border-gray-600 text-gray-800 hover:bg-gray-800 hover:text-white"
+              className="w-full sm:w-auto border-custom-beige-border text-gray-800 hover:bg-gray-800 hover:text-white"
             >
               <Mail className="w-4 h-4 mr-2" />
               お問い合わせ
@@ -94,7 +94,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-400 text-center text-sm">
+        <div className="mt-12 pt-8 border-t border-custom-beige-border text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Moff room 秋葉原店. All rights reserved.</p>
         </div>
       </div>

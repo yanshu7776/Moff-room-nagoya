@@ -137,7 +137,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={cn("min-h-screen bg-custom-beige-unified font-jkg text-custom-beige-dark antialiased")}>
+      <body className={cn("min-h-screen bg-white font-jkg text-gray-800 antialiased")}>
         <PreloaderProvider>
           <Preloader logoUrl="/images/moff-room-logo-preloader.png" />
           {children}
