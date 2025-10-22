@@ -214,7 +214,7 @@ const features = [
     title: '泣いてもOK、周りに気をつかわない"完全個室"',
     description:
       "1フロア1室のプライベート空間。矢場町駅から徒歩約6分、29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。赤ちゃんがぐずっても気兼ねなく過ごせます。",
-    imageSrc: "/images/features/complete-private-room.jpg",
+    imageSrc: "/images/features/feature-01-private-room.jpg",
     imageAlt: "完全個室のプライベート空間",
   },
   {
@@ -222,7 +222,7 @@ const features = [
     title: '"くま映え"×自然光で、とびきり可愛い写真に',
     description:
       "大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。",
-    imageSrc: "/images/features/bear-photogenic-space.jpg",
+    imageSrc: "/images/features/feature-02-bear-photo.jpg",
     imageAlt: "くま映えする可愛い空間",
   },
   {
@@ -230,7 +230,7 @@ const features = [
     title: "子連れ安心の装備が最初からそろう",
     description:
       "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
-    imageSrc: "/images/features/child-friendly-toys.jpg",
+    imageSrc: "/images/features/feature-03-baby-equipment.jpg",
     imageAlt: "充実したベビーグッズ",
   },
   {
@@ -238,7 +238,7 @@ const features = [
     title: "手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）",
     description:
       "冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。",
-    imageSrc: "/images/features/kitchen-table-setting.jpg",
+    imageSrc: "/images/features/feature-04-kitchen-projector.jpg",
     imageAlt: "充実したキッチン設備",
   },
 ]
@@ -1282,8 +1282,6 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 <br />
                 住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
               </p>
-
-              
             </div>
 
             <div className="text-center mb-16">
