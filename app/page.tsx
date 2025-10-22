@@ -6,9 +6,12 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import SiteHeader from "@/components/header"
 import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import {
   Star,
+  ExternalLink,
   Lock,
   Train,
   Users,
@@ -18,17 +21,27 @@ import {
   CircleDollarSign,
   CalendarCheck,
   BookOpen,
+  ShieldCheck,
   PencilLine,
+  CheckCircle2,
+  HelpCircle,
+  CalendarDays,
   MapPin,
+  Clock,
+  Navigation,
   Globe,
+  ArrowDown,
+  Building2,
 } from "lucide-react"
 import ImageCarousel from "@/components/image-carousel"
 import { featuresGalleryImages, type GalleryImage } from "@/lib/features-gallery-images"
 import ReviewsCarousel from "@/components/reviews-carousel"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import SiteFooter from "@/components/footer"
+import GoogleCalendarEmbed from "@/components/google-calendar-embed"
 import FloatingCTA from "@/components/floating-cta"
 import ContactFormModal from "@/components/contact-form-modal"
+import Planner5DEmbed from "@/components/planner-5d-embed"
 
 // Define types for this page
 type Review = {
@@ -110,7 +123,7 @@ const nagoyaStore: StoreWithReviews = {
       {
         title: "とても素敵なお部屋でした！",
         comment:
-          "この度はありがとうございました。 やりとりの段階からとてもスムーズで安心できました。お部屋も広く綺麗で、おもちゃや備品も色々ありとても助かりました。 また機会がありましたらよろしくお願いします。",
+          "この度はありがとうございました。 やりとりの段階からとてもスムーズで安心できました。お部屋も広く綺麗で、おもちゃや備品も色々ありとても助かりました。 また機会がありましたたらよろしくお願いします。",
         age: "30代・女性",
         purpose: "おしゃべり会",
         rating: 5,
@@ -214,59 +227,17 @@ const features = [
   },
   {
     number: "03",
-    title: (
-      <>
-        子連れ安心の装備が
-        <br className="md:hidden" />
-        最初からそろう
-      </>
-    ),
-    description: (
-      <>
-        クッションフロア／ベビーサークル／
-        <br className="md:hidden" />
-        おもちゃ多数／バンボ×2／バウンサーなど、
-        <br className="md:hidden" />
-        月齢に合わせて使えるベビーグッズを完備。
-        <br className="md:hidden" />
-        ベビーカー置き場あり
-        <br className="md:hidden" />
-        （※室内ではなく廊下に駐輪）。
-      </>
-    ),
+    title: "子連れ安心の装備が最初からそろう",
+    description:
+      "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
     imageSrc: "/images/features/child-rocking-horse.webp",
     imageAlt: "充実したベビーグッズ",
   },
   {
     number: "04",
-    title: (
-      <>
-        手ぶらで楽しめて
-        <br className="md:hidden" />
-        片付けもラク
-        <br className="md:hidden" />
-        （キッチン＆プロジェクター）
-      </>
-    ),
-    description: (
-      <>
-        冷蔵庫・電子レンジ・電気ケトル・IH・
-        <br className="md:hidden" />
-        鍋セット・たこ焼き器・ホットプレート、
-        <br className="md:hidden" />
-        人数分の食器も完備。
-        <br className="md:hidden" />
-        Wi-Fi（光）＆プロジェクター・HDMIで
-        <br className="md:hidden" />
-        映画鑑賞・スポーツ観戦・推し活・
-        <br className="md:hidden" />
-        YouTube収録も快適。
-        <br className="md:hidden" />
-        飲食・飲酒可、建物内ゴミ捨てOK
-        <br className="md:hidden" />
-        （有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。
-      </>
-    ),
+    title: "手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）",
+    description:
+      "冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。",
     imageSrc: "/images/features/spacious-37m2-room.webp",
     imageAlt: "充実したキッチン設備",
   },
@@ -453,7 +424,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={problem.src}
-                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 340px"
+                    sizes="(max-width: 640px) 280px, 320px"
                   />
                 </div>
               ))}
@@ -490,15 +461,11 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   私たちの想い
                 </h2>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                  実は、私たち自身も子育て中に
-                  <br className="md:hidden" />
-                  同じ悩みを抱えていました。
+                  実は、私たち自身も子育て中に同じ悩みを抱えていました。
                   <br className="md:hidden" />
                   カフェはママが楽しくても子どもは退屈、
                   <br className="md:hidden" />
-                  遊び場は子どもが楽しくても
-                  <br className="md:hidden" />
-                  ママは話しづらい——。
+                  遊び場は子どもが楽しくてもママは話しづらい——。
                 </p>
                 <div className="my-4 p-4 bg-white border-l-4 border-pink-500 rounded-r-lg shadow-md">
                   <p className="text-lg sm:text-xl md:text-2xl font-bold text-pink-600 leading-snug">
@@ -510,11 +477,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
                   その想いから、秋葉原店に続く、
                   <br className="md:hidden" />
-                  名古屋・矢場町の個室レンタルスペース
-                  <br className="md:hidden" />
-                  「Moff room 名古屋」をオープン。　　　　
-                  <br className="md:hidden" />
-                  駅徒歩約6分・子連れ設備充実で、
+                  名古屋・矢場町の個室レンタルスペース「Moff room
+                  名古屋」をオープン。　　　　駅徒歩約6分・子連れ設備充実で、
                   <br className="md:hidden" />
                   ママ会・女子会・撮影の"ちょうどいい"
                   <br className="md:hidden" />
@@ -604,7 +568,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               </TabsList>
               <TabsContent value="overview" className="mt-12">
                 <div className="text-center mb-12">
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
                     名古屋・矢場町の
                     <br className="md:hidden" />
                     レンタルスペースでママ会を
@@ -631,8 +595,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             01
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            泣いてもOK、周りに気をつかわない"完全個室"
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            泣いてもOK、周りに気を　　　つかわない"完全個室"
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
@@ -673,12 +637,21 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             02
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            "くま映え"×自然光で、とびきり可愛い写真に
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            "くま映え"×自然光で、　　　　とびきり可愛い写真に
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。
+                          大きなクマ🧸と明るい内装でSNS映え。
+                          <br className="md:hidden" />
+                          撮影用バースデー帽子もご用意。
+                          <br className="md:hidden" />
+                          名古屋・矢場町のレンタルスペースで、
+                          <br className="md:hidden" />
+                          集合写真やバースデーフォトがきれいに残せます。　　
+                          <br className="md:hidden" />
+                          女子会・誕生日・撮影にも◎
+                          <br className="md:hidden" />
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-1">
@@ -709,12 +682,16 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             03
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            子連れ安心の装備が最初からそろう
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            子連れ安心の装備が　　　　　最初からそろう
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
+                          クッションフロア／ベビーサークル／
+                          <br className="md:hidden" />
+                          おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。
+                          <br className="md:hidden" />
+                          ベビーカー置き場あり（※室内ではなく廊下に駐輪）。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-2">
@@ -740,22 +717,34 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
                     <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
-                      <div className="md:col-span-7 md:order-1">
+                      <div className="md:col-span-7 md:order-2">
                         <div className="flex items-start sm:items-center mb-6 flex-col sm:flex-row">
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             04
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            手ぶらで楽しめて片付けもラク
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                            手ぶらで楽しめて
+                            <br className="md:hidden" />
+                            片付けもラク
                             <br className="md:hidden" />
                             （キッチン＆プロジェクター）
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。飲食・飲酒可、建物内ゴミ捨てOK（有料・分別必須）。料金は早朝¥425〜／通常¥1,472〜（日程により最大¥5,890/時）、お得意様割15%も利用可。
+                          冷蔵庫・電子レンジ・電気ケトル・IH
+                          <br className="md:hidden" />
+                          ・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。　　　　　　　　　Wi-Fi（光）＆プロジェクター・HDMIで
+                          <br className="md:hidden" />
+                          映画鑑賞・スポーツ観戦・推し活
+                          <br className="md:hidden" />
+                          ・YouTube収録も快適。
+                          <br className="md:hidden" />
+                          飲食・飲酒可、建物内ゴミ捨てOK
+                          <br className="md:hidden" />
+                          （有料・分別必須）。
                         </p>
                       </div>
-                      <div className="md:col-span-5 md:order-2">
+                      <div className="md:col-span-5 md:order-1">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                           <Image
                             src="/images/features/spacious-37m2-room.webp"
@@ -770,113 +759,1065 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     </div>
                   </motion.div>
                 </div>
-              </TabsContent>
-              <TabsContent value="gallery">
-                {/* Gallery Content */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {featuresGalleryImages.map((image, index) => (
-                    <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                      <Image
-                        src={image.src || "/placeholder.svg"}
-                        alt={image.alt}
-                        fill
-                        className="object-cover"
-                        loading="lazy"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                      />
+
+                <div className="mt-16 bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6 sm:p-8">
+                  <h4 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">— 安心のご案内 —</h4>
+                  <div className="space-y-4 text-gray-700">
+                    <div className="flex items-start">
+                      <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
+                      <p className="text-sm sm:text-base">
+                        エレベーターはありますが、ご利用前に<strong>10段ほど階段</strong>があります。
+                      </p>
                     </div>
-                  ))}
+                    <div className="flex items-start">
+                      <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
+                      <p className="text-sm sm:text-base">
+                        <strong>ベビーカーは廊下に駐輪</strong>してください。
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </TabsContent>
+              <TabsContent value="gallery" className="mt-12">
+                <Dialog onOpenChange={(open) => !open && setSelectedImage(null)}>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+                    {featuresGalleryImages.map((image, index) => (
+                      <DialogTrigger key={index} asChild onClick={() => setSelectedImage(image)}>
+                        <div className="group cursor-pointer text-center">
+                          <div className="relative aspect-square overflow-hidden rounded-lg shadow-md">
+                            <Image
+                              src={image.src || "/placeholder.svg"}
+                              alt={image.description}
+                              fill
+                              className="object-cover transition-transform duration-300 group-hover:scale-105"
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={image.src}
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                          </div>
+                          <p className="mt-3 text-xs sm:text-sm font-medium text-gray-800">{image.description}</p>
+                        </div>
+                      </DialogTrigger>
+                    ))}
+                  </div>
+                  {selectedImage && (
+                    <DialogContent className="max-w-4xl p-4">
+                      <div className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={selectedImage.src || "/placeholder.svg"}
+                          alt={selectedImage.description}
+                          fill
+                          className="object-contain rounded-md"
+                          sizes="100vw"
+                        />
+                      </div>
+                      <p className="pt-2 text-center text-base sm:text-lg font-medium text-gray-900">
+                        {selectedImage.description}
+                      </p>
+                    </DialogContent>
+                  )}
+                </Dialog>
               </TabsContent>
             </Tabs>
           </div>
         </motion.section>
 
-        {/* Reviews Section */}
+        {/* Studio Specs Section */}
         <motion.section
-          id="reviews"
-          className="py-20 md:py-24 bg-white overflow-hidden w-full"
+          id="specs"
+          className="py-20 md:py-24 bg-custom-beige-accent w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="container max-w-5xl mx-auto px-4">
+          <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">お客様の声</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">
+                スタジオ設備・スペック
+              </h2>
+              <p className="text-lg text-gray-700 font-semibold mt-4">
+                Moff roomフロアマップ
+                <br className="md:hidden" />
+                （名古屋・矢場町）
+              </p>
             </div>
-            <ReviewsCarousel reviews={nagoyaStore.reviews.featured} />
+            <div className="max-w-2xl mx-auto mb-12">
+              <Image
+                src="/images/floor-plan.webp"
+                alt="Moff Roomフロアマップ"
+                width={800}
+                height={450}
+                className="rounded-lg shadow-md w-full h-auto"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="/images/floor-plan.webp"
+                sizes="(max-width: 768px) 100vw, 800px"
+              />
+              <p className="text-center mt-4 text-sm sm:text-base text-gray-600">
+                29㎡・最大18名のワンルーム。
+                <br className="md:hidden" />
+                1フロア1室の完全個室で、ママ会でも周囲に
+                <br className="md:hidden" />
+                気兼ねなく過ごせます。
+                <br className="md:hidden" />
+                矢場町駅から徒歩約6分、エレベーターあり
+                <br className="md:hidden" />
+                （※利用前に10段の階段あり）。
+                <br className="md:hidden" />
+                室内にはキッチン・トイレ・Wi-Fi（光）・
+                <br className="md:hidden" />
+                プロジェクターを完備し、有料で建物内ゴミ捨てにも対応しています（分別必須）。
+              </p>
+            </div>
+
+            <Planner5DEmbed />
+
+            <div className="border border-custom-beige-border rounded-lg overflow-hidden shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  広さ／定員
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  約29㎡／最大18名
+                  <br className="md:hidden" />
+                  （4〜10名のママ会に最適）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  キッチン設備
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  IHコンロ／冷蔵庫／電子レンジ／電気ケトル／鍋セット／トング類／たこ焼き器／ホットプレート／食器類：大皿×20／小皿×20／グラス×20／マグ×10／カトラリー（お子様用あり）
+                  <br className="md:hidden" />
+                  ※調味料の設置はありません
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  エンタメ・AV／ネットワーク
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  プロジェクター・スクリーン／HDMIケーブル／
+                  <br className="md:hidden" />
+                  Wi-Fi（光回線）／各種ゲーム（大人気ゲーム機 ※作品持込OK）／映画鑑賞・スポーツ観戦・推し活上映に
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  ベビー用品（子連れ向け）
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／
+                  <br className="md:hidden" />
+                  撮影用バースデー帽子／ベビーカー置き場あり
+                  <br className="md:hidden" />
+                  （※室内ではなく廊下に駐輪）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  家具・室内
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  ローテーブル×2／ソファ／ダイニングテーブル×2／
+                  <br className="md:hidden" />
+                  収納ベンチ×4／椅子・テーブル／エアコン（冷暖房）／電源タップ・延長コード
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-gray-50">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  撮影関連
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  自然光／三脚／商用撮影可
+                  <br className="md:hidden" />
+                  （YouTube等の配信目的も可）
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 items-center bg-white">
+                <div className="py-2 sm:py-4 px-4 sm:px-6 font-semibold text-gray-700 col-span-1 border-b sm:border-b-0 sm:border-r border-custom-beige-border">
+                  そのほか
+                </div>
+                <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
+                  飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未分別は別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙
+                </div>
+              </div>
+            </div>
           </div>
         </motion.section>
 
-        {/* FAQs Section */}
+        {/* Popularity & Early Booking Section */}
         <motion.section
-          id="faqs"
-          className="py-20 md:py-24 bg-white overflow-hidden w-full"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden relative"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="container max-w-5xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">
-                常にご質問される点
-              </h2>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-100/20 blur-3xl rounded-full -translate-y-1/4 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-full bg-yellow-100/20 blur-3xl rounded-full translate-y-1/4 -translate-x-1/4" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-8">
+                <h3 className="block md:hidden text-lg font-bold text-blue-800 mb-8 leading-relaxed">
+                  <span className="inline-block pb-3 border-b-4 border-blue-800">
+                    人気のMoff roomが名古屋に上陸！
+                    <br />
+                    レンタルスペース 名古屋・矢場町
+                    <br />
+                    （徒歩約6分）は早期予約が安心
+                  </span>
+                </h3>
+
+                <h3 className="hidden md:block text-lg font-bold text-blue-800 mb-8">
+                  <span className="inline-block pb-3 border-b-4 border-blue-800">
+                    人気のMoff roomが名古屋に上陸！　　　　　　　　　　　　レンタルスペース
+                    名古屋・矢場町は早期予約が安心
+                  </span>
+                </h3>
+
+                <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    <strong>人気のMoff roomが名古屋に上陸！</strong> 🧸 <br className="md:hidden" />
+                    矢場町にオープンした"くま映え"レンタルスペースは、駅徒歩約6分の
+                    <strong>完全個室</strong>。
+                    <br className="md:hidden" />
+                    赤ちゃん連れでも周りに気をつかわず、
+                    <br className="md:hidden" />
+                    写真も"ちゃんと可愛い"。<strong>29㎡・最大18名</strong>で、
+                    <br className="md:hidden" />
+                    4〜10名の<strong>ママ会</strong>
+                    にちょうどいいサイズです。
+                    <br className="md:hidden" />
+                    SNSでも「#くま映え」が広がり、
+                    <br className="md:hidden" />
+                    栄・上前津・大須からのアクセスも良好。
+                  </p>
+
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                    <p className="font-bold text-blue-800 mb-3">—— 早めに押さえると嬉しいポイント ——</p>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>ベストな時間帯</strong>を先取り
+                          <br className="md:hidden" />
+                          自然光×デコで"映える"バースデーフォトに
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>準備の余裕</strong>が生まれる
+                          <br className="md:hidden" />
+                          飾りつけ／ケーキ持込→当日の進行がスムーズ
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>使いたい設備</strong>を確保
+                          <br className="md:hidden" />
+                          プロジェクター・たこ焼き器・ホットプレート ほか
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">・</span>
+                        <span>
+                          <strong>片付けラク</strong>
+                          <br className="md:hidden" />
+                          建物内ゴミ捨てOK（有料・分別必須）
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="w-full sm:w-auto bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg"
+                    >
+                      <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                        今すぐ予約する▶︎
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <div className="md:col-span-4 hidden md:flex justify-center items-center">
+                <Image
+                  src="/images/design-mode/S__48193562_0_0718052808.png"
+                  alt="お辞儀するクマのイラスト"
+                  width={256}
+                  height={256}
+                  className="object-contain rounded-full border-4 border-[rgb(202,229,206)] w-full max-w-[200px] sm:max-w-[256px] h-auto aspect-square"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                  sizes="(max-width: 640px) 200px, 256px"
+                />
+              </div>
             </div>
-            <Accordion type="single" defaultValue="item-1" className="space-y-4">
+          </div>
+        </motion.section>
+
+        {/* Benefits & USP Section */}
+        <motion.section
+          className="py-16 md:py-20 w-full overflow-hidden"
+          style={{ backgroundColor: "rgb(254, 248, 174)" }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="container px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center font-heading">
+              Moff room名古屋店が
+              <br className="md:hidden" />
+              選ばれる理由
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="bg-white border-2 border-white p-4 rounded-lg shadow-md flex items-center">
+                  <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 mr-3 text-pink-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-gray-900 font-medium">{benefit.text}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-xs text-gray-700 mt-6 px-4">
+              ※なお、スペース利用時は
+              <strong>完全禁煙・近隣迷惑NG</strong>
+              など利用規約順守をお願いしております。安心・安全にお楽しみいただくためにご協力ください。
+            </p>
+          </div>
+        </motion.section>
+
+        {/* Reviews & Founder Section */}
+        <motion.section
+          id="reviews"
+          className="py-16 md:py-24 bg-white w-full overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="container mx-auto px-4">
+            <ReviewsCarousel
+              reviews={nagoyaStore.reviews.featured}
+              googleRating={nagoyaStore.reviews.averageRating}
+              googleReviewsCount={nagoyaStore.reviews.totalReviews}
+            />
+          </div>
+          <div className="container max-w-7xl mx-auto mt-24 px-4">
+            <div className="bg-custom-beige-accent border border-gray-200 p-6 md:p-8 rounded-xl shadow-xl mb-16">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-center text-foreground">
+                創業者の想い・背景
+              </h3>
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="md:w-3/4">
+                  <p className="mb-4 text-sm sm:text-base">
+                    はじめまして。Moff room 名古屋店（矢場町）運営の<strong>山口有紀</strong>です。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    私自身、子育て中に「カフェだと子どもが退屈、遊び場だとママが話せない」を何度も体験しました。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    だからこそ、ママも子どもも"どっちも主役"になれる場所をつくろう——そう決めて、秋葉原店での学びをもとに、名古屋・矢場町にもレンタルスペースを開きました。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    名古屋店は、駅徒歩約6分の<strong>完全個室</strong>。<strong>29㎡・最大18名</strong>で、4〜10名の
+                    <strong>ママ会</strong>に"ちょうどいい"。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    ベビーグッズを充実させ、<strong>キッチン／Wi-Fi（光）／プロジェクター</strong>
+                    で準備も思い出づくりもスムーズに。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    この歩みは『<strong>普通の30代主婦がママ友とレンタルスペース作ってみた</strong>
+                    』にまとめ、ありがたいことにAmazon売れ筋ランキング1位を獲得しました。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    評価よりも何よりも、笑顔で「また来たい」と言っていただけることが、私たちの原動力です。
+                  </p>
+                  <p className="mb-4 text-sm sm:text-base">
+                    名古屋での集まりが、安心で、可愛く、心に残る時間になりますように。
+                  </p>
+                </div>
+                <div className="md:w-1/4 text-center flex items-center justify-center">
+                  <Image
+                    src="/images/founder-story.png"
+                    alt="ジュースを飲む子供たち"
+                    width={280}
+                    height={280}
+                    className="mx-auto rounded-full object-cover aspect-square w-full max-w-[200px] sm:max-w-[280px] h-auto"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="/images/founder-story.png"
+                    sizes="(max-width: 640px) 200px, 280px"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-custom-beige-unified mb-4 font-heading text-center">
+                スタッフ紹介
+              </h3>
+              <Card className="p-6 bg-white border border-custom-beige-border shadow-lg">
+                <div className="flex flex-col sm:flex-row items-center gap-6">
+                  <Image
+                    src="/images/staff-profile.png"
+                    alt="山口 有紀"
+                    width={160}
+                    height={160}
+                    className="rounded-full object-cover aspect-square w-full max-w-[120px] sm:max-w-[160px] h-auto"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="/images/staff-profile.png"
+                    sizes="(max-width: 640px) 120px, 160px"
+                  />
+                  <div>
+                    <h4 className="font-bold text-base sm:text-lg">山口 有紀（Moff room代表）</h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        おしゃれなカフェ巡りと家具屋巡りが趣味の<strong className="text-pink-600">30代ママ</strong>。
+                      </p>
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        自身の悩みから<strong>「自分たちが本当に行きたい場所を作ろう！」</strong>
+                        と決意し、ママ友と当スペースを創業しました。
+                      </p>
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        <span className="bg-yellow-100 px-2 py-1 rounded">
+                          育児中の「欲しい！」を形にした空間づくり
+                        </span>
+                        がモットー。
+                      </p>
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        著書『<strong>普通の30代主婦がママ友とレンタルスペース作ってみた</strong>
+                        』では開業までのエピソードを綴っています。
+                      </p>
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        <strong className="text-pink-500">「ママと子どもの笑顔をもっと増やしたい」</strong>
+                        という想いで日々奮闘中です。
+                      </p>
+
+                      <div className="mt-4 pt-3 border-t border-custom-beige-border">
+                        <Link
+                          href="https://www.instagram.com/moff_room/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-md hover:shadow-lg text-sm"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Instagramで最新情報を発信中♪
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Access and Surroundings Section */}
+        <motion.section
+          id="access"
+          className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <Image
+                src="/images/heading-access-final.png"
+                alt="アクセス"
+                width={400}
+                height={100}
+                className="mx-auto mb-8 w-full max-w-[300px] sm:max-w-[400px] h-auto"
+                priority
+                sizes="(max-width: 640px) 300px, 400px"
+              />
+              <p className="text-base sm:text-lg text-gray-600 mb-12">
+                矢場町駅徒歩約6分の好立地！
+                <br />
+                住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
+              </p>
+
+              <Image
+                src="/images/access-map-v3-final.png"
+                alt="Moff Room周辺のアクセスマップ"
+                width={900}
+                height={600}
+                className="rounded-2xl mx-auto shadow-xl w-full max-w-[900px] h-auto"
+                priority
+                sizes="(max-width: 768px) 100vw, 900px"
+              />
+            </div>
+
+            <div className="text-center mb-16">
+              <div className="text-sm sm:text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed space-y-4">
+                <p></p>
+                <p>名古屋・矢場町のレンタルスペース。栄・上前津・大須からも徒歩圏で集合しやすい立地です。</p>
+                <p>周辺にはコンビニ／飲食店があり、買い出しにも便利。ベビーカー置き場あり（廊下に駐輪）。</p>
+                <p className="text-yellow-700 font-semibold">
+                  ※建物はエレベーター有。ただし入口からエレベーターまでに<strong>約10段の階段</strong>
+                  があります。
+                </p>
+              </div>
+            </div>
+
+            {/* アクセス情報カード */}
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              {/* 交通手段 */}
+              <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div className="flex items-center mb-6">
+                  <div className="bg-blue-100 rounded-full p-3 mr-4">
+                    <Train className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">交通手段</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm sm:text-base">名城線「矢場町駅」徒歩6分（最寄り）</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm sm:text-base">名城線「上前津駅」徒歩9分</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm sm:text-base">鶴舞線「大須観音駅」徒歩15分</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm sm:text-base">東山線「栄駅」徒歩15分</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 営業時間 */}
+              <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-green-100">
+                    <Clock className="w-5 sm:w-6 h-5 sm:h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">返信対応時間</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">年中無休</div>
+                    <div className="text-gray-600">お問い合わせ返信対応時間として、7:00～24:00</div>
+                  </div>
+                  <div className="bg-green-50 rounded-lg p-4 mt-4">
+                    <p className="text-xs sm:text-sm text-green-700 text-center">
+                      上記時間内にメッセージへの返信対応を行っております。
+                      <br />
+                      スペースのご利用は24時間可能です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 主要駅からのアクセス */}
+            <div className="bg-white border border-custom-beige-border rounded-2xl p-6 sm:p-8 shadow-xl mb-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-8">主要駅からのアクセス</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="bg-blue-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl sm:text-2xl font-bold text-blue-600">6分</span>
+                  </div>
+                  <h4 className="font-bold text-blue-600 mb-2 text-sm sm:text-base">矢場町駅</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    徒歩6分
+                    <br />
+                    （最寄り・アクセス良好）
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-green-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl sm:text-2xl font-bold text-green-600">9分</span>
+                  </div>
+                  <h4 className="font-bold text-green-600 mb-2 text-sm sm:text-base">上前津駅</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    徒歩9分
+                    <br />
+                    （名城線ユーザーに便利）
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl sm:text-2xl font-bold text-orange-600">15分</span>
+                  </div>
+                  <h4 className="font-bold text-orange-600 mb-2 text-sm sm:text-base">大須観音駅</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    徒歩15分
+                    <br />
+                    （鶴舞線から）
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-purple-100 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl sm:text-2xl font-bold text-purple-600">15分</span>
+                  </div>
+                  <h4 className="font-bold text-purple-600 mb-2 text-sm sm:text-base">栄駅</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    徒歩15分
+                    <br />
+                    （ショッピングついでにも）
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 道案内のポイント - Mobile */}
+            <div className="md:hidden">
+              <div className="bg-white border border-custom-beige-border rounded-3xl p-6 shadow-xl">
+                <div className="text-center mb-10">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-4 shadow-lg">
+                    <Navigation className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">道案内のポイント</h3>
+                  <p className="text-gray-600 text-sm">
+                    矢場町駅から迷わずお越しいただけるよう、詳しい道順をご案内します
+                  </p>
+                </div>
+                <div className="relative pl-10">
+                  <div className="absolute left-[18px] top-5 bottom-5 w-0.5 bg-blue-200"></div>
+
+                  {/* Step 1 */}
+                  <div className="relative mb-8">
+                    <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
+                      1
+                    </div>
+                    <h4 className="font-bold text-gray-800 mb-2">4番出口を出て大津通を南（上前津方面）へ直進</h4>
+                    <div className="bg-blue-50 rounded-lg p-3 text-sm text-blue-700">
+                      <div className="flex items-center">
+                        <Baby className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <p>
+                          ベビーカーご利用の方は矢場町駅改札から<strong>松坂屋南館のエレベーター</strong>
+                          をご利用いただくと地上移動がスムーズです。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="relative mb-8">
+                    <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
+                      2
+                    </div>
+                    <h4 className="font-bold text-gray-800 mb-2">大須3交差点を右折</h4>
+                    <div className="bg-green-50 rounded-lg p-3 text-sm text-green-700">
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <p>交差点を右折後、少し進むと目的地が見えてきます。</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="relative mb-8 last:mb-0">
+                    <div className="absolute -left-10 top-0 w-9 h-9 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-lg">
+                      3
+                    </div>
+                    <h4 className="font-bold text-gray-800 mb-2">左手の11階建ビルの7階が「Moff room 名古屋店」</h4>
+                    <div className="bg-purple-50 rounded-lg p-3 text-sm text-purple-700">
+                      <div className="flex items-center">
+                        <Building2 className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <p>
+                          建物内はエレベーター前に<strong>約10段の階段</strong>
+                          があります。ベビーカーは室内ではなく<strong>廊下に駐輪</strong>してください。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 道案内のポイント - Desktop */}
+            <div className="hidden md:block bg-white border border-custom-beige-border rounded-3xl p-6 sm:p-10 shadow-2xl">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-6 shadow-lg">
+                  <Navigation className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">道案内のポイント</h3>
+                <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+                  矢場町駅から迷わずお越しいただけるよう、詳しい道順をご案内いたします
+                </p>
+              </div>
+
+              <div className="grid gap-6 sm:gap-8 max-w-4xl mx-auto">
+                {/* Step 1 */}
+                <div className="relative">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
+                    <div className="flex-shrink-0 mr-4 sm:mr-6">
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-xl sm:text-2xl font-bold text-white">1</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">
+                        4番出口を出て大津通を南（上前津方面）へ直進
+                      </h4>
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <div className="flex items-center text-blue-700">
+                          <Baby className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
+                          <span className="font-semibold text-sm sm:text-base">ベビーカーご利用の方へ</span>
+                        </div>
+                        <p className="text-blue-600 mt-2 text-sm sm:text-base">
+                          矢場町駅改札から<strong>松坂屋南館のエレベーター</strong>
+                          をご利用いただくと地上移動がスムーズです
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="relative">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
+                    <div className="flex-shrink-0 mr-4 sm:mr-6">
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-xl sm:text-2xl font-bold text-white">2</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">大須3交差点を右折</h4>
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <div className="flex items-center text-green-700">
+                          <MapPin className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
+                          <span className="font-semibold text-sm sm:text-base">目印</span>
+                        </div>
+                        <p className="text-green-600 mt-2 text-sm sm:text-base">
+                          交差点を右折後、少し進むと目的地が見えてきます
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative">
+                  <div className="flex items-start bg-gray-50 border border-custom-beige-border rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
+                    <div className="flex-shrink-0 mr-4 sm:mr-6">
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-xl sm:text-2xl font-bold text-white">3</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">
+                        左手の11階建ビルの7階が「Moff room 名古屋店」
+                      </h4>
+                      <div className="bg-purple-50 rounded-lg p-4">
+                        <div className="flex items-center text-purple-700">
+                          <Building2 className="w-4 sm:w-5 h-4 sm:w-5 mr-2" />
+                          <span className="font-semibold text-sm sm:text-base">建物の特徴</span>
+                        </div>
+                        <p className="text-purple-600 mt-2 text-sm sm:text-base">
+                          建物内はエレベーター前に<strong>約10段の階段</strong>
+                          があります。ベビーカーは室内ではなく<strong>廊下に駐輪</strong>してください
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Google Maps Button */}
+              <div className="mt-12 text-center">
+                <div className="bg-yellow-50 rounded-2xl p-6 sm:p-8">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">詳しい場所はこちら</h4>
+                  <p className="text-gray-600 mb-6 text-sm sm:text-base">
+                    正確な位置と周辺情報をGoogleマップでご確認いただけます
+                  </p>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="inline-block w-full sm:w-auto"
+                  >
+                    <Link
+                      href="https://www.google.com/maps?q=35.1617145,136.9069915+(Moff%20room%20%E3%80%8A%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%BA%97%E3%80%8B)"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+                    >
+                      <MapPin className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
+                      Googleマップで見る
+                      <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-3" />
+                    </Link>
+                  </motion.div>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-4">
+                    住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Booking Flow Section */}
+        <motion.section
+          id="booking-flow"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="container max-w-4xl mx-auto text-center px-4">
+            <Image
+              src="/images/heading-booking-flow.png"
+              alt="ご予約から当日利用までの流れ"
+              width={400}
+              height={150}
+              className="mx-auto w-full max-w-[300px] sm:max-w-[400px] h-auto"
+            />
+            {/* Mobile Booking Flow */}
+            <div className="md:hidden space-y-4 max-w-sm mx-auto">
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
+                  <CalendarDays className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-lg mb-1 text-gray-800">STEP 1</h3>
+                <p className="text-pink-600 font-semibold text-xl">日時を選ぶ</p>
+                <p className="text-gray-600 text-sm mt-2 text-center">カレンダーからご希望の日時を選択してください。</p>
+              </div>
+              <div className="flex justify-center">
+                <ArrowDown className="w-8 h-8 text-gray-400" />
+              </div>
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
+                  <PencilLine className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-lg mb-1 text-gray-800">STEP 2</h3>
+                <p className="text-pink-600 font-semibold text-xl">必要事項を入力</p>
+                <p className="text-gray-600 text-sm mt-2 text-center">
+                  人数やお支払い方法など、必要な情報を入力します。
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <ArrowDown className="w-8 h-8 text-gray-400" />
+              </div>
+              <div className="flex flex-col items-center p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-4">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-lg mb-1 text-gray-800">STEP 3</h3>
+                <p className="text-pink-600 font-semibold text-xl">予約を確定</p>
+                <p className="text-gray-600 text-sm mt-2 text-center">
+                  内容を確認し予約を確定！入室方法をメールでお知らせします。
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Booking Flow */}
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-pink-500 text-white rounded-full mb-4">
+                  <CalendarDays className="w-8 sm:w-10 h-8 sm:h-10" />
+                </div>
+                <h3 className="font-bold text-lg sm:text-xl mb-2">STEP 1</h3>
+                <p className="text-gray-700 text-sm sm:text-base">日時を選ぶ</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-pink-500 text-white rounded-full mb-4">
+                  <PencilLine className="w-8 sm:w-10 h-8 sm:h-10" />
+                </div>
+                <h3 className="font-bold text-lg sm:text-xl mb-2">STEP 2</h3>
+                <p className="text-gray-700 text-sm sm:text-base">必要事項を入力</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-pink-500 text-white rounded-full mb-4">
+                  <CheckCircle2 className="w-8 sm:w-10 h-8 sm:h-10" />
+                </div>
+                <h3 className="font-bold text-lg sm:text-xl mb-2">STEP 3</h3>
+                <p className="text-gray-700 text-sm sm:text-base">予約を確定</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
+              クレジットカード、Amazon Pay, PayPay, コンビニ払い、銀行振込など多彩な支払い方法に対応。
+            </p>
+            <p className="text-gray-600 mb-8 text-sm sm:text-base">
+              予約確定後、メールで入室方法をご案内します。当日はメールに従ってご入室ください。
+            </p>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="inline-block w-full sm:w-auto"
+            >
+              <Link
+                href={nagoyaStore.detailsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-2xl overflow-hidden transition-all duration-500 ease-in-out hover:shadow-pink-500/50 w-full sm:w-auto"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/30 to-white/10 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                <CalendarCheck className="w-5 sm:w-6 h-5 sm:h-6 mr-3 transition-transform duration-300 group-hover:rotate-[-15deg]" />
+                <span className="relative">今すぐ空き状況を確認する</span>
+              </Link>
+            </motion.div>
+            <p className="mt-4 text-xs text-gray-500">
+              <ShieldCheck className="inline-block w-4 h-4 mr-1 text-green-600" />
+              安全な決済システムを利用しています。ご予約は最短3分で完了します。
+            </p>
+          </div>
+        </motion.section>
+
+        {/* Booking Calendar Section */}
+        <motion.section
+          id="booking-calendar"
+          className="py-16 md:py-20 bg-white w-full overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <GoogleCalendarEmbed storeDetailsLink={nagoyaStore.detailsLink} />
+        </motion.section>
+
+        {/* Notice / FAQ Section */}
+        <motion.section
+          id="faq"
+          className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="container max-w-3xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <Image
+                src="/images/heading-notice.png"
+                alt="お知らせ"
+                width={400}
+                height={150}
+                className="mx-auto w-full max-w-[300px] sm:max-w-[400px] h-auto"
+              />
+            </div>
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index + 1}`}>
-                  <AccordionTrigger className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
-                    {faq.q}
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-white border border-custom-beige-border rounded-lg shadow-sm border-b-0"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-gray-800 px-4 sm:px-6 py-4 hover:no-underline">
+                    <div className="flex items-center">
+                      <HelpCircle className="w-5 sm:w-6 h-5 sm:h-6 text-pink-500 mr-3 sm:mr-4 flex-shrink-0" />
+                      <span className="text-sm sm:text-base">{faq.q}</span>
+                    </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base md:text-lg text-gray-700 leading-relaxed">
+                  <AccordionContent className="px-4 sm:px-6 pb-4 text-gray-600 leading-relaxed text-sm sm:text-base">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
+            <div className="text-center mt-8">
+              <Button variant="link" onClick={() => setModalOpen(true)} className="text-pink-500 hover:underline">
+                その他のご質問はこちら
+              </Button>
+            </div>
           </div>
         </motion.section>
 
-        {/* Specs Section */}
+        {/* Portal Site Section */}
         <motion.section
-          id="specs"
-          className="py-20 md:py-24 bg-white overflow-hidden w-full"
+          className="py-20 md:py-24 bg-white relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="container max-w-5xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">詳細仕様</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {specs.map((spec, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-custom-beige-border"
-                >
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading mb-4">
-                    {spec.label}
-                  </h3>
-                  <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">{spec.value}</p>
+          <div className="container px-4">
+            <div className="bg-custom-beige-accent border border-custom-beige-border rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
+              <div className="relative w-full h-64 lg:h-full min-h-[300px]">
+                {/* レスポンシブ画像の実装 */}
+                <div className="block lg:hidden">
+                  <Image
+                    src="/images/design-mode/%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg.jpeg"
+                    alt="関東・関西に広がるMoff roomの店舗（モバイル版）"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    sizes="100vw"
+                  />
                 </div>
-              ))}
+                <div className="hidden lg:block">
+                  <Image
+                    src="/images/design-mode/WEB%E7%89%88%E3%80%805%E3%81%A4%E3%81%AE%E5%BA%97%E8%88%97%E3%81%AE%E5%86%99%E7%9C%9F.jpg.jpeg"
+                    alt="関東・関西に広がるMoff roomの店舗（WEB版）"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    sizes="50vw"
+                  />
+                </div>
+              </div>
+              <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center lg:text-left">
+                <Image
+                  src="/images/moff-room-logo-color.png"
+                  alt="Moff Room ロゴ"
+                  width={150}
+                  height={75}
+                  className="mx-auto lg:mx-0 mb-6 object-contain h-auto w-full max-w-[120px] sm:max-w-[150px]"
+                />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading">
+                  あなたの街の
+                  <br />
+                  Moff roomを見つけよう
+                </h2>
+                <p className="text-gray-600 mb-8 leading-relaxed max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
+                  Moff
+                  roomは名古屋店のほかにも、関東・関西エリアに複数の店舗を展開中！お近くの店舗の空き状況の確認やご予約は、総合HPからどうぞ。
+                </p>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="inline-block w-full sm:w-auto"
+                >
+                  <Link
+                    href="https://moffroom.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <Globe className="w-5 sm:w-6 h-5 sm:h-6 mr-3" />
+                    <span>Moff Room 総合サイトへ</span>
+                  </Link>
+                </motion.div>
+              </div>
             </div>
           </div>
         </motion.section>
       </main>
 
-      {/* Floating CTA */}
-      <FloatingCTA />
-
-      {/* Contact Form Modal */}
-      <ContactFormModal modalOpen={modalOpen} setModalOpen={setModalOpen} onInquiryClick={onInquiryClick} />
-
-      {/* Site Footer */}
       <SiteFooter />
+      <ContactFormModal open={modalOpen} onOpenChange={setModalOpen} />
+      <FloatingCTA onInquiryClick={onInquiryClick} />
     </div>
   )
 }
