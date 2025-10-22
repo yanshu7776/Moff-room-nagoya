@@ -336,8 +336,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
                   <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
                   <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸
- ｜最大18名｜¥425〜</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 
+｜最大18名｜¥425〜</span>
                 </h1>
               </div>
 
@@ -646,7 +646,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             02
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            "くま映え"×自然光で、とびきり可愛い写真に
+                            {"\"くま映え\"×自然光で、\nとびきり可愛い写真に"}
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
@@ -690,7 +690,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             03
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center px-[39px]">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center px-12">
                             子連れ安心の装備が
                             <br className="md:hidden" />
                             最初からそろう
@@ -859,7 +859,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 blurDataURL="/images/floor-plan.webp"
                 sizes="(max-width: 768px) 100vw, 800px"
               />
-              <p className="text-center mt-4 text-sm sm:text-base text-gray-600">
+              <p className="mt-4 text-sm sm:text-base text-gray-600 text-left">
                 29㎡・最大18名のワンルーム。
                 <br className="md:hidden" />
                 1フロア1室の完全個室で、ママ会でも周囲に
