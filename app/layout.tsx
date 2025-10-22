@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { PreloaderProvider } from "@/contexts/preloader-context"
@@ -134,6 +135,16 @@ export default function RootLayout({
         />
       </head>
       <body className={cn("min-h-screen bg-white font-jkg text-gray-800 antialiased")}>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4KJB5CNMRE" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4KJB5CNMRE');
+          `}
+        </Script>
+
         <PreloaderProvider>
           <Preloader logoUrl="/images/moff-room-logo-preloader.png" />
           {children}
