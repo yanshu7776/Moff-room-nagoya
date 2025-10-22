@@ -461,11 +461,15 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   私たちの想い
                 </h2>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                  実は、私たち自身も子育て中に同じ悩みを抱えていました。
+                  実は、私たち自身も子育て中に
+                  <br className="md:hidden" />
+                  同じ悩みを抱えていました。
                   <br className="md:hidden" />
                   カフェはママが楽しくても子どもは退屈、
                   <br className="md:hidden" />
-                  遊び場は子どもが楽しくてもママは話しづらい——。
+                  遊び場は子どもが楽しくても
+                  <br className="md:hidden" />
+                  ママは話しづらい——。
                 </p>
                 <div className="my-4 p-4 bg-white border-l-4 border-pink-500 rounded-r-lg shadow-md">
                   <p className="text-lg sm:text-xl md:text-2xl font-bold text-pink-600 leading-snug">
@@ -477,8 +481,11 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
                   その想いから、秋葉原店に続く、
                   <br className="md:hidden" />
-                  名古屋・矢場町の個室レンタルスペース「Moff room
-                  名古屋」をオープン。　　　　駅徒歩約6分・子連れ設備充実で、
+                  名古屋・矢場町の個室レンタルスペース
+                  <br className="md:hidden" />
+                  「Moff room 名古屋」をオープン。
+                  <br className="md:hidden" />
+                  駅徒歩約6分・子連れ設備充実で、
                   <br className="md:hidden" />
                   ママ会・女子会・撮影の"ちょうどいい"
                   <br className="md:hidden" />
@@ -595,8 +602,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             01
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            泣いてもOK、周りに気を　　　つかわない"完全個室"
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
+                            泣いてもOK、周りに気をつかわない"完全個室"
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
@@ -637,8 +644,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             02
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            "くま映え"×自然光で、　　　　とびきり可愛い写真に
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
+                            "くま映え"×自然光で、とびきり可愛い写真に
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
@@ -682,8 +689,10 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             03
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
-                            子連れ安心の装備が　　　　　最初からそろう
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
+                            子連れ安心の装備が
+                            <br className="md:hidden" />
+                            最初からそろう
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
@@ -722,7 +731,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             04
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
                             手ぶらで楽しめて
                             <br className="md:hidden" />
                             片付けもラク
@@ -730,18 +739,9 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             （キッチン＆プロジェクター）
                           </h3>
                         </div>
+                        {/* CHANGE: Reformatted text to remove line breaks and present as continuous paragraph */}
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                          冷蔵庫・電子レンジ・電気ケトル・IH
-                          <br className="md:hidden" />
-                          ・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。　　　　　　　　　Wi-Fi（光）＆プロジェクター・HDMIで
-                          <br className="md:hidden" />
-                          映画鑑賞・スポーツ観戦・推し活
-                          <br className="md:hidden" />
-                          ・YouTube収録も快適。
-                          <br className="md:hidden" />
-                          飲食・飲酒可、建物内ゴミ捨てOK
-                          <br className="md:hidden" />
-                          （有料・分別必須）。
+                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。飲食・飲酒可、建物内ゴミ捨てOK（有料・分別必須）。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-1">
@@ -766,13 +766,16 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     <div className="flex items-start">
                       <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
                       <p className="text-sm sm:text-base">
-                        エレベーターはありますが、ご利用前に<strong>10段ほど階段</strong>があります。
+                        エレベーターはありますが、ご利用前に
+                        <strong>10段ほど階段</strong>
+                        があります。
                       </p>
                     </div>
                     <div className="flex items-start">
                       <span className="text-yellow-600 mr-3 flex-shrink-0">•</span>
                       <p className="text-sm sm:text-base">
-                        <strong>ベビーカーは廊下に駐輪</strong>してください。
+                        <strong>ベビーカーは廊下に駐輪</strong>
+                        してください。
                       </p>
                     </div>
                   </div>
