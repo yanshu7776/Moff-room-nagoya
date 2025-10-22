@@ -400,6 +400,69 @@ html {
   animation-delay: 0.4s;
 }
 
+/* Adding hero section animation keyframes */
+@keyframes popInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  60% {
+    transform: scale(1.1) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes breathingPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes delayedFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero animation classes */
+.hero-new-open {
+  animation: popInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, breathingPulse 3s ease-in-out 1s infinite;
+  will-change: transform, opacity;
+}
+
+.hero-text-delayed {
+  opacity: 0;
+  animation: delayedFadeInUp 0.8s ease-out 0.8s forwards;
+  will-change: transform, opacity;
+}
+
+.hero-cta-delayed {
+  opacity: 0;
+  animation: delayedFadeInUp 0.8s ease-out 1.2s forwards;
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animations complete */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-new-open,
+  .hero-text-delayed,
+  .hero-cta-delayed {
+    animation-fill-mode: forwards;
+  }
+}
+
 /* Smooth scroll behavior */
 
 /* Reduced motion support for accessibility */

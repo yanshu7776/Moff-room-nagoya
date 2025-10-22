@@ -347,48 +347,49 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="w-full max-w-4xl mx-auto"
-            >
+            <div className="w-full max-w-4xl mx-auto">
               <div className="md:hidden">
                 <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md">
-                  <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
-                  <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
-                  <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 |最大18名｜¥425〜〜</span>
+                  <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px] hero-new-open">
+                    ＼NEW OPEN／
+                  </span>
+                  <span className="block mb-2 hero-text-delayed">レンタルスペース 名古屋・矢場町</span>
+                  <span className="block text-lg mb-2 hero-text-delayed">（駅約6分）</span>
+                  <span className="block text-pink-400 text-xl mb-2 hero-text-delayed">
+                    🧸映え×子連れ安心🧸 |最大18名｜¥425〜〜
+                  </span>
                 </h1>
               </div>
 
               <div className="hidden md:block">
                 <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-shadow-md">
-                  <span className="block mb-3 text-pink-400 font-bold leading-[7.75rem] tracking-normal text-8xl mt-[-182px]">
+                  <span className="block mb-3 text-pink-400 font-bold leading-[7.75rem] tracking-normal text-8xl mt-[-182px] hero-new-open">
                     ＼NEW OPEN／
                   </span>
-                  <span className="block mb-3 font-black">
+                  <span className="block mb-3 font-black hero-text-delayed">
                     レンタルスペース 名古屋・矢場町駅
                     <br />
                     徒歩約6分
                   </span>
-                  <span className="block text-pink-400 text-2xl lg:text-3xl xl:text-4xl mb-4">
+                  <span className="block text-pink-400 text-2xl lg:text-3xl xl:text-4xl mb-4 hero-text-delayed">
                     🧸くま映えの完全個室🧸
                   </span>
-                  <span className="block text-xl lg:text-2xl xl:text-3xl mb-3">ママ会・誕生日・推し活・撮影に。</span>
-                  <span className="block text-lg lg:text-xl xl:text-2xl text-gray-200">
+                  <span className="block text-xl lg:text-2xl xl:text-3xl mb-3 hero-text-delayed">
+                    ママ会・誕生日・推し活・撮影に。
+                  </span>
+                  <span className="block text-lg lg:text-xl xl:text-2xl text-gray-200 hero-text-delayed">
                     最大18名・29㎡／子連れOK・ベビーグッズ多数／
                     <br />
                     キッチン・Wi-Fi・プロジェクター。
                   </span>
                 </h1>
               </div>
-            </motion.div>
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="mt-8 w-full max-w-sm mx-auto px-4"
+              className="mt-8 w-full max-w-sm mx-auto px-4 hero-cta-delayed"
             >
               <Button
                 asChild
