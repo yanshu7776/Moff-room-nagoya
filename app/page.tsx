@@ -272,7 +272,7 @@ const specs = [
   {
     label: "そのほか",
     value:
-      "飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未分別は別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙",
+      "飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙",
   },
 ]
 
@@ -565,10 +565,10 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
         <motion.section
           id="features"
           className="py-20 md:py-24 bg-white overflow-hidden w-full"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="container max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
@@ -854,10 +854,10 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
         <motion.section
           id="specs"
           className="py-20 md:py-24 bg-custom-beige-accent w-full overflow-hidden"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
@@ -1261,10 +1261,10 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
         <motion.section
           id="access"
           className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
@@ -1806,7 +1806,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   <br />
                   Moff roomを見つけよう
                 </h2>
-                <p className="text-gray-600 mb-8 leading-relaxed max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
+                <p className="text-gray-600 mb-8 leading-relaxed text-sm sm:text-base">
                   Moff
                   roomは名古屋店のほかにも、関東・関西エリアに複数の店舗を展開中！お近くの店舗の空き状況の確認やご予約は、総合HPからどうぞ。
                 </p>
