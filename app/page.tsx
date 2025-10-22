@@ -204,7 +204,7 @@ const faqs = [
   },
   {
     q: "アクセスと駐車場は？",
-    a: "名城線「矢場町駅」徒歩約6分（住所：名���屋市中区大須4-1-7 サンポートヤバビル703）。上前津・大須観音・栄も徒歩圏。専用駐車場はありませんが、近隣にコインパーキング多数あります。",
+    a: "名城線「矢場町駅」徒歩約6分（住所：名古屋市中区大須4-1-7 サンポートヤバビル703）。上前津・大須観音・栄も徒歩圏。専用駐車場はありませんが、近隣にコインパーキング多数あります。",
   },
 ]
 
@@ -214,7 +214,7 @@ const features = [
     title: '泣いてもOK、周りに気をつかわない"完全個室"',
     description:
       "1フロア1室のプライベート空間。矢場町駅から徒歩約6分、29㎡・最大18名で、4〜10名のママ会にちょうどいいサイズ。赤ちゃんがぐずっても気兼ねなく過ごせます。",
-    imageSrc: "/images/features/moms-gathering-space-2.webp",
+    imageSrc: "/images/features/complete-private-room.jpg",
     imageAlt: "完全個室のプライベート空間",
   },
   {
@@ -222,7 +222,7 @@ const features = [
     title: '"くま映え"×自然光で、とびきり可愛い写真に',
     description:
       "大きなクマ🧸と明るい内装でSNS映え。撮影用バースデー帽子もご用意。名古屋・矢場町のレンタルスペースで、集合写真やバースデーフォトがきれいに残せます—**女子会・誕生日・撮影にも◎**。",
-    imageSrc: "/images/features/tableware.webp",
+    imageSrc: "/images/features/bear-photogenic-space.jpg",
     imageAlt: "くま映えする可愛い空間",
   },
   {
@@ -230,7 +230,7 @@ const features = [
     title: "子連れ安心の装備が最初からそろう",
     description:
       "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
-    imageSrc: "/images/features/child-rocking-horse.webp",
+    imageSrc: "/images/features/child-friendly-toys.jpg",
     imageAlt: "充実したベビーグッズ",
   },
   {
@@ -238,7 +238,7 @@ const features = [
     title: "手ぶらで楽しめて片付けもラク（キッチン＆プロジェクター）",
     description:
       "冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。**飲食・飲酒可**、建物内ゴミ捨てOK（有料・分別必須）。料金は**早朝¥425〜／通常¥1,472〜**（日程により最大¥5,890/時）、**お得意様割15%**も利用可。",
-    imageSrc: "/images/features/spacious-37m2-room.webp",
+    imageSrc: "/images/features/kitchen-table-setting.jpg",
     imageAlt: "充実したキッチン設備",
   },
 ]
@@ -307,6 +307,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
   ]
 
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string>("すべて")
+
+  const categories = ["すべて", ...Array.from(new Set(featuresGalleryImages.map((img) => img.category)))]
+
+  const filteredImages =
+    selectedCategory === "すべて"
+      ? featuresGalleryImages
+      : featuresGalleryImages.filter((img) => img.category === selectedCategory)
 
   return (
     <div className="flex flex-col min-h-screen bg-custom-beige-unified overflow-x-hidden">
@@ -316,7 +324,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
         {/* Hero Section */}
         <section className="relative w-full h-[90vh] md:h-screen text-white overflow-hidden">
           <Image
-            src="/images/hero-background.webp"
+            src="/images/hero-background.jpg"
             alt="Moff Roomの暖かく居心地の良い室内"
             fill
             priority
@@ -336,7 +344,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
                   <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
                   <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸　　　　　 |最大18名｜¥425〜〜</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 |最大18名｜¥425〜〜</span>
                 </h1>
               </div>
 
@@ -619,8 +627,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                       <div className="md:col-span-5 md:order-2">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                           <Image
-                            src="/images/features/moms-gathering-space-2.webp"
-                            alt="完全個室のプライベート空間"
+                            src={features[0].imageSrc || "/placeholder.svg"}
+                            alt={features[0].imageAlt}
                             fill
                             className="object-cover"
                             loading="lazy"
@@ -645,7 +653,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             02
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            {'"くま映え"×自然光で、\nとびきり可愛い写真に'}
+                            "くま映え"×自然光で、とびきり可愛い写真に
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
@@ -664,8 +672,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                       <div className="md:col-span-5 md:order-1">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                           <Image
-                            src="/images/features/tableware.webp"
-                            alt="くま映えする可愛い空間"
+                            src={features[1].imageSrc || "/placeholder.svg"}
+                            alt={features[1].imageAlt}
                             fill
                             className="object-cover"
                             loading="lazy"
@@ -706,8 +714,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                       <div className="md:col-span-5 md:order-2">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                           <Image
-                            src="/images/features/child-rocking-horse.webp"
-                            alt="充実したベビーグッズ"
+                            src={features[2].imageSrc || "/placeholder.svg"}
+                            alt={features[2].imageAlt}
                             fill
                             className="object-cover"
                             loading="lazy"
@@ -747,8 +755,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                       <div className="md:col-span-5 md:order-1">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                           <Image
-                            src="/images/features/spacious-37m2-room.webp"
-                            alt="充実したキッチン設備"
+                            src={features[3].imageSrc || "/placeholder.svg"}
+                            alt={features[3].imageAlt}
                             fill
                             className="object-cover"
                             loading="lazy"
@@ -782,9 +790,25 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 </div>
               </TabsContent>
               <TabsContent value="gallery" className="mt-12">
+                <div className="flex flex-wrap justify-center gap-2 mb-8">
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        selectedCategory === category
+                          ? "bg-pink-500 text-white shadow-lg"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+
                 <Dialog onOpenChange={(open) => !open && setSelectedImage(null)}>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
-                    {featuresGalleryImages.map((image, index) => (
+                    {filteredImages.map((image, index) => (
                       <DialogTrigger key={index} asChild onClick={() => setSelectedImage(image)}>
                         <div className="group cursor-pointer text-center">
                           <div className="relative aspect-square overflow-hidden rounded-lg shadow-md">
@@ -848,7 +872,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
             </div>
             <div className="max-w-2xl mx-auto mb-12">
               <Image
-                src="/images/floor-plan.webp"
+                src="/images/design-mode/IMG_4374.PNG.png"
                 alt="Moff Roomフロアマップ"
                 width={800}
                 height={450}
@@ -1259,15 +1283,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 住所：〒460-0011 愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）
               </p>
 
-              <Image
-                src="/images/access-map-v3-final.png"
-                alt="Moff Room周辺のアクセスマップ"
-                width={900}
-                height={600}
-                className="rounded-2xl mx-auto shadow-xl w-full max-w-[900px] h-auto"
-                priority
-                sizes="(max-width: 768px) 100vw, 900px"
-              />
+              
             </div>
 
             <div className="text-center mb-16">
