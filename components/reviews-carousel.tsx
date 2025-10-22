@@ -87,7 +87,7 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
           {reviews.map((review, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <div className="p-1 h-full">
-                <Card className="p-6 bg-white border border-gray-200 shadow-lg h-full flex flex-col rounded-xl">
+                <Card className="p-6 bg-white border border-gray-200 shadow-lg h-full flex flex-col rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-pink-300">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       {[...Array(review.rating)].map((_, i) => (

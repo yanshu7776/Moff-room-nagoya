@@ -126,17 +126,17 @@ export default function ImageCarousel({
     <div
       ref={containerRef}
       className="w-full flex flex-nowrap gap-4 overflow-x-auto pb-4 cursor-grab active:cursor-grabbing carousel-container"
-      style={{ scrollbarWidth: "none" }} // Hide scrollbar for a cleaner look
+      style={{ scrollbarWidth: "none" }}
     >
       <style jsx>{`
       .carousel-container::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for Webkit browsers */
+        display: none;
       }
     `}</style>
       {extendedImages.map((src, index) => (
         <div
           key={index}
-          className="flex-none rounded-lg overflow-hidden shadow-md"
+          className="flex-none rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
           style={{
             width: `${IMAGE_WIDTH_PX}px`,
             height: `${IMAGE_HEIGHT_PX}px`,
@@ -147,7 +147,7 @@ export default function ImageCarousel({
             alt={`Gallery image ${(index % images.length) + 1}`}
             width={IMAGE_WIDTH_PX}
             height={IMAGE_HEIGHT_PX}
-            className="object-cover w-full h-full pointer-events-none"
+            className="object-cover w-full h-full pointer-events-none transition-transform duration-300"
             priority={index < 5}
             loading={index < 5 ? "eager" : "lazy"}
             placeholder={placeholder}

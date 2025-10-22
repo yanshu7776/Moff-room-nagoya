@@ -196,6 +196,207 @@ label {
   }
 }
 
+/* Removed heavy stacking scroll styles, added lightweight animation utilities */
+
+/* Smooth fade-in animation for scroll-triggered elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth fade-in from left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth fade-in from right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Gentle pulse animation for CTA buttons */
+@keyframes gentlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button hover micro-interactions */
+.btn-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card hover effects */
+.card-hover-float {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Image zoom on hover */
+.image-zoom-hover {
+  overflow: hidden;
+}
+
+.image-zoom-hover img {
+  transition: transform 0.4s ease;
+}
+
+.image-zoom-hover:hover img {
+  transform: scale(1.05);
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn-hover-lift:hover,
+  .card-hover-float:hover {
+    transform: none;
+  }
+}
+
+/* Stacking Scroll Animation Styles */
+.stacking-section {
+  position: sticky;
+  top: 0;
+  will-change: transform;
+}
+
+.stacking-section-1 {
+  z-index: 1;
+}
+
+.stacking-section-2 {
+  z-index: 2;
+}
+
+.stacking-section-3 {
+  z-index: 3;
+}
+
+.stacking-section-4 {
+  z-index: 4;
+}
+
+.stacking-section-5 {
+  z-index: 5;
+}
+
+/* Fade-in and slide-up animation for scroll-triggered elements */
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Accordion smooth animations */
+.accordion-down {
+  animation: accordion-down 0.3s ease-out;
+}
+
+.accordion-up {
+  animation: accordion-up 0.3s ease-out;
+}
+
+/* Enhanced accordion trigger hover effect */
+[data-state="closed"] .accordion-trigger-icon {
+  transition: transform 0.3s ease;
+}
+
+[data-state="open"] .accordion-trigger-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Smooth link underline animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Staggered animation delays for feature cards */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+/* Smooth scroll behavior */
+
+/* Reduced motion support for accessibility */
+
 .preloader-container {
   position: fixed;
   top: 0;

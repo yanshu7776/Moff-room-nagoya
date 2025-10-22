@@ -42,6 +42,7 @@ import GoogleCalendarEmbed from "@/components/google-calendar-embed"
 import FloatingCTA from "@/components/floating-cta"
 import ContactFormModal from "@/components/contact-form-modal"
 import Planner5DEmbed from "@/components/planner-5d-embed"
+import { useScrollAnimation } from "@/lib/hooks/use-scroll-animation"
 
 // Define types for this page
 type Review = {
@@ -283,6 +284,12 @@ export type PageProps = {
 }
 
 export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: PageProps) {
+  const problemsAnimation = useScrollAnimation({ threshold: 0.2 })
+  const thoughtsAnimation = useScrollAnimation({ threshold: 0.2 })
+  const featuresAnimation = useScrollAnimation({ threshold: 0.1 })
+  const specsAnimation = useScrollAnimation({ threshold: 0.1 })
+  const popularityAnimation = useScrollAnimation({ threshold: 0.2 })
+
   const problems = [
     {
       src: "/images/problems/problem-cafe-vs-playground-new.png",
@@ -321,22 +328,29 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
       <SiteHeader />
 
       <main className="flex-1 w-full pt-[88px]">
-        {/* Hero Section */}
+        {/* Hero Section - with parallax effect */}
         <section className="relative w-full h-[90vh] md:h-screen text-white overflow-hidden">
-          <Image
-            src="/images/hero-background.jpg"
-            alt="Moff Roomの暖かく居心地の良い室内"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <Image
+              src="/images/hero-background.jpg"
+              alt="Moff Roomの暖かく居心地の良い室内"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-full">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="w-full max-w-4xl mx-auto"
             >
               <div className="md:hidden">
@@ -371,15 +385,15 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               </div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
               className="mt-8 w-full max-w-sm mx-auto px-4"
             >
               <Button
                 asChild
                 size="lg"
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg animate-bounce text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6"
+                className="w-full bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 btn-hover-lift animate-bounce"
               >
                 <Link href={nagoyaStore.detailsLink} target="_blank" rel="noopener noreferrer">
                   今すぐ予約する▶︎
@@ -401,14 +415,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           />
         </section>
 
-        {/* Problems Section */}
+        {/* Problems Section - with scroll animation */}
         <motion.section
+          ref={problemsAnimation.ref as any}
           id="problems"
           className="py-12 md:py-20 bg-white w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          animate={problemsAnimation.isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="container max-w-6xl mx-auto text-gray-800 px-4">
             <div className="text-center mb-16">
@@ -440,14 +454,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Our Thoughts Section */}
+        {/* Our Thoughts Section - with scroll animation */}
         <motion.section
+          ref={thoughtsAnimation.ref as any}
           id="our-thoughts"
           className="bg-custom-beige-accent py-12 md:py-16 w-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          animate={thoughtsAnimation.isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 lg:gap-12 items-center">
@@ -561,14 +575,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Features Section */}
+        {/* Features Section - with scroll animation */}
         <motion.section
+          ref={featuresAnimation.ref as any}
           id="features"
           className="py-20 md:py-24 bg-white overflow-hidden w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={featuresAnimation.isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="container max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
@@ -850,14 +864,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Studio Specs Section */}
+        {/* Studio Specs Section - with scroll animation */}
         <motion.section
+          ref={specsAnimation.ref as any}
           id="specs"
           className="py-20 md:py-24 bg-custom-beige-accent w-full overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={specsAnimation.isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
@@ -982,13 +996,13 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Popularity & Early Booking Section */}
+        {/* Popularity & Early Booking Section - with scroll animation */}
         <motion.section
+          ref={popularityAnimation.ref as any}
           className="py-16 md:py-20 bg-white w-full overflow-hidden relative"
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          animate={popularityAnimation.isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="absolute top-0 right-0 w-1/2 h-full bg-green-100/20 blur-3xl rounded-full -translate-y-1/4 translate-x-1/4" />
           <div className="absolute bottom-0 left-0 w-1/2 h-full bg-yellow-100/20 blur-3xl rounded-full translate-y-1/4 -translate-x-1/4" />
@@ -1129,7 +1143,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Reviews & Founder Section */}
+        {/* Reviews & Founder Section - with scroll animation */}
         <motion.section
           id="reviews"
           className="py-16 md:py-24 bg-white w-full overflow-hidden"
@@ -1257,14 +1271,14 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Access and Surroundings Section */}
+        {/* Access and Surroundings Section - with scroll animation */}
         <motion.section
           id="access"
           className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
         >
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
@@ -1589,7 +1603,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Booking Flow Section */}
+        {/* Booking Flow Section - with scroll animation */}
         <motion.section
           id="booking-flow"
           className="py-16 md:py-20 bg-white w-full overflow-hidden"
@@ -1698,7 +1712,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Booking Calendar Section */}
+        {/* Booking Calendar Section - with scroll animation */}
         <motion.section
           id="booking-calendar"
           className="py-16 md:py-20 bg-white w-full overflow-hidden"
@@ -1710,7 +1724,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           <GoogleCalendarEmbed storeDetailsLink={nagoyaStore.detailsLink} />
         </motion.section>
 
-        {/* Notice / FAQ Section */}
+        {/* Notice / FAQ Section - with scroll animation */}
         <motion.section
           id="faq"
           className="py-16 md:py-20 bg-custom-beige-accent w-full overflow-hidden"
@@ -1756,7 +1770,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           </div>
         </motion.section>
 
-        {/* Portal Site Section */}
+        {/* Portal Site Section - with scroll animation */}
         <motion.section
           className="py-20 md:py-24 bg-white relative overflow-hidden w-full"
           initial={{ opacity: 0, y: 50 }}

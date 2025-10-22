@@ -226,7 +226,12 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-custom-beige-dark shadow-md border-b border-custom-beige-border font-jkg">
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 w-full bg-custom-beige-dark shadow-md border-b border-custom-beige-border font-jkg"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div
           className="h-2.5 bg-gradient-to-r from-pink-300 via-yellow-300 via-green-300 via-blue-300 to-purple-300"
           style={{
@@ -265,7 +270,7 @@ export default function SiteHeader() {
             ))}
             <Button
               asChild
-              className="group bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-lg shadow-lg px-5 py-2.5 font-jkg font-bold transition-all duration-300 ease-in-out hover:from-pink-600 hover:to-orange-500 hover:shadow-xl hover:scale-105 transform"
+              className="group bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-lg shadow-lg px-5 py-2.5 font-jkg font-bold transition-all duration-300 ease-in-out hover:from-pink-600 hover:to-orange-500 hover:shadow-xl btn-hover-lift"
             >
               <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="flex items-center">
                 <CalendarDays className="h-5 w-5 mr-2 transition-transform duration-300 group-hover:rotate-12" />
@@ -287,7 +292,7 @@ export default function SiteHeader() {
             <Button
               asChild
               size="sm"
-              className="group bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-full shadow-lg font-bold transition-all duration-300 ease-in-out hover:from-pink-600 hover:to-orange-500 hover:shadow-xl hover:scale-110 transform"
+              className="group bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-full shadow-lg font-bold transition-all duration-300 ease-in-out hover:from-pink-600 hover:to-orange-500 hover:shadow-xl btn-hover-lift"
             >
               <Link
                 href={BOOKING_URL}
@@ -308,7 +313,7 @@ export default function SiteHeader() {
             </button>
           </div>
         </div>
-      </header>
+      </motion.header>
       <AnimatePresence>{isMenuOpen && <FullscreenMenu onClose={() => setIsMenuOpen(false)} />}</AnimatePresence>
     </>
   )
