@@ -73,6 +73,8 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/fonts/JKG-M_3.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="format-detection" content="telephone=no" />
@@ -141,7 +143,10 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-4KJB5CNMRE');
+            gtag('config', 'G-4KJB5CNMRE', {
+              page_path: window.location.pathname,
+              send_page_view: true
+            });
           `}
         </Script>
 
