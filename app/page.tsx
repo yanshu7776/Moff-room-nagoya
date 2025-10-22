@@ -589,7 +589,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     レンタルスペースでママ会を
                     <br className="md:hidden" />
                     安心して楽しめる理由
-                    <br className="md:hidden" />
+                    <br className="hidden md:block" />
                     （女子会・誕生日・撮影にも）
                     <br className="md:hidden" />
                     <br className="md:hidden" />
@@ -975,7 +975,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   そのほか
                 </div>
                 <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
-                  飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未分別は別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙
+                  飲食・飲酒可／有料ゴミ捨て可（ベランダ・分別必須／未別途費用）／エレベーター／防犯カメラ（入退室・トラブル時のみ確認）／禁煙
                 </div>
               </div>
             </div>
