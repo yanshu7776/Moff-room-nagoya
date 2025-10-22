@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { CalendarCheck, Home } from "lucide-react"
 
-const BOOKING_URL = "https://www.spacemarket.com/spaces/moffroom_nagoya/?room_uid=NC1sqTIzP-bV8bQ5"
+const BOOKING_URL = "https://spacemarket.com/p/NC1sqTIzP-bV8bQ5"
 
 export default function FloatingCTA() {
   return (

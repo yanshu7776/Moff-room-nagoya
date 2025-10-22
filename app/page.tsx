@@ -78,7 +78,7 @@ const nagoyaStore: StoreWithReviews = {
   description:
     "名古屋・矢場町駅から徒歩約6分。くま映え×自然光で写真が可愛い完全個室。ママ会・女子会・撮影に最適な温かい空間です。",
   imageSrc: "/images/hero-background.webp",
-  detailsLink: "https://www.spacemarket.com/spaces/moffroom_nagoya/?room_uid=NC1sqTIzP-bV8bQ5",
+  detailsLink: "https://spacemarket.com/p/NC1sqTIzP-bV8bQ5",
   accentColorClass: "rgb(202,229,206)",
   location: "愛知県名古屋市",
   fullAddress: "愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）",
@@ -204,7 +204,7 @@ const faqs = [
   },
   {
     q: "アクセスと駐車場は？",
-    a: "名城線「矢場町駅」徒歩約6分（住所：名古屋市中区大須4-1-7 サンポートヤバビル703）。上前津・大須観音・栄も徒歩圏。専用駐車場はありませんが、近隣にコインパーキング多数あります。",
+    a: "名城線「矢場町駅」徒歩約6分（住所：名���屋市中区大須4-1-7 サンポートヤバビル703）。上前津・大須観音・栄も徒歩圏。専用駐車場はありませんが、近隣にコインパーキング多数あります。",
   },
 ]
 
@@ -336,8 +336,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
                   <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
                   <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 
-｜最大18名｜¥425〜</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸　　　　　 |最大18名｜¥425〜〜</span>
                 </h1>
               </div>
 
@@ -646,7 +645,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             02
                           </span>
                           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
-                            {"\"くま映え\"×自然光で、\nとびきり可愛い写真に"}
+                            {'"くま映え"×自然光で、\nとびきり可愛い写真に'}
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
