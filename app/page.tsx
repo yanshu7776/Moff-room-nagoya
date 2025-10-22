@@ -336,7 +336,8 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   <span className="block mb-2 text-pink-400 font-bold text-4xl mt-[-108px]">＼NEW OPEN／</span>
                   <span className="block mb-2">レンタルスペース 名古屋・矢場町</span>
                   <span className="block text-lg mb-2">（駅約6分）</span>
-                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸 ｜最大18名｜¥425〜</span>
+                  <span className="block text-pink-400 text-xl mb-2">🧸映え×子連れ安心🧸
+ ｜最大18名｜¥425〜</span>
                 </h1>
               </div>
 
@@ -606,7 +607,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             泣いてもOK、周りに気をつかわない"完全個室"
                           </h3>
                         </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
                           1フロア1室のプライベート空間。
                           <br className="md:hidden" />
                           矢場町駅から徒歩約6分、 <br className="md:hidden" />
@@ -648,7 +649,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             "くま映え"×自然光で、とびきり可愛い写真に
                           </h3>
                         </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
                           大きなクマ🧸と明るい内装でSNS映え。
                           <br className="md:hidden" />
                           撮影用バースデー帽子もご用意。
@@ -689,13 +690,13 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           <span className="flex-shrink-0 flex items-center justify-center w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-pink-500 text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-0 sm:mr-5">
                             03
                           </span>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-500 font-heading text-center px-[39px]">
                             子連れ安心の装備が
                             <br className="md:hidden" />
                             最初からそろう
                           </h3>
                         </div>
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
                           クッションフロア／ベビーサークル／
                           <br className="md:hidden" />
                           おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。
@@ -740,7 +741,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           </h3>
                         </div>
                         {/* CHANGE: Reformatted text to remove line breaks and present as continuous paragraph */}
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
                           冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。飲食・飲酒可、建物内ゴミ捨てOK（有料・分別必須）。
                         </p>
                       </div>
@@ -989,7 +990,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 </h3>
 
                 <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
-                  <p>
+                  <p className="text-center">
                     <strong>人気のMoff roomが名古屋に上陸！</strong> 🧸 <br className="md:hidden" />
                     矢場町にオープンした"くま映え"レンタルスペースは、駅徒歩約6分の
                     <strong>完全個室</strong>。
