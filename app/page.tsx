@@ -189,7 +189,7 @@ const faqs = [
   },
   {
     q: "子連れ向け設備とベビーカーは？",
-    a: "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子を用意。ベビーカーは廊下に駐輪。建物はEV有、ただし入口からEVまで約10段の階段があります。",
+    a: "授乳室、オムツ台完備！クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子を用意。ベビーカーは廊下に駐輪。建物はEV有、ただし入口からEVまで約10段の階段があります。",
   },
   {
     q: "飲食やキッチン利用はできますか？",
@@ -201,7 +201,7 @@ const faqs = [
   },
   {
     q: "ゴミは捨てられますか？片付けは？",
-    a: "有料オプション￥1,100/袋で館内廃棄可（可燃・缶・ビン・PETの分別必須）。未分別は別途￥20,000。ご利用後は清掃・原状回復をお願いします。",
+    a: "有料オプション￥1,100/袋でお風呂場のゴミ捨て場に廃棄可（可燃・缶・ビン・PETの分別必須）。未分別は別途￥20,000。ご利用後は清掃・原状回復をお願いします。",
   },
   {
     q: "アクセスと駐車場は？",
@@ -230,7 +230,7 @@ const features = [
     number: "03",
     title: "子連れ安心の装備が最初からそろう",
     description:
-      "クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
+      "授乳室、オムツ台完備！クッションフロア／ベビーサークル／おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。ベビーカー置き場あり（※室内ではなく廊下に駐輪）。",
     imageSrc: "/images/features/feature-03-baby-equipment.jpg",
     imageAlt: "充実したベビーグッズ",
   },
@@ -259,7 +259,7 @@ const specs = [
   {
     label: "ベビー用品（子連れ向け）",
     value:
-      "クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子／ベビーカー置き場あり（※室内ではなく廊下に駐輪）",
+      "授乳室、オムツ台完備！クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／撮影用バースデー帽子／ベビーカー置き場あり（※室内ではなく廊下に駐輪）",
   },
   {
     label: "家具・室内",
@@ -302,10 +302,6 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
     {
       src: "/images/problems/problem-with-luggage.png",
       alt: "子連れだと荷物が多くてどこへ行くにも大移動という悩み",
-    },
-    {
-      src: "/images/problems/problem-rainy-stroller.png",
-      alt: "雨の日にベビーカーを押しながら傘をさすのは大変だという悩み",
     },
     {
       src: "/images/problems/problem-work-while-watching-kids.png",
@@ -409,11 +405,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
 
         {/* Image Carousel Section */}
         <section className="bg-white py-12 md:py-16 w-full overflow-hidden">
-          <ImageCarousel
-            images={featuresGalleryImages.map((image) => image.src)}
-            placeholder="blur"
-            sizes="(max-width: 768px) 280px, 280px"
-          />
+          <ImageCarousel images={featuresGalleryImages.map((image) => image.src)} placeholder="blur" sizes="280px" />
         </section>
 
         {/* Problems Section - with scroll animation */}
@@ -435,9 +427,9 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               </h2>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto">
               {problems.map((problem, index) => (
-                <div key={index} className="w-full max-w-[280px] sm:max-w-[320px]">
+                <div key={index} className="w-full">
                   <Image
                     src={problem.src || "/placeholder.svg"}
                     alt={problem.alt}
@@ -447,7 +439,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={problem.src}
-                    sizes="(max-width: 640px) 280px, 320px"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
                   />
                 </div>
               ))}
@@ -719,7 +711,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                           </h3>
                         </div>
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
-                          クッションフロア／ベビーサークル／
+                          授乳室、オムツ台完備！クッションフロア／ベビーサークル／
                           <br className="md:hidden" />
                           おもちゃ多数／バンボ×2／バウンサーなど、月齢に合わせて使えるベビーグッズを完備。
                           <br className="md:hidden" />
@@ -910,7 +902,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 <br className="md:hidden" />
                 室内にはキッチン・トイレ・Wi-Fi（光）・
                 <br className="md:hidden" />
-                プロジェクターを完備し、有料で建物内ゴミ捨てにも対応しています（分別必須）。
+                プロジェクターを完備し、有料で建物内ゴミ捨てに対応しています（分別必須）。
               </p>
             </div>
 
@@ -955,7 +947,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                   ベビー用品（子連れ向け）
                 </div>
                 <div className="py-2 sm:py-4 px-4 sm:px-6 text-gray-600 col-span-1 sm:col-span-2 md:col-span-3 text-sm sm:text-base">
-                  クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／
+                  授乳室、オムツ台完備！クッションフロア（転んでも安心）／ベビーサークル／おもちゃ多数／バンボ×2／バウンサー／
                   <br className="md:hidden" />
                   撮影用バースデー帽子／ベビーカー置き場あり
                   <br className="md:hidden" />
