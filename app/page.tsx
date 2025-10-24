@@ -79,7 +79,7 @@ const nagoyaStore: StoreWithReviews = {
   description:
     "名古屋・矢場町駅から徒歩約6分。くま映え×自然光で写真が可愛い完全個室。ママ会・女子会・撮影に最適な温かい空間です。",
   imageSrc: "/images/hero-background.webp",
-  detailsLink: "https://spacemarket.com/p/NC1sqTIzP-bV8bQ5",
+  detailsLink: "https://kashispace.com/partner/DSUyiELReejakoIa",
   accentColorClass: "rgb(202,229,206)",
   location: "愛知県名古屋市",
   fullAddress: "愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）",
@@ -165,7 +165,7 @@ const nagoyaStore: StoreWithReviews = {
   },
 }
 
-const BOOKING_URL = nagoyaStore.detailsLink || "https://example.com/booking" // Replace with actual booking URL if different
+const BOOKING_URL = nagoyaStore.detailsLink || "https://kashispace.com/partner/DSUyiELReejakoIa"
 
 const benefits = [
   { icon: CircleDollarSign, text: "早朝¥425〜／通常¥1,472〜でコスパ良好" },
@@ -304,6 +304,10 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
       alt: "子連れだと荷物が多くてどこへ行くにも大移動という悩み",
     },
     {
+      src: "/images/problems/problem-rainy-stroller.png",
+      alt: "雨の日にベビーカーを押しながら傘をさすのは大変だという悩み",
+    },
+    {
       src: "/images/problems/problem-work-while-watching-kids.png",
       alt: "子どもを遊ばせながら仕事や勉強もできたら良いのにという悩み",
     },
@@ -427,9 +431,9 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6">
               {problems.map((problem, index) => (
-                <div key={index} className="w-full">
+                <div key={index} className="w-full max-w-[280px] sm:max-w-[320px]">
                   <Image
                     src={problem.src || "/placeholder.svg"}
                     alt={problem.alt}
@@ -439,7 +443,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={problem.src}
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
+                    sizes="(max-width: 640px) 280px, 320px"
                   />
                 </div>
               ))}

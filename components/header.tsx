@@ -34,7 +34,7 @@ const TikTokIcon = (props: any) => (
 // URL constants
 const INSTAGRAM_PROFILE_URL =
   "https://www.instagram.com/moff_room?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-const BOOKING_URL = "https://spacemarket.com/p/NC1sqTIzP-bV8bQ5"
+const BOOKING_URL = "https://kashispace.com/partner/DSUyiELReejakoIa"
 
 // Fullscreen Menu Component
 function FullscreenMenu({ onClose }: { onClose: () => void }) {

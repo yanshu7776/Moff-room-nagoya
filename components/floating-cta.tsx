@@ -4,7 +4,7 @@ import Link from "next/link"
 import { CalendarCheck, Home } from "lucide-react"
 import { motion } from "framer-motion"
 
-const BOOKING_URL = "https://spacemarket.com/p/NC1sqTIzP-bV8bQ5"
+const BOOKING_URL = "https://kashispace.com/partner/DSUyiELReejakoIa"
 
 export default function FloatingCTA() {
   return (
