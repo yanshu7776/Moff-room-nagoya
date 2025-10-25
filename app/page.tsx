@@ -401,7 +401,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                 </Link>
               </Button>
               <p className="mt-3 sm:text-base font-semibold text-yellow-300 text-shadow text-xs">
-                【ここから予約すると15%OFF！！実施中！】
+                【ここから予約すると10%OFF！！実施中！】
               </p>
             </motion.div>
           </div>
@@ -758,9 +758,9 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
                             （キッチン＆プロジェクター）
                           </h3>
                         </div>
-                        {/* CHANGE: Reformatted text to remove line breaks and present as continuous paragraph */}
+                        {/* CHANGE: Changed お得意様割15% to お得意様割10% */}
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
-                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。飲食・飲酒可、建物内ゴミ捨てOK（有料・分別必須）。
+                          冷蔵庫・電子レンジ・電気ケトル・IH・鍋セット・たこ焼き器・ホットプレート、人数分の食器も完備。Wi-Fi（光）＆プロジェクター・HDMIで映画鑑賞・スポーツ観戦・推し活・YouTube収録も快適。飲食・飲酒可、建物内ゴミ捨てOK（有料・分別必須）。料金は早朝¥425〜／通常¥1,472〜（日程により最大¥5,890/時）、お得意様割10%も利用可。
                         </p>
                       </div>
                       <div className="md:col-span-5 md:order-1">
@@ -1844,6 +1844,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
       </main>
 
       <SiteFooter />
+      {/* CHANGE: Fixed undeclared variable error - changed onOpenChange to setModalOpen */}
       <ContactFormModal open={modalOpen} onOpenChange={setModalOpen} />
       <FloatingCTA onInquiryClick={onInquiryClick} />
     </div>

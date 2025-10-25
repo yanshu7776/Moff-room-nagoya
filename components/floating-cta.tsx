@@ -49,7 +49,7 @@ export default function FloatingCTA() {
             >
               <div className="relative text-center w-full">
                 <div className="inline-block bg-custom-beige-unified text-[10px] md:text-sm text-pink-500 font-semibold px-2 md:px-3 py-1 rounded-full shadow-sm mb-[-12px] relative z-10">
-                  【HP限定15%OFF】
+                  【HP限定10%OFF】
                 </div>
                 <div className="bg-green-500 border-2 border-green-500 rounded-lg px-2 py-3 md:py-5 text-white font-jkg font-bold text-xs md:text-lg transition-all duration-300 btn-hover-lift flex items-center justify-center gap-1.5 md:gap-2 animate-[gentlePulse_2s_ease-in-out_infinite]">
                   <CalendarCheck className="h-5 w-5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />

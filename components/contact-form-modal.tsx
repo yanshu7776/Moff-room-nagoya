@@ -33,7 +33,7 @@ export default function ContactFormModal({ children, open, onOpenChange }: Conta
     try {
       const formData = new FormData(e.currentTarget)
 
-      const response = await fetch("https://formspree.io/f/mkgqjjln", {
+      const response = await fetch("https://formspree.io/f/meopjkae", {
         method: "POST",
         body: formData,
         headers: {
