@@ -70,13 +70,9 @@ export default function ReviewsCarousel({ reviews, googleRating, googleReviewsCo
               <span className="font-bold text-xl text-gray-800">{googleRating}</span>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-5 h-5 ${i < Math.floor(numericRating) ? "fill-yellow-400" : "fill-gray-300"}`}
-                  />
+                  <Star key={i} className="w-5 h-5 fill-yellow-400" />
                 ))}
               </div>
-              <span className="text-gray-600 text-sm">({googleReviewsCount}件のレビュー)</span>
             </div>
           </div>
         </div>

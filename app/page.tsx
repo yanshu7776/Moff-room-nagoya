@@ -85,7 +85,7 @@ const nagoyaStore: StoreWithReviews = {
   fullAddress: "愛知県名古屋市中区大須4-1-7 サンポートヤバビル703（7F）",
   region: "chubu", // Updated region
   reviews: {
-    averageRating: "4.7",
+    averageRating: "4.9",
     totalReviews: 76,
     featured: [
       // In production, replace with actual Nagoya store reviews
