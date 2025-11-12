@@ -9,11 +9,11 @@ import SiteFooter from "@/components/footer"
 const termsData = [
   {
     label: "販売事業者名（会社名）",
-    value: "Moff room",
+    value: "株式会社Moff Link",
   },
   {
     label: "代表者名",
-    value: "山口有紀",
+    value: "山口　有紀",
   },
   {
     label: "所在地",
@@ -49,7 +49,7 @@ const termsData = [
   },
   {
     label: "ホームページアドレス",
-    value: "https://moff-room.vercel.app/",
+    value: "https://www.moffroom.com/",
   },
 ]
 
