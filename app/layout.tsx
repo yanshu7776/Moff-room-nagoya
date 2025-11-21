@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Moff room 名古屋店",
     images: [
       {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%90%8D%E5%8F%A4%E5%B1%8B-yNOWBVOPEutRf7QmvTdDsK1sRjMKXR.webp",
+        url: "/images/e5-90-8d-e5-8f-a4-e5-b1-8b.webp",
         width: 1200,
         height: 630,
         alt: "Moff room 名古屋店の内観",
@@ -49,9 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Moff room 名古屋店 | ママ会・推し活に最適な完全個室レンタルスペース",
     description: "矢場町駅徒歩約6分！1フロア1室の完全個室でママ会や推し活が楽しめるレンタルスペース。",
-    images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%90%8D%E5%8F%A4%E5%B1%8B-yNOWBVOPEutRf7QmvTdDsK1sRjMKXR.webp",
-    ],
+    images: ["/images/e5-90-8d-e5-8f-a4-e5-b1-8b.webp"],
   },
   alternates: {
     canonical: "https://nagoya.moffroom.com/",
@@ -92,8 +90,7 @@ export default function RootLayout({
               description: "ママ会・推し活に最適な完全個室レンタルスペース",
               url: "https://nagoya.moffroom.com/",
               telephone: "+81-90-4286-2443",
-              image:
-                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%90%8D%E5%8F%A4%E5%B1%8B-yNOWBVOPEutRf7QmvTdDsK1sRjMKXR.webp",
+              image: "/images/e5-90-8d-e5-8f-a4-e5-b1-8b.webp",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "大須4-1-7 サンポートヤバビル703",
@@ -119,6 +116,7 @@ export default function RootLayout({
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
+                reviewCount: "7",
                 bestRating: "5",
                 worstRating: "4",
               },
