@@ -346,7 +346,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
-          <div className="relative z-10 h-full flex flex-col items-center justify-start pt-8 pb-6 md:justify-center md:pt-0 md:pb-0 text-center px-4 max-w-full">
+          <div className="relative z-10 h-full flex flex-col items-center justify-center md:justify-center text-center px-4 max-w-full pt-8 pb-6 md:pt-0 md:pb-0">
             <div className="w-full max-w-4xl mx-auto">
               <div className="md:hidden">
                 <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md">
@@ -363,7 +363,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
 
               <div className="hidden md:block">
                 <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-shadow-md">
-                  <span className="block mb-3 text-pink-400 font-bold leading-[7.75rem] tracking-normal text-8xl mt-[-182px] hero-new-open">
+                  <span className="block mb-3 text-pink-400 font-bold leading-[7.75rem] tracking-normal text-8xl hero-new-open">
                     ＼NEW OPEN／
                   </span>
                   <span className="block mb-3 font-black hero-text-delayed">
@@ -389,7 +389,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="mt-4 md:mt-8 w-full max-w-sm mx-auto px-4 hero-cta-delayed"
+              className="mt-6 md:mt-8 w-full max-w-sm mx-auto px-4 hero-cta-delayed"
             >
               <Button
                 asChild
