@@ -329,7 +329,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
 
       <main className="flex-1 w-full pt-[88px]">
         {/* Hero Section - with parallax effect */}
-        <section className="relative w-full h-[65vh] md:h-screen text-white overflow-hidden">
+        <section className="relative w-full h-[50vh] md:h-screen text-white overflow-hidden">
           <motion.div
             className="absolute inset-0"
             initial={{ scale: 1.1 }}
@@ -346,16 +346,16 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-black/20 md:from-black/50 md:via-black/30 md:to-transparent" />
-          <div className="relative z-10 h-full flex flex-col items-center justify-start pt-4 md:justify-center text-center px-4 max-w-full md:pt-0 md:pb-0">
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-full py-4 md:pt-0 md:pb-0">
             <div className="w-full max-w-4xl mx-auto">
               <div className="md:hidden">
-                <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md">
-                  <span className="block mb-1 text-pink-400 font-bold text-3xl hero-new-open">
+                <h1 className="text-lg sm:text-xl font-bold leading-tight text-shadow-md">
+                  <span className="block mb-1 text-pink-400 font-bold text-2xl sm:text-3xl hero-new-open">
                     ＼NEW OPEN／
                   </span>
-                  <span className="block mb-1 hero-text-delayed text-lg">レンタルスペース 名古屋・矢場町</span>
-                  <span className="block text-base mb-1 hero-text-delayed">（駅約6分）</span>
-                  <span className="block text-pink-400 text-lg mb-1 hero-text-delayed">
+                  <span className="block mb-0.5 text-base hero-text-delayed">レンタルスペース 名古屋・矢場町</span>
+                  <span className="block text-sm mb-0.5 hero-text-delayed">（駅約6分）</span>
+                  <span className="block text-pink-400 text-sm sm:text-base mb-1 hero-text-delayed">
                     🧸映え×子連れ安心🧸 |最大18名｜¥425〜
                   </span>
                 </h1>
@@ -386,21 +386,21 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
               </div>
             </div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="mt-3 md:mt-8 w-full max-w-sm mx-auto px-4 hero-cta-delayed"
+              className="mt-2 md:mt-8 w-full max-w-xs md:max-w-sm mx-auto px-4 hero-cta-delayed"
             >
               <Button
                 asChild
                 size="lg"
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg text-sm sm:text-lg px-5 py-3 sm:px-8 sm:py-6 btn-hover-lift animate-bounce"
+                className="w-full bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg text-sm sm:text-base md:text-lg px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 btn-hover-lift animate-bounce"
               >
                 <Link href={nagoyaStore.detailsLink} target="_blank" rel="noopener noreferrer">
                   今すぐ予約する▶︎
                 </Link>
               </Button>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-yellow-300 text-shadow drop-shadow-lg">
+              <p className="mt-1.5 md:mt-3 text-xs sm:text-sm md:text-base font-bold text-yellow-300 text-shadow drop-shadow-lg">
                 【ここから予約すると10%OFF！実施中！】
               </p>
             </motion.div>
