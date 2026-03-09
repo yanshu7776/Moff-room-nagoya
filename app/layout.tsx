@@ -367,9 +367,9 @@ export default function RootLayout({
           }}
         />
 
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="shVj0X6Yvet2OH3w/YcuCw" async></script>
-      </head>
+        </head>
       <body className={cn("min-h-screen bg-white font-jkg text-gray-800 antialiased")}>
+        <Script src="https://analytics.ahrefs.com/analytics.js" data-key="shVj0X6Yvet2OH3w/YcuCw" strategy="afterInteractive" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-4KJB5CNMRE" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
