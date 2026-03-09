@@ -349,7 +349,7 @@ export default function NagoyaPage({ modalOpen, setModalOpen, onInquiryClick }: 
           <div className="relative z-10 h-full flex flex-col items-center justify-start pt-4 md:justify-center text-center px-4 max-w-full md:pt-0 md:pb-0">
             <div className="w-full max-w-4xl mx-auto">
               <div className="md:hidden">
-                <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md">
+                <h1 className="text-xl sm:text-2xl font-bold leading-tight text-shadow-md my-12">
                   <span className="block mb-1 text-pink-400 font-bold text-3xl hero-new-open">
                     ＼NEW OPEN／
                   </span>
