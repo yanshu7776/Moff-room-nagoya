@@ -266,32 +266,24 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="192x192" href="/apple-touch-icon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="format-detection" content="telephone=no" />
-      </head>
-      <body className={cn("min-h-screen bg-white font-jkg text-gray-800 antialiased")}>
-        <Script
-          id="local-business-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-          strategy="beforeInteractive"
         />
-        <Script
-          id="faq-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          strategy="beforeInteractive"
         />
-        <Script
-          id="breadcrumb-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-          strategy="beforeInteractive"
         />
-        <Script
-          id="organization-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          strategy="beforeInteractive"
         />
+      </head>
+      <body className={cn("min-h-screen bg-white font-jkg text-gray-800 antialiased")}>
         <Script id="vh-setup" strategy="afterInteractive">
           {`
             const setVh = () => {
